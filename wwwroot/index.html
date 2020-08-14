@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=no" />
+    <title>HMZ-Software</title>
+    <base href="/" />
+    <link href="css/app.css" rel="stylesheet" />
+</head>
+
+<body>
+    <app>
+        <div class="loading">
+            <img src="/media/Spinner.svg" alt="Loading spinner" />
+        </div>
+    </app>
+    <!--<script src="lib/brotli/decode.min.js"></script>-->
+    <script src="_framework/blazor.webassembly.js"></script><!--autostart="false"-->
+    <!--<script>
+        Blazor.start({
+            loadBootResource: function (type, name, defaultUri, integrity) {
+                if (type !== 'dotnetjs' && location.hostname !== 'localhost') {
+                    return (async function () {
+                        const response = await fetch(defaultUri + '.br', { cache: 'no-cache' });
+                        if (!response.ok) {
+                            throw new Error(response.statusText);
+                        }
+                        const originalResponseBuffer = await response.arrayBuffer();
+                        const originalResponseArray = new Int8Array(originalResponseBuffer);
+                        const decompressedResponseArray = BrotliDecode(originalResponseArray);
+                        const contentType = type ===
+                            'dotnetwasm' ? 'application/wasm' : 'application/octet-stream';
+                        return new Response(decompressedResponseArray,
+                            { headers: { 'content-type': contentType } });
+                    })();
+                }
+            }
+        });
+    </script>-->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

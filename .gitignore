@@ -278,6 +278,9 @@ FakesAssemblies/
 .ntvs_analysis.dat
 node_modules/
 
+#Client side libraries
+wwwroot/lib/*/
+
 # Visual Studio 6 build log
 *.plg
 

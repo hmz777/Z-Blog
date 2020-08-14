@@ -1,0 +1,76 @@
+﻿@import "../lib/line-awesome/dist/line-awesome/scss/line-awesome"; //Install the line-awesome package.
+@import "_variables";
+@import "_normalize";
+@import "_boilerplate";
+@import "_animations";
+@import "lib/breakpoints/_breakpoint";
+@import "_components";
+@import "_navbar";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: #5CDB95;
+    background: url(/media/MainBackground.svg);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #05386B !important;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#MoreArrow {
+    animation: pulse 1s ease-in-out infinite alternate;
+}
+
+#Tech {
+    flex-flow: column wrap;
+}
+
+.tech-tabs {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    list-style: none;
+    overflow-x: auto;
+    padding: 0;
+    margin: 0;
+
+    li {
+        padding: .5em;
+        background: linear-gradient(to bottom, $color1 50%, $color2 50%);
+        background-size: 100% 200%;
+        background-position: top;
+        transition: background 0.5s cubic-bezier(0.83, 0, 0.17, 1);
+        font-weight: 500;
+
+        &:hover {
+            background-position: bottom;
+        }
+
+        button {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 0;
+            outline: none;
+        }
+    }
+}
+
+.tech-content {
+    ul {
+        display: none;
+
+        &.active {
+            display: flex;
+        }
+    }
+}
