@@ -282,7 +282,7 @@ node_modules/
 wwwroot/lib/*/
 
 #Compiled CSS
-wwwroot/css/*/
+wwwroot/css/*
 
 # Visual Studio 6 build log
 *.plg
