@@ -281,6 +281,9 @@ node_modules/
 #Client side libraries
 wwwroot/lib/*/
 
+#Compiled CSS
+wwwroot/css/*/
+
 # Visual Studio 6 build log
 *.plg
 
