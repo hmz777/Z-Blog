@@ -45,7 +45,7 @@
     display: flex;
     background: $color1;
     box-shadow: 0 0 3px 0 black;
-    width: 80%;
+    width: 85%;
     margin: auto;
 }
 
@@ -75,6 +75,11 @@
 
 a {
     text-decoration: none;
+}
+
+button {
+    outline : none;
+    cursor: pointer;
 }
 
 .img-sm {
