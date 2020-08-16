@@ -32,14 +32,12 @@
             }
         });
 
-
-    $("button[data-tab]").click(function () {
+    $(document).on("click", "button[data-tab]", function () {
         let id = $(this).attr("data-tab");
-
         $("button[data-tab]").removeClass("active");
-        $("tech-content").children().removeClass("active");
+        $("ul[data-tabtarget]").removeClass("active");
 
         $(this).addClass("active");
-        $("tech-content").children(`li[id=${id}]`).eq(0).addClass("active");
+        $(`ul[data-tabtarget=${id}]`).eq(0).addClass("active");
     });
 });

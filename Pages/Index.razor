@@ -19,7 +19,7 @@
     <div class="content-block flex-column">
         <ul class="tech-tabs">
             <li>
-                <button type="button" data-tab="lang">LANGUAGES AND SCRIPTING</button>
+                <button class="active" type="button" data-tab="lang">LANGUAGES AND SCRIPTING</button>
             </li>
             <li>
                 <button type="button" data-tab="markup">MARKUP</button>
@@ -41,27 +41,28 @@
             </li>
         </ul>
         <div class="tech-content">
-            <ul id="lang">
+            <ul class="active" data-tabtarget="lang">
                 <li>C#</li>
                 <li>Javascript</li>
                 <li>Powershell</li>
                 <li>MATLAB</li>
             </ul>
-            <ul id="markup">
+            <ul data-tabtarget="markup">
                 <li>HTML5</li>
                 <li>CSS3</li>
             </ul>
-            <ul id="frame">
+            <ul data-tabtarget="frame">
                 <li>.NET Framework</li>
                 <li>.NET Core</li>
                 <li>ASP.Net Core</li>
+                <li>Blazor WebAssembly</li>
                 <li>Entity Framework Core</li>
                 <li>React</li>
                 <li>WPF</li>
                 <li>WCF</li>
                 <li>Windows Forms</li>
             </ul>
-            <ul id="tools">
+            <ul data-tabtarget="tools">
                 <li>Visual Studio</li>
                 <li>Visual Studio Code</li>
                 <li>MATLAB</li>
@@ -70,18 +71,28 @@
                 <li>JetBrains DotPeek</li>
                 <li>JetBrains DotTrace</li>
             </ul>
-            <ul id="db">
+            <ul data-tabtarget="db">
                 <li>SQL Server</li>
                 <li>PostgreSQL</li>
             </ul>
-            <ul id="lib">
+            <ul data-tabtarget="lib">
                 <li>jQuery</li>
                 <li>Bootstrap</li>
+                <li>SignalR</li>
             </ul>
-            <ul id="other">
+            <ul data-tabtarget="other">
                 <li>English (Professional Working Proficiency)</li>
                 <li>Arabic (Native Language)</li>
             </ul>
         </div>
     </div>
+</div>
+
+<div id="social-line">
+    <a href="https://stackoverflow.com/users/6843077/hmz" target="_blank"><i class="lab la-stack-overflow"></i></a>
+    <a href="https://github.com/hmz777" target="_blank"><i class="lab la-github"></i></a>
+    <a href="https://www.linkedin.com/in/hamzialsheikh/" target="_blank"><i class="lab la-linkedin"></i></a>
+    <a href="https://www.facebook.com/Hamzi.Alsheikh/" target="_blank"><i class="lab la-facebook"></i></a>
+    <a href="https://www.instagram.com/hamzi_alsheikh/" target="_blank"><i class="lab la-instagram"></i></a>
+    <a href="mailto:hamzi_alsheikh@hotmail.com" target="_blank"><i class="las la-envelope"></i></a>
 </div>
