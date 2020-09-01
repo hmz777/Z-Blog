@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\media\projects\" />
     <Folder Include="wwwroot\sass\lib\" />
   </ItemGroup>
 

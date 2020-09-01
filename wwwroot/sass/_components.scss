@@ -23,6 +23,10 @@
     flex-flow: column wrap;
 }
 
+.align-self-center {
+    align-self: center;
+}
+
 .wide-wrapper {
     display: flex;
     width: 100%;
@@ -44,9 +48,166 @@
 .content-block {
     display: flex;
     background: $color1;
-    box-shadow: 0 0 3px 0 black;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     width: 85%;
     margin: auto;
+}
+
+.grid {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    column-gap: 1em;
+
+    .grid-item {
+        display: block;
+        margin: 0 0 1em;
+        padding: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        -webkit-column-break-inside: avoid-column;
+        page-break-inside: avoid;
+        break-inside: avoid-column;
+        border: $color1 solid 2px;
+        background-color: $color3;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        position: relative;
+
+        &:hover {
+            transform: translateY(-.2em);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+            .status {
+                animation: InfoFade .6s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+            }
+        }
+
+        .status {
+            position: absolute;
+            transition: transform 0.6s cubic-bezier(0.83, 0, 0.17, 1);
+            width: 100%;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            background: $color1;
+            color: white;
+            font-size: 1.2em;
+            padding: 2em 1em .5em;
+
+            i {
+                color: $color3;
+            }
+
+            .links {
+                i {
+                    font-size: 1.5em;
+                }
+
+                div:nth-child(1) {
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: space-around;
+                    margin-top: .8em;
+                }
+            }
+
+            .github-status {
+                i {
+                    font-size: 1.5em;
+                }
+
+                div:nth-child(1) {
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: space-around;
+                    margin-top: .8em;
+                }
+            }
+        }
+
+        &.span-2 {
+            grid-row-end: span 2;
+        }
+
+        &.span-3 {
+            grid-row-end: span 3;
+        }
+
+        img {
+            height: auto;
+            width: 100%;
+            border: none;
+        }
+
+        .img-replace {
+            position: relative;
+            padding: 2.5em .5em;
+            width: 100%;
+            font-weight: bold;
+
+            span {
+                position: absolute;
+                top: .5em;
+                left: -.85em;
+                background-color: $color1;
+                color: $color3;
+                padding: 1em;
+                word-break: break-word;
+                -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+                box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+                border-bottom-left-radius: .2em;
+
+                &:before {
+                    position: absolute;
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-bottom: $color1 solid .6em;
+                    border-right: transparent solid .6em;
+                    border-left: transparent solid .6em;
+                    top: 95%;
+                    left: .1em;
+                    transform: rotate(45deg);
+                    z-index: -1;
+                    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+                    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+                    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+                }
+            }
+        }
+
+        .content {
+            padding: 1em;
+            min-height: 10em;
+
+            .title {
+                font-weight: 600;
+                font-size: 1.2em;
+                margin-bottom: .3em;
+            }
+
+            .text {
+                word-break: break-word;
+            }
+        }
+
+        .stack {
+            display: flex;
+            flex-flow: row wrap;
+            border-top: 2px solid $color1;
+            padding: 1em;
+
+            .tech-badge {
+                color: $color3;
+                background: $color1;
+                padding: .3em;
+                display: inline-flex;
+                margin: .2em .2em 0 0;
+            }
+        }
+    }
 }
 
 .m-auto {
@@ -78,7 +239,7 @@ a {
 }
 
 button {
-    outline : none;
+    outline: none;
     cursor: pointer;
 }
 

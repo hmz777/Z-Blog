@@ -1,0 +1,71 @@
+﻿@inject HttpClient httpClient
+
+<div class="grid-item">
+    <div class="status">
+        <div class="links">
+            <div>
+                <a href="@ProjectUrl" target="_blank"><i class="@LinkIcon"></i></a>
+            </div>
+        </div>
+        @if (HasGitHub)
+        {
+            <div class="github-status">
+                GitHub
+
+                @if (DataLoading)
+                {
+                    <div>
+                        <i class="las la-circle-notch la-spin la-2x"></i>
+                    </div>
+                }
+                else
+                {
+                    <div>
+                        <i class="las la-eye"></i>
+                        <i class="las la-star"></i>
+                        <i class="las la-code-branch"></i>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    <div class="img-replace">
+        <span>@ProjectName</span>
+    </div>
+    <div class="content">
+        <div class="title">@ProjectName</div>
+        <div class="text">@ProjectDescription</div>
+    </div>
+    <div class="stack">
+        @foreach (var item in Stack)
+        {
+            <div class="tech-badge">@item</div>
+        }
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public string ProjectName { get; set; }
+    [Parameter]
+    public string ProjectDescription { get; set; }
+    [Parameter]
+    public string ProjectUrl { get; set; }
+    [Parameter]
+    public string LinkIcon { get; set; }
+    [Parameter]
+    public bool HasGitHub { get; set; }
+
+    [Parameter]
+    public string[] Stack { get; set; }
+
+    private bool DataLoading { get; set; } = true;
+
+    protected override void OnInitialized()
+    {
+        if (!Uri.TryCreate(ProjectUrl, UriKind.Absolute, out Uri result) && !(result.Scheme == Uri.UriSchemeHttps || result.Scheme == Uri.UriSchemeHttp))
+            throw new Exception("Invalid project url!");
+    }
+}
+

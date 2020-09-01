@@ -1,16 +1,6 @@
 ﻿@page "/"
 
 <div class="wide-wrapper wide-wrapper--row">
-    <h1 class="display display-3">
-        Hamzi Alsheikh
-        <br />
-        Software Developer /
-        <br />
-        Mechatronics Engineer
-    </h1>
-</div>
-
-<div class="wide-wrapper wide-wrapper--row">
     <button id="MoreArrow" class="m-auto" onclick="document.getElementById('Tech').scrollIntoView({behavior:'smooth'})"><i class="las la-chevron-circle-down la-4x"></i></button>
 </div>
 
@@ -85,6 +75,13 @@
                 <li>Arabic (Native Language)</li>
             </ul>
         </div>
+    </div>
+</div>
+
+<div class="wide-wrapper wide-wrapper--column">
+    <h2 class="display-4">My Work</h2>
+    <div class="grid">
+        <ProjectCards></ProjectCards>
     </div>
 </div>
 
