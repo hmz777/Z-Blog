@@ -175,13 +175,10 @@
                     border-bottom: $color1 solid .6em;
                     border-right: transparent solid .6em;
                     border-left: transparent solid .6em;
-                    top: 95%;
-                    left: .1em;
+                    top: 94%;
+                    left: .07em;
                     transform: rotate(45deg);
                     z-index: -1;
-                    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-                    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-                    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
                 }
             }
         }
@@ -331,4 +328,98 @@ ul {
     border-left-color: #379683;
     border-width: 12px;
     margin-top: -12px;
+}
+
+blockquote {
+    position: relative;
+    font-size: 2em;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 2em 1em;
+
+    &:before {
+        @extend .las;
+        position: absolute;
+        content: la-content($la-quote-left);
+        left: 0;
+        top: -1em;
+        font-size: 2em;
+    }
+
+    &:after {
+        @extend .las;
+        position: absolute;
+        content: la-content($la-quote-right);
+        right: 0;
+        bottom: -.5em;
+        font-size: 2em;
+    }
+}
+
+.input-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    width: 65%;
+    border: $color1 2px solid;
+    padding: 1.5em;
+    background: $color3;
+    margin-bottom: .5em;
+    transition: background .5s cubic-bezier(0.83, 0, 0.17, 1), color .5s cubic-bezier(0.83, 0, 0.17, 1);
+
+    label {
+        font-weight: bold;
+        margin-bottom: .2em
+    }
+
+    input, textarea {
+        border: none;
+        background: none;
+        outline: none;
+        color: $color1;
+
+        &::placeholder {
+            color: $color2;
+        }
+    }
+
+    &--active {
+        background: $color1;
+        color: $color3;
+
+        input, textarea {
+            color: $color3;
+
+            &::placeholder {
+                color: $color5;
+            }
+        }
+    }
+}
+
+.form-button {
+    background: $color3;
+    border: 2px solid $color1;
+    color: $color1;
+    padding: 1em 2em;
+    font-weight: bold;
+    transition: background .5s cubic-bezier(0.83, 0, 0.17, 1), color .5s cubic-bezier(0.83, 0, 0.17, 1);
+
+    &.button-submit {
+        display: flex;
+        align-items: center;
+
+        &:after {
+            @extend .las;
+            content: la-content($la-paper-plane);
+            right: 0;
+            top: 50%;
+            font-size: 1.5em;
+            margin-left: .3em;
+        }
+    }
+
+    &:hover {
+        background: $color1;
+        color: $color3;
+    }
 }

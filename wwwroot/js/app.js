@@ -40,4 +40,18 @@
         $(this).addClass("active");
         $(`ul[data-tabtarget=${id}]`).eq(0).addClass("active");
     });
+
+    $(document).on("click", function (e) {
+
+        if ($(e.target).parent().hasClass("input-wrapper")) {
+            $(".input-wrapper").removeClass("input-wrapper--active");
+            $(e.target).parent().addClass("input-wrapper--active");
+            e.stopPropagation();
+        }
+        else {
+            $(".input-wrapper").removeClass("input-wrapper--active");
+            e.stopPropagation()
+        }
+
+    });
 });

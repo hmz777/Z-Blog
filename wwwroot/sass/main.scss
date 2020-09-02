@@ -157,3 +157,8 @@ body {
         content: "";
     }
 }
+
+footer {
+    display: flex;
+    flex-flow: row wrap;
+}
