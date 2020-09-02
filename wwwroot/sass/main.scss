@@ -24,7 +24,7 @@ html, body {
 header {
     display: flex;
     flex-flow: column wrap;
-   /* background-image: url(/media/MainBackground.svg);*/
+    /* background-image: url(/media/MainBackground.svg);*/
     background-position: top right;
     background-size: contain;
     background-repeat: no-repeat;
@@ -131,6 +131,15 @@ body {
 
     a {
         color: $color1;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            .arrow_box {
+                display: inline-block;
+            }
+        }
     }
 
     i {

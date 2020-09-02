@@ -27,6 +27,14 @@
     align-self: center;
 }
 
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-stretch {
+    justify-content: stretch;
+}
+
 .wide-wrapper {
     display: flex;
     width: 100%;
@@ -93,7 +101,7 @@
             background: $color1;
             color: white;
             font-size: 1.2em;
-            padding: 2em 1em .5em;
+            padding: 3em 1em .5em;
 
             i {
                 color: $color3;
@@ -142,7 +150,7 @@
 
         .img-replace {
             position: relative;
-            padding: 2.5em .5em;
+            padding: 2em .5em;
             width: 100%;
             font-weight: bold;
 
@@ -216,6 +224,7 @@
 
 .display {
     word-break: break-word;
+    position: relative;
 }
 
 .display-1 {
@@ -234,6 +243,41 @@
     font-size: 3em;
 }
 
+.title-line {
+
+    &:after {
+        position: relative;
+        content: "";
+        right: 0;
+        width: auto;
+        height: .04em;
+        background-color: $color1;
+        flex-grow: 1;
+        margin-left: .4em;
+    }
+}
+
+.pr-1 {
+    padding-right: 1em;
+}
+
+.pr-2 {
+    padding-right: 2em;
+}
+
+.pr-3 {
+    padding-right: 3em;
+}
+
+.pr-4 {
+    padding-right: 4em;
+}
+
+.pr-5 {
+    padding-right: 5em;
+}
+
+
 a {
     text-decoration: none;
 }
@@ -250,4 +294,41 @@ button {
 
 ul {
     color: white;
+}
+
+.arrow_box {
+    position: absolute;
+    right: 2.5em;
+    background: #05386B;
+    border: 3px solid #379683;
+    display: none;
+    color: $color3;
+    padding: 1em;
+    opacity: 0;
+    animation: SlideInRight .5s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+}
+
+.arrow_box:after, .arrow_box:before {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow_box:after {
+    border-color: rgba(5, 56, 107, 0);
+    border-left-color: #05386B;
+    border-width: 8px;
+    margin-top: -8px;
+}
+
+.arrow_box:before {
+    border-color: rgba(55, 150, 131, 0);
+    border-left-color: #379683;
+    border-width: 12px;
+    margin-top: -12px;
 }
