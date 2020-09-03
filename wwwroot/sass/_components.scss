@@ -67,6 +67,14 @@
     column-count: 3;
     column-gap: 1em;
 
+    @include breakpoint(max-width 1024px) {
+        column-count: 2;
+    }
+
+    @include breakpoint(max-width 620px) {
+        column-count: 1;
+    }
+
     .grid-item {
         display: block;
         margin: 0 0 1em;
@@ -184,7 +192,7 @@
         }
 
         .content {
-            padding: 1em;
+            padding: 2em 1em;
             min-height: 10em;
 
             .title {
@@ -234,10 +242,18 @@
 
 .display-3 {
     font-size: 4em;
+
+    @include breakpoint(max-width 1024px) {
+        font-size: 3.5em;
+    }
 }
 
 .display-4 {
     font-size: 3em;
+
+    @include breakpoint(max-width 1024px) {
+        font-size: 2.5em;
+    }
 }
 
 .title-line {
@@ -335,7 +351,7 @@ blockquote {
     font-size: 2em;
     display: flex;
     flex-flow: row wrap;
-    margin: 2em 1em;
+    margin: 2em 1em .5em;
 
     &:before {
         @extend .las;
@@ -366,6 +382,10 @@ blockquote {
     margin-bottom: .5em;
     transition: background .5s cubic-bezier(0.83, 0, 0.17, 1), color .5s cubic-bezier(0.83, 0, 0.17, 1);
 
+    @include breakpoint(max-width 1024px) {
+        width: 100%;
+    }
+
     label {
         font-weight: bold;
         margin-bottom: .2em
@@ -387,7 +407,7 @@ blockquote {
         color: $color3;
 
         input, textarea {
-            color: $color3;
+            color: $color5;
 
             &::placeholder {
                 color: $color5;

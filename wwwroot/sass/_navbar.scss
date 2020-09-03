@@ -8,12 +8,25 @@
         width: 100%;
         flex-flow: row wrap;
         background: transparent;
-        padding: 2em 4em;
+        padding: 2em 3.5em;
+        align-items: stretch;
 
-        .logo {
-            height: auto;
-            max-width: 6em;
-            margin-right: 2em;
+        & > a {
+            display: flex;
+            align-items: stretch;
+            background: $color1;
+            color: $color3;
+            padding: .5em 2em;
+            -webkit-box-shadow: 10px 10px 0px 0px rgba(55,150,131,1);
+            -moz-box-shadow: 10px 10px 0px 0px rgba(55,150,131,1);
+            box-shadow: 10px 10px 0px 0px rgba(55,150,131,1);
+
+            .logo {
+                display: flex;
+                align-items: center;
+                font-weight: bold;
+                font-size: 1.5em;
+            }
         }
 
         ul {
@@ -23,6 +36,7 @@
             padding: 0;
             margin: 0;
             margin-right: auto;
+            margin: 0 .7em;
 
             li {
                 display: inline-flex;
@@ -54,6 +68,46 @@
                         transform: scaleX(1);
                     }
                 }
+            }
+        }
+
+        .nav-toggler {
+            display: none;
+            flex-flow: column wrap;
+            align-items: center;
+            margin-left: auto;
+            height: 3em;
+            width: 3.5em;
+
+            span {
+                height: .3em;
+                background: $color1;
+                border-radius: .3em;
+            }
+
+            span:nth-child(1) {
+                width: 100%;
+                margin-top: auto;
+            }
+
+            span:nth-child(2) {
+                width: 50%;
+                margin: .6em auto;
+            }
+
+            span:nth-child(3) {
+                width: 100%;
+                margin-bottom: auto;
+            }
+        }
+
+        @include breakpoint(max-width 620px) {
+            ul {
+                display: none;
+            }
+
+            .nav-toggler {
+                display: inline-flex;
             }
         }
     }
