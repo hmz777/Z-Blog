@@ -10,22 +10,12 @@
         @if (HasGitHub)
         {
             <div class="github-status">
-                GitHub
-
-                @if (DataLoading)
-                {
-                    <div>
-                        <i class="las la-circle-notch la-spin la-2x"></i>
-                    </div>
-                }
-                else
-                {
-                    <div>
-                        <i class="las la-eye"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-code-branch"></i>
-                    </div>
-                }
+                <span>GitHub</span>
+                <div>
+                    <span title="Watchers"><i class="las la-eye"></i>@Watchers</span>
+                    <span title="Stars"><i class="las la-star"></i>@Stars</span>
+                    <span title="Forks"><i class="las la-code-branch"></i>@Forks</span>
+                </div>
             </div>
         }
     </div>
@@ -55,7 +45,12 @@
     public string LinkIcon { get; set; }
     [Parameter]
     public bool HasGitHub { get; set; }
-
+    [Parameter]
+    public int Stars { get; set; }
+    [Parameter]
+    public int Watchers { get; set; }
+    [Parameter]
+    public int Forks { get; set; }
     [Parameter]
     public string[] Stack { get; set; }
 
@@ -65,6 +60,8 @@
     {
         if (!Uri.TryCreate(ProjectUrl, UriKind.Absolute, out Uri result) && !(result.Scheme == Uri.UriSchemeHttps || result.Scheme == Uri.UriSchemeHttp))
             throw new Exception("Invalid project url!");
+
+
     }
 }
 

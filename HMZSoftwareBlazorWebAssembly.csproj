@@ -22,8 +22,4 @@
     <None Include="compilerconfig.json" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\sass\lib\" />
-  </ItemGroup>
-
 </Project>

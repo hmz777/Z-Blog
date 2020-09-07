@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <defs>
+    <path d="M0 0L52 0L52 52L0 52L0 0Z" id="path_1" />
+    <clipPath id="mask_1">
+      <use xlink:href="#path_1" />
+    </clipPath>
+  </defs>
+  <g id="PaperPlane">
+    <path d="M0 0L52 0L52 52L0 52L0 0Z" id="Background" fill="none" stroke="none" />
+    <g clip-path="url(#mask_1)">
+      <path d="M0 26L23.8333 32.7167L39 15.1667L21.3287 27.456L11.986 24.8517L45.2703 8.21166L36.66 39.78L28.535 32.5455L23.8333 38.883L23.8333 37.2168L19.5 36.0035L19.5 52L29.1915 38.9328L39 47.6667L52 0L0 26Z" id="Shape" fill="#05386B" stroke="none" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+﻿.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flex-column {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-stretch {
+    justify-content: stretch;
+}
+
+.pr-1 {
+    padding-right: 1em;
+}
+
+.pr-2 {
+    padding-right: 2em;
+}
+
+.pr-3 {
+    padding-right: 3em;
+}
+
+.pr-4 {
+    padding-right: 4em;
+}
+
+.pr-5 {
+    padding-right: 5em;
+}
+
+.m-auto {
+    margin: auto;
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+}
+
+.img-sm {
+    max-width: 6em;
+    height: auto;
+}
