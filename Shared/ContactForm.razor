@@ -1,0 +1,42 @@
+﻿@using HMZSoftwareBlazorWebAssembly.Models
+
+<EditForm Model="ContactModel" OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit" id="contact-form">
+    <DataAnnotationsValidator />
+
+    <div class="input-wrapper">
+        <label for="Name">FULL NAME</label>
+        <InputText type="text" @bind-Value="ContactModel.FullName" placeholder="Enter your name" />
+        <ValidationMessage For="@(() => ContactModel.FullName)" />
+    </div>
+    <div class="input-wrapper">
+        <label for="Email">EMAIL</label>
+        <InputText type="email" @bind-Value="ContactModel.Email" placeholder="Enter your email" />
+        <ValidationMessage For="@(() => ContactModel.Email)" />
+    </div>
+    <div class="input-wrapper">
+        <label for="Subject">SUBJECT</label>
+        <InputText type="text" @bind-Value="ContactModel.Subject" placeholder="Enter message subject" />
+        <ValidationMessage For="@(() => ContactModel.Subject)" />
+    </div>
+    <div class="input-wrapper">
+        <label for="Message">MESSAGE</label>
+        <InputTextArea @bind-Value="ContactModel.Message" rows="5" placeholder="Enter your message"></InputTextArea>
+        <ValidationMessage For="@(() => ContactModel.Message)" />
+    </div>
+    <button class="form-button button-submit" type="submit">SUBMIT</button>
+</EditForm>
+
+@code {
+
+    public ContactModel ContactModel { get; set; } = new ContactModel();
+
+    private void HandleValidSubmit()
+    {
+
+    }
+
+    private void HandleInvalidSubmit()
+    {
+
+    }
+}

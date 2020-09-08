@@ -35,8 +35,7 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            margin-right: auto;
-            margin-left: 1.5em;
+            margin-left: auto;
 
             li {
                 display: inline-flex;
@@ -46,8 +45,11 @@
                 font-weight: bold;
                 position: relative;
 
-                a {
+                button, a {
                     color: $color1;
+                    background: none;
+                    border: none;
+                    font-weight: bold;
                 }
 
                 &:after {

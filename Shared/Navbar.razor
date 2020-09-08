@@ -1,9 +1,10 @@
 ﻿<div class="nav">
-    <NavLink href="" Match="NavLinkMatch.All">@*<img class="logo" src="/media/Logo.svg" alt="Site logo" />*@<span class="logo">HMZ</span></NavLink>
+    <NavLink href="" Match="NavLinkMatch.All"><span class="logo">HMZ</span></NavLink>
     <ul>
-        <li><NavLink href="Tech">TECH & SKILLS</NavLink></li>
-        <li><NavLink href="Work">WORK</NavLink></li>
-        <li><NavLink href="About">ABOUT</NavLink></li>
+        <li><button type="button" onclick="document.getElementById('Tech').scrollIntoView({behavior:'smooth'})">TECH & SKILLS</button></li>
+        <li><button type="button" onclick="document.getElementById('Work').scrollIntoView({behavior:'smooth'})">WORK</button></li>
+        <li><button type="button" onclick="document.getElementById('About').scrollIntoView({behavior:'smooth'})">ABOUT</button></li>
+        <li><button type="button" onclick="document.getElementById('Contact').scrollIntoView({behavior:'smooth'})">CONTACT</button></li>
         <li><NavLink href="Blog">BLOG</NavLink></li>
     </ul>
     <div class="nav-toggler">
