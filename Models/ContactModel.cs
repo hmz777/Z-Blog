@@ -10,6 +10,7 @@ namespace HMZSoftwareBlazorWebAssembly.Models
     {
         [Required]
         [StringLength(50, ErrorMessage = "Name can't be more than {1} characters.")]
+        [Display(Name = "Full Name")]
         public string FullName { get; set; }
 
         [Required]

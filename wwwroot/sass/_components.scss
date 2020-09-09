@@ -319,81 +319,120 @@ blockquote {
     }
 }
 
-.input-wrapper {
-    display: flex;
-    flex-flow: column wrap;
-    width: 100%;
-    border: $color1 2px solid;
-    padding: 1.5em;
-    background: $color3;
-    margin-bottom: .5em;
-    transition: background .5s cubic-bezier(0.83, 0, 0.17, 1), color .5s cubic-bezier(0.83, 0, 0.17, 1);
-    position: relative;
+form {
+    .input-wrapper {
+        display: flex;
+        flex-flow: column wrap;
+        width: 100%;
+        border: $color1 2px solid;
+        padding: 1.5em;
+        background: $color3;
+        margin-bottom: .5em;
+        transition: background .5s cubic-bezier(0.83, 0, 0.17, 1), color .5s cubic-bezier(0.83, 0, 0.17, 1);
+        position: relative;
 
-    label {
-        font-weight: bold;
-        margin-bottom: .2em
-    }
+        label {
+            font-weight: bold;
+            margin-bottom: .2em
+        }
 
-    input, textarea {
-        border: none;
-        background: none;
-        outline: none;
-        color: $color1;
+        input, textarea {
+            border: none;
+            background: none;
+            outline: none;
+            color: $color1;
 
-        &::placeholder {
-            color: $color2;
+            &::placeholder {
+                color: $color2;
+            }
+        }
+
+        .validation-message {
+            position: absolute;
+            top: -2em;
+            right: -1em;
+            padding: .7em;
+            border: 3px solid #379683;
+            background: $color1;
+            color: $color3;
+            animation: fadeIn .5s ease-in-out forwards;
+
+            &:after, &:before {
+                top: 100%;
+                left: 50%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+
+            &:after {
+                border-color: rgba(5, 56, 107, 0);
+                border-top-color: #05386B;
+                border-width: 8px;
+                margin-left: -8px;
+            }
+
+            &:before {
+                border-color: rgba(55, 150, 131, 0);
+                border-top-color: #379683;
+                border-width: 12px;
+                margin-left: -12px;
+            }
+        }
+
+        &--active {
+            background: $color1;
+            color: $color3;
+
+            input, textarea {
+                color: $color5;
+
+                &::placeholder {
+                    color: $color5;
+                }
+            }
         }
     }
 
-    .validation-message {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: .5em;
-        border: 2px solid $color2;
-        background: $color1;
-        color: $color3;
-    }
+    .form-button {
+        background: $color3;
+        border: 2px solid $color1;
+        color: $color1;
+        padding: 1em 2em;
+        font-weight: bold;
+        transition: background .5s cubic-bezier(0.83, 0, 0.17, 1), color .5s cubic-bezier(0.83, 0, 0.17, 1);
 
-    &--active {
-        background: $color1;
-        color: $color3;
+        &.button-submit {
+            display: flex;
+            align-items: center;
 
-        input, textarea {
-            color: $color5;
-
-            &::placeholder {
-                color: $color5;
+            &:after {
+                @extend .las;
+                content: la-content($la-paper-plane);
+                right: 0;
+                top: 50%;
+                font-size: 1.5em;
+                margin-left: .3em;
             }
+        }
+
+        &:hover {
+            background: $color1;
+            color: $color3;
         }
     }
 }
 
-.form-button {
-    background: $color3;
-    border: 2px solid $color1;
-    color: $color1;
-    padding: 1em 2em;
-    font-weight: bold;
-    transition: background .5s cubic-bezier(0.83, 0, 0.17, 1), color .5s cubic-bezier(0.83, 0, 0.17, 1);
-
-    &.button-submit {
-        display: flex;
-        align-items: center;
-
-        &:after {
-            @extend .las;
-            content: la-content($la-paper-plane);
-            right: 0;
-            top: 50%;
-            font-size: 1.5em;
-            margin-left: .3em;
-        }
-    }
-
-    &:hover {
-        background: $color1;
-        color: $color3;
-    }
+#go-up {
+    position: fixed;
+    right: 2em;
+    bottom: 2em;
+    background: $color1;
+    border: 2px $color2 solid;
+    color: $color3;
+    padding: 1em;
+    z-index: 3;
 }
