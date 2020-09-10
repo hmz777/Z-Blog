@@ -2,7 +2,7 @@
 
 <StatusMessage @ref="StatusMessage"></StatusMessage>
 
-<EditForm Model="ContactModel" OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit" id="contact-form">
+<EditForm EditContext="EditContext" OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit" id="contact-form">
     <DataAnnotationsValidator />
 
     <div class="input-wrapper">
@@ -32,9 +32,17 @@
 
     private ContactModel ContactModel { get; set; } = new ContactModel();
     private StatusMessage StatusMessage { get; set; }
+    private EditContext EditContext { get; set; }
+
+    protected override void OnInitialized()
+    {
+        EditContext = new EditContext(ContactModel);
+    }
 
     private void HandleValidSubmit()
     {
+        ContactModel = new ContactModel();
+        EditContext = new EditContext(ContactModel);
         StatusMessage.Message = "Message sent successfully!";
         StatusMessage.MessageStatus = MessageStatus.Success;
         StatusMessage.Show();
