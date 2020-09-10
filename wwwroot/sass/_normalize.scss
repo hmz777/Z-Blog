@@ -1,5 +1,19 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
+* {
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    flex-flow: column wrap;
+    /* background-image: url(/media/MainBackground.svg);*/
+    background-position: top right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    word-break: break-word;
+}
+
 /* Document
    ========================================================================== */
 
@@ -13,6 +27,7 @@ html {
     -webkit-text-size-adjust: 100%; /* 2 */
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
     font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
 }
 
 /* Sections
@@ -27,6 +42,9 @@ body {
     display: flex;
     flex-flow: column wrap;
     position: relative;
+    background-color: #5CDB95;
+    color: #05386B;
+    scroll-behavior: smooth;
 }
 
 /**
@@ -34,7 +52,8 @@ body {
  */
 
 main {
-  display: block;
+    display: flex;
+    flex-flow: column wrap;
 }
 
 /**

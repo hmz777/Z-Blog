@@ -1,0 +1,42 @@
+﻿@using HMZSoftwareBlazorWebAssembly.Models
+
+@if (MessageStatus == MessageStatus.Success)
+{
+    <div class="status-message @State">
+        <i class="las la-check-circle la-3x"></i>
+        <div class="content">
+            @Message
+        </div>
+        <button type="button" @onclick="Close"><i class="las la-times-circle la-2x"></i></button>
+    </div>
+}
+else
+{
+    <div class="status-message @State">
+        <i class="las la-times-circle la-3x"></i>
+        <div class="content">
+            @Message
+        </div>
+        <button type="button" @onclick="Close"><i class="las la-times-circle la-2x"></i></button>
+    </div>
+}
+
+@code {
+
+    public MessageStatus MessageStatus { get; set; }
+    public string Message { get; set; }
+    private string State { get; set; } = "slideToLeft";
+
+    public void Show()
+    {
+        State = "slideFromLeft";
+        StateHasChanged();
+    }
+
+    public void Close()
+    {
+        State = "slideToLeft";
+        StateHasChanged();
+    }
+
+}

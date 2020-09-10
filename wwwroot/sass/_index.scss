@@ -1,28 +1,4 @@
-﻿* {
-    box-sizing: border-box;
-}
-
-html, body {
-    background-color: #5CDB95;
-    color: #05386B;
-    scroll-behavior: smooth;
-    position: relative;
-    display: flex;
-    flex-flow: column wrap;
-    height: 100%;
-}
-
-header {
-    display: flex;
-    flex-flow: column wrap;
-    /* background-image: url(/media/MainBackground.svg);*/
-    background-position: top right;
-    background-size: contain;
-    background-repeat: no-repeat;
-    word-break: break-word;
-}
-
-#MoreArrow {
+﻿#MoreArrow {
     background: transparent;
     border: none;
     animation: pulse 1s ease-in-out infinite alternate;

@@ -429,10 +429,54 @@ form {
 #go-up {
     position: fixed;
     right: 2em;
-    bottom: 2em;
+    bottom: 6em;
     background: $color1;
     border: 2px $color2 solid;
     color: $color3;
     padding: 1em;
     z-index: 3;
+}
+
+.status-message {
+    display: none;
+    justify-content: space-between;
+    flex-flow: row;
+    align-items: stretch;
+    padding: 1em;
+    color: white;
+    background: $color1;
+    border: 2px $color2 solid;
+    position: fixed;
+    top: 3em;
+    left: 0;
+    z-index: 3;
+    transition: transform .5s cubic-bezier(.25,.8,.25,1);
+    max-width: 40em;
+
+    > i {
+        margin-right: .3em;
+    }
+
+    &.slideToLeft {
+        display: flex;
+        transform: translateX(-100%);
+    }
+
+    &.slideFromLeft {
+        display: flex;
+        transform: translateX(0);
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        word-break: break-word;
+    }
+
+    button {
+        background: none;
+        border: none;
+        color: $color3;
+        margin-left: .3em;
+    }
 }

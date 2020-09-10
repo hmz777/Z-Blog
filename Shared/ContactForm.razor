@@ -1,5 +1,7 @@
 ﻿@using HMZSoftwareBlazorWebAssembly.Models
 
+<StatusMessage @ref="StatusMessage"></StatusMessage>
+
 <EditForm Model="ContactModel" OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit" id="contact-form">
     <DataAnnotationsValidator />
 
@@ -28,15 +30,20 @@
 
 @code {
 
-    public ContactModel ContactModel { get; set; } = new ContactModel();
+    private ContactModel ContactModel { get; set; } = new ContactModel();
+    private StatusMessage StatusMessage { get; set; }
 
     private void HandleValidSubmit()
     {
-
+        StatusMessage.Message = "Message sent successfully!";
+        StatusMessage.MessageStatus = MessageStatus.Success;
+        StatusMessage.Show();
     }
 
     private void HandleInvalidSubmit()
     {
-
+        StatusMessage.Message = "Invalid message! please correct the errors in the form.";
+        StatusMessage.MessageStatus = MessageStatus.Error;
+        StatusMessage.Show();
     }
 }
