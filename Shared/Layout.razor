@@ -1,7 +1,8 @@
 ﻿@inherits LayoutComponentBase
 
-<header class="navbar">
-    <Navbar></Navbar>
+<header class="Navigation">
+    <Navigation></Navigation>
+
     <div class="wide-wrapper wide-wrapper--row">
         <h1 class="display display-3">
             Hamzi Alsheikh
@@ -12,10 +13,6 @@
         </h1>
     </div>
 </header>
-
-<div class="side-nav">
-    <SideNav></SideNav>
-</div>
 
 <main class="main">
     <div id="social-line">
@@ -31,4 +28,13 @@
     @Body
 </main>
 
-<SiteFooter></SiteFooter>
+<footer class="footer">
+    <div>
+        <div>
+            <span>© HAMZI ALSHEIKH @DateTime.Today.Year. ALL RIGHTS RESERVED.</span>
+            <span>Built with Blazor Web Assembly.</span>
+            <span>Site version: @GetType().Assembly.GetName().Version.ToString()</span>
+        </div>
+        <span class="logo">HMZ</span>
+    </div>
+</footer>

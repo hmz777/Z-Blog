@@ -7,13 +7,23 @@
         <li><button type="button" onclick="document.getElementById('Contact').scrollIntoView({behavior:'smooth'})">CONTACT</button></li>
         <li><NavLink href="Blog">BLOG</NavLink></li>
     </ul>
-    <div class="nav-toggler">
+    <button type="button" class="nav-toggler" @onclick="ShowSideNav">
         <span></span>
         <span></span>
         <span></span>
-    </div>
+    </button>
+</div>
+<div class="side-nav">
+    <SideNav @ref="SideNav"></SideNav>
 </div>
 
 @code {
+
+    private SideNav SideNav { get; set; }
+
+    private void ShowSideNav()
+    {
+        SideNav.Show();
+    }
 
 }

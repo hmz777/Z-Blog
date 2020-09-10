@@ -15,21 +15,33 @@
     box-shadow: inset 0px 5px 0px 0px rgba(55,150,131,1);
     font-weight: 500;
 
-    div {
+    & > div {
         width: 100%;
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
         align-items: center;
+        padding: .5em;
 
-        span {
+        & > div {
+            display: flex;
+            flex-flow: column wrap;
+
+            span {
+                margin: .3em 0 0;
+            }
+        }
+
+        .logo {
             margin-left: auto;
             font-weight: bolder;
             background: $color3;
             color: $color1;
-            padding: .5em 1em;
-            border: .2em solid $color2;
+            padding: .5em 2em;
             display: inline-flex;
+            -webkit-box-shadow: 10px 10px 0px 0px rgba(55,150,131,1);
+            -moz-box-shadow: 10px 10px 0px 0px rgba(55,150,131,1);
+            box-shadow: 10px 10px 0px 0px rgba(55,150,131,1);
         }
     }
 
@@ -39,9 +51,9 @@
             flex-flow: column wrap;
             text-align: center;
             align-items: center;
-            margin-top: 8em;
+            margin-top: 3em;
 
-            span {
+            .logo {
                 margin-left: 0;
                 margin-top: 1em;
             }

@@ -23,7 +23,7 @@ namespace HMZSoftwareBlazorWebAssembly.Shared
         protected override async Task OnInitializedAsync()
         {
             //#if DEBUG
-            //        await Task.Delay(10000);
+            //            await Task.Delay(10000);
             //#endif
 
             HttpClient.BaseAddress = new Uri("https://api.github.com");

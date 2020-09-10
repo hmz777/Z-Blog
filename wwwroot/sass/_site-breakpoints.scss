@@ -4,7 +4,7 @@
         font-size: .9em;
     }
 
-    @include breakpoint(max-width 620px) {
+    @include breakpoint(max-width 800px) {
         font-size: .8em;
     }
 }

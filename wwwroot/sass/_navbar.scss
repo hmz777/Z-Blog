@@ -1,4 +1,4 @@
-﻿.navbar {
+﻿.Navigation {
     display: flex;
     width: 100%;
     align-items: center;
@@ -80,6 +80,8 @@
             margin-left: auto;
             height: 3em;
             width: 3.5em;
+            border: none;
+            background: none;
 
             span {
                 height: .3em;
@@ -103,7 +105,7 @@
             }
         }
 
-        @include breakpoint(max-width 620px) {
+        @include breakpoint(max-width 800px) {
             ul {
                 display: none;
             }

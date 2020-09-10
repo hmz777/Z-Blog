@@ -1,5 +1,46 @@
-﻿
+﻿<div class="side-navigation @State">
+    <div class="side-navigation-inner @State">
+        <button type="button" class="nav-toggler" @onclick="Hide">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="content">
+            <NavLink href="" Match="NavLinkMatch.All"><span class="logo">HMZ</span></NavLink>
+            <ul>
+                <li><button type="button" onclick="document.getElementById('Tech').scrollIntoView({behavior:'smooth'})">TECH & SKILLS</button></li>
+                <li><button type="button" onclick="document.getElementById('Work').scrollIntoView({behavior:'smooth'})">WORK</button></li>
+                <li><button type="button" onclick="document.getElementById('About').scrollIntoView({behavior:'smooth'})">ABOUT</button></li>
+                <li><button type="button" onclick="document.getElementById('Contact').scrollIntoView({behavior:'smooth'})">CONTACT</button></li>
+                <li><NavLink href="Blog">BLOG</NavLink></li>
+            </ul>
+            <div class="social">
+                <a href="https://stackoverflow.com/users/6843077/hmz" target="_blank"><i class="lab la-stack-overflow"></i></a>
+                <a href="https://github.com/hmz777" target="_blank"><i class="lab la-github"></i></a>
+                <a href="https://www.linkedin.com/in/hamzialsheikh/" target="_blank"><i class="lab la-linkedin"></i></a>
+                <a href="https://www.facebook.com/Hamzi.Alsheikh/" target="_blank"><i class="lab la-facebook"></i></a>
+                <a href="https://www.instagram.com/hamzi_alsheikh/" target="_blank"><i class="lab la-instagram"></i></a>
+                <a href="mailto:hamzi_alsheikh@hotmail.com" target="_blank"><i class="las la-envelope"></i></a>
+            </div>
+            <span>© HAMZI ALSHEIKH 2020.<br />ALL RIGHTS RESERVED.</span>
+        </div>
+    </div>
+</div>
 
 @code {
+
+    private string State { get; set; } = "slideToRight";
+
+    public void Show()
+    {
+        State = "slideFromRight";
+        StateHasChanged();
+    }
+
+    public void Hide()
+    {
+        State = "slideToRight";
+        StateHasChanged();
+    }
 
 }
