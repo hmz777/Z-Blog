@@ -1,0 +1,104 @@
+﻿.blog-post-list {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+
+    .blog-post {
+        display: flex;
+        flex-flow: row;
+        width: 48%;
+        margin: .3em;
+        justify-content: space-between;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+        background: $color1;
+        color: white;
+
+        &:hover {
+            transform: translateY(-.2em);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+
+        img {
+            width: 40%;
+            object-fit: cover;
+            height: auto;
+        }
+
+        .content {
+            padding: 3em 1em;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: start;
+            align-items: start;
+
+            .info {
+                display: flex;
+                flex-flow: row;
+                align-items: center;
+                font-size: .8em;
+
+                .category {
+                    padding: .2em 1.2em;
+                    border: 2px solid $color2;
+                    background: $color3;
+                    color: $color1;
+                    border-radius: 1em;
+                    font-weight: bold;
+                }
+
+                .date {
+                    position: relative;
+
+                    &:before {
+                        @extend .las;
+                        content: la-content($la-calendar);
+                        position: relative;
+                        margin-right: 0.2em;
+                        left: 0;
+                    }
+                }
+
+                .category, .date {
+                    margin: 0 .7em 0 0;
+                }
+            }
+
+            .title {
+                font-weight: bold;
+                font-size: 1.1em;
+                word-break: break-word;
+                margin: .2em 0;
+            }
+
+            .description {
+                color: lightgrey;
+                word-break: break-word;
+                font-size: .9em;
+                margin-top: 0;
+            }
+
+            a {
+                font-size: .8em;
+                background: $color3;
+                color: $color1;
+                border: 2px solid $color2;
+                padding: .4em .8em;
+                margin-left: auto;
+            }
+        }
+
+
+        @include breakpoint(max-width 1024px) {
+            flex-basis: 100%;
+
+            .content {
+                justify-content: space-evenly;
+
+                .info, .date, .description {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+﻿<div class="blog-post">
+    <img src="@ImageUrl" alt="@Title" />
+    <div class="content">
+        <div class="info">
+            <span class="category">@Category</span>
+            <span class="date">@Date</span>
+        </div>
+        <div class="title">
+            @Title
+        </div>
+        <p class="description">
+            @ShortDescription
+        </p>
+        <a href="@PostUrl">READ MORE</a>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Category { get; set; }
+    [Parameter]
+    public string Date { get; set; }
+    [Parameter]
+    public string Title { get; set; }
+    [Parameter]
+    public string ShortDescription { get; set; }
+    [Parameter]
+    public string ImageUrl { get; set; }
+
+    private string PostUrl { get; set; } = "https://www.google.com";
+
+}
