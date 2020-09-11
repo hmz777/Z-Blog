@@ -95,7 +95,7 @@
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    z-index: 2;
+    z-index: 3;
 
     @include breakpoint(max-width 620px) {
         display: none;
