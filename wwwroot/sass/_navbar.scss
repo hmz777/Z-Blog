@@ -41,7 +41,7 @@
                 display: inline-flex;
                 justify-content: center;
                 align-items: center;
-                margin: 0 1em;
+                margin: 0 .6em;
                 font-weight: bold;
 
                 button, a {
@@ -116,7 +116,7 @@
             }
         }
 
-        @include breakpoint(max-width 800px) {
+        @include breakpoint(max-width 850px) {
             ul {
                 display: none;
             }

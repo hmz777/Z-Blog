@@ -1,6 +1,7 @@
 ﻿@import "../lib/line-awesome/dist/line-awesome/scss/line-awesome"; //Install the line-awesome package.
 @import "lib/breakpoints/_breakpoint";
 @import "_variables";
+@import "_mixins";
 @import "_normalize";
 @import "_boilerplate";
 @import "_animations";

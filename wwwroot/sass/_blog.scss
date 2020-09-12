@@ -2,15 +2,12 @@
     display: flex;
     flex-flow: row wrap;
     width: 100%;
-    padding: .5em;
+    justify-content: space-between;
 
     .blog-post {
-        display: flex;
-        flex-flow: column;
         position: relative;
-        justify-content: space-evenly;
-        flex-basis: 48%;
-        margin: 0 .5em 10.55em;
+        flex-basis: 32%;
+        margin: 0 0 10.4em 0;
         transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
         z-index: 1;
 
@@ -94,10 +91,12 @@
                 font-size: 1.1em;
                 word-break: break-word;
                 margin: .3em 0;
+                max-width: 100%;
+                @include Truncate(2);
             }
 
             .description {
-                @extend .truncate;
+                @include Truncate(3);
                 color: lightgrey;
                 word-break: break-word;
                 font-size: .9em;
@@ -116,7 +115,11 @@
             }
         }
 
-        @include breakpoint(max-width 900px) {
+        @include breakpoint(max-width 1024px) {
+            flex-basis: 49%;
+        }
+
+        @include breakpoint(max-width 860px) {
             flex-basis: 100%;
 
             .content {

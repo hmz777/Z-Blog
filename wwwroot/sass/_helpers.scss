@@ -73,12 +73,3 @@ button {
     max-width: 6em;
     height: auto;
 }
-
-.truncate {
- /*   white-space: nowrap;
-    text-overflow: ellipsis;*/
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-}
