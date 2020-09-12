@@ -1,11 +1,14 @@
 ﻿<div class="nav">
     <NavLink href="" Match="NavLinkMatch.All"><span class="logo">HMZ</span></NavLink>
     <ul>
-        <li><button type="button" onclick="document.getElementById('Tech').scrollIntoView({behavior:'smooth'})">TECH & SKILLS</button></li>
-        <li><button type="button" onclick="document.getElementById('Work').scrollIntoView({behavior:'smooth'})">WORK</button></li>
-        <li><button type="button" onclick="document.getElementById('About').scrollIntoView({behavior:'smooth'})">ABOUT</button></li>
-        <li><button type="button" onclick="document.getElementById('Contact').scrollIntoView({behavior:'smooth'})">CONTACT</button></li>
-        <li><NavLink href="Blog">BLOG</NavLink></li>
+        @if (IsHome)
+        {
+            <li><button type="button" onclick="document.getElementById('Tech').scrollIntoView({behavior:'smooth'})">TECH & SKILLS</button></li>
+            <li><button type="button" onclick="document.getElementById('Work').scrollIntoView({behavior:'smooth'})">WORK</button></li>
+            <li><button type="button" onclick="document.getElementById('About').scrollIntoView({behavior:'smooth'})">ABOUT</button></li>
+            <li><button type="button" onclick="document.getElementById('Contact').scrollIntoView({behavior:'smooth'})">CONTACT</button></li>
+        }
+        <li><NavLink href="Blog" ActiveClass="active" Match="NavLinkMatch.All">BLOG</NavLink></li>
     </ul>
     <button type="button" class="nav-toggler" @onclick="ShowSideNav">
         <span></span>
@@ -19,11 +22,41 @@
 
 @code {
 
+    [Inject] public NavigationManager NavigationManager { get; set; }
+
     private SideNav SideNav { get; set; }
+    private bool IsHome { get; set; } = true;
+
+    protected override void OnInitialized()
+    {
+        NavigationManager.LocationChanged += OnLocationChanged;
+
+        var uriBuilder = new UriBuilder(NavigationManager.Uri);
+        var segment = uriBuilder.Path.Split('/')[1];
+        if (segment.Trim().ToLower() == "blog")
+        {
+            IsHome = false;
+        }
+    }
+
+    private void OnLocationChanged(object sender, LocationChangedEventArgs args)
+    {
+        var uriBuilder = new UriBuilder(NavigationManager.Uri);
+        var segment = uriBuilder.Path.Split('/')[1];
+        if (segment.Trim().ToLower() == "blog")
+        {
+            IsHome = false;
+        }
+        else
+        {
+            IsHome = true;
+        }
+
+        StateHasChanged();
+    }
 
     private void ShowSideNav()
     {
         SideNav.Show();
     }
-
 }

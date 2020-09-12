@@ -127,12 +127,31 @@
                         margin: .7em 0;
 
                         button, a {
+                            display: flex;
+                            align-items: center;    
                             background: none;
                             border: none;
                             color: $color3;
                             font-weight: bold;
                             padding: 0;
                             margin: 0;
+                            position: relative;
+
+                            &.active {
+                                &:after {
+                                    display: inline-block;
+                                }
+                            }
+
+                            &:after {
+                                display: none;
+                                @extend .las;
+                                position: absolute;
+                                content: la-content($la-chevron-right);
+                                left: -1.5em;
+                                margin: auto 0;
+                                color: $color3;
+                            }
                         }
                     }
                 }

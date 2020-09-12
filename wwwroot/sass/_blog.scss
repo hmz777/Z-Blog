@@ -116,7 +116,7 @@
             }
         }
 
-        @include breakpoint(max-width 1024px) {
+        @include breakpoint(max-width 900px) {
             flex-basis: 100%;
 
             .content {

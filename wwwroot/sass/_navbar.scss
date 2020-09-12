@@ -43,31 +43,42 @@
                 align-items: center;
                 margin: 0 1em;
                 font-weight: bold;
-                position: relative;
 
                 button, a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     color: $color1;
                     background: none;
                     border: none;
                     font-weight: bold;
-                }
+                    position: relative;
 
-                &:after {
-                    position: absolute;
-                    content: "";
-                    top: 100%;
-                    bottom: 0;
-                    width: 80%;
-                    height: .2em;
-                    background: $color1;
-                    margin: 0 auto;
-                    transition: transform 0.5s cubic-bezier(0.83, 0, 0.17, 1);
-                    transform: scaleX(0);
+                    &.active {
+                        &:after {
+                            transform: scaleX(1);
+                        }
+                    }
+
+                    &:after {
+                        position: absolute;
+                        content: "";
+                        top: 100%;
+                        bottom: 0;
+                        width: 80%;
+                        height: .2em;
+                        background: $color1;
+                        margin: .7em auto 0;
+                        transition: transform 0.5s cubic-bezier(0.83, 0, 0.17, 1);
+                        transform: scaleX(0);
+                    }
                 }
 
                 &:hover {
-                    &:after {
-                        transform: scaleX(1);
+                    button, a {
+                        &:after {
+                            transform: scaleX(1);
+                        }
                     }
                 }
             }
