@@ -32,18 +32,21 @@
     </div>
     <div class="post-footer">
         <div class="tags">
-            <i class="las la-tags"></i>
+            <i class="las la-tags"></i><strong>TAGS:</strong>
             @foreach (var tag in Tags)
             {
-                <NavLink href="Tags/@tag">tag</NavLink>
+                <NavLink href="@($"Tags/{tag}")">@tag</NavLink>
             }
         </div>
-        <span><i class="las la-calendar"></i> @DateUpdated</span>
+        <span class="date"><i class="las la-calendar"></i><strong>UPDATED:</strong> @DateUpdated.ToString("dd MMMM, yyyy")</span>
         <div class="post-social">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Instagram</a>
+            <strong>SHARE ON:</strong>
+            <div>
+                <a class="btn btn-facebook" href="#"><i class="lab la-facebook"></i> <span>FACEBOOK</span></a>
+                <a class="btn btn-twitter" href="#"><i class="lab la la-twitter"></i> <span>TWITTER</span></a>
+                <a class="btn btn-linkedin" href="#"><i class="lab la-linkedin"></i> <span>LINKEDIN</span></a>
+                <a class="btn btn-instagram" href="#"><i class="lab la-instagram"></i> <span>INSTAGRAM</span></a>
+            </div>
         </div>
     </div>
 </div>
@@ -57,7 +60,7 @@
     private string Category { get; set; } = ".NET";
     private DateTime Date { get; set; } = DateTime.Today;
     private DateTime DateUpdated { get; set; } = DateTime.Today;
-    private string[] Tags { get; set; }
+    private string[] Tags { get; set; } = new string[] { ".NET", ".NET Framework" };
 
     protected override void OnInitialized()
     {

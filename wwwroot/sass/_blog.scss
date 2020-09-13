@@ -209,5 +209,118 @@
         padding: 0 4em;
         word-break: break-word;
         font-size: 1.3em;
+        margin-bottom: 2em;
+    }
+
+    .post-footer {
+        padding: 0 4em;
+        font-size: 1.3em;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        font-weight: bold;
+
+        i {
+            margin-right: .2em;
+        }
+
+        strong {
+            margin-right: .5em;
+        }
+
+        .tags {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            margin-bottom: 1em;
+
+            a {
+                margin-right: .3em;
+                padding: .3em .6em;
+                border: solid $color1 2px;
+                color: $color1;
+                font-size: .8em;
+                transition: background .3s ease-in-out;
+
+                &:hover {
+                    background: rgba($color1,0.20);
+                }
+            }
+        }
+
+        .date {
+            margin-bottom: 1em;
+        }
+
+        .post-social {
+            display: flex;
+            flex-flow: column wrap;
+
+            & > div {
+                display: flex;
+                flex-flow: row wrap;
+                margin-top: .5em;
+                font-weight: normal;
+                font-size: .8em;
+
+                i {
+                    font-size: 1.2em;
+                }
+
+                .btn {
+                    display: flex;
+                    flex-flow: row wrap;
+                    align-items: center;
+                    padding: .5em 1em;
+                    color: white;
+                    transition: background .3s ease-in-out;
+
+                    @include breakpoint(max-width 650px) {
+                        justify-content: center;
+
+                        i {
+                            margin: 0;
+                            font-size: 1.5em;
+                        }
+
+                        span {
+                            display: none;
+                        }
+                    }
+
+                    &.btn-facebook {
+                        background: #1877F2;
+
+                        &:hover {
+                            background: #104FA1;
+                        }
+                    }
+
+                    &.btn-twitter {
+                        background: #1DA1F2;
+
+                        &:hover {
+                            background: #136BA1;
+                        }
+                    }
+
+                    &.btn-linkedin {
+                        background: #007BB5;
+
+                        &:hover {
+                            background: #005278;
+                        }
+                    }
+
+                    &.btn-instagram {
+                        background: #C32AA3;
+
+                        &:hover {
+                            background: #821C6C;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
