@@ -19,7 +19,7 @@
     </button>
 </div>
 <div class="side-nav">
-    <SideNav @ref="SideNav"></SideNav>
+    <SideNav @ref="SideNav" IsHome="@IsHome"></SideNav>
 </div>
 
 @code {
@@ -33,12 +33,12 @@
     {
         NavigationManager.LocationChanged += OnLocationChanged;
 
-        CheckHomeNavs();
+        CheckIfHome();
     }
 
     private void OnLocationChanged(object sender, LocationChangedEventArgs args)
     {
-        SideNav.ChangeState(CheckHomeNavs());
+        SideNav.ChangeState(CheckIfHome());
         StateHasChanged();
     }
 
@@ -47,7 +47,7 @@
         SideNav.Show();
     }
 
-    private bool CheckHomeNavs()
+    private bool CheckIfHome()
     {
         var uriBuilder = new UriBuilder(NavigationManager.Uri);
         var segment = uriBuilder.Path.Split('/')[1];

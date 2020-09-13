@@ -37,7 +37,9 @@
 @code {
 
     private string State { get; set; } = "slideToRight";
-    private bool IsHome { get; set; } = true;
+
+    [Parameter]
+    public bool IsHome { get; set; }
 
     public void Show()
     {
@@ -53,8 +55,11 @@
 
     public void ChangeState(bool IsHome)
     {
-        this.IsHome = IsHome;
-        StateHasChanged();
+        if (this.IsHome != IsHome)
+        {
+            this.IsHome = IsHome;
+            StateHasChanged();
+        }
     }
 
 }
