@@ -50,50 +50,61 @@
                 transform: translateX(0);
             }
 
-            .nav-toggler {
+            .top-buttons {
                 display: flex;
-                flex-flow: column wrap;
-                align-items: center;
                 justify-content: space-between;
-                margin-left: auto;
-                height: 3.5em;
-                width: 3.5em;
-                border: none;
-                background: none;
+                align-items: center;
                 position: absolute;
                 top: 2em;
-                right: 2em;
+                margin: auto;
+                width: 100%;
+                padding: 0 1.5em;
 
-                span {
-                    height: .3em;
-                    background: $color3;
-                    border-radius: .3em;
-                    position: relative;
+                .nav-toggler {
+                    display: flex;
+                    flex-flow: column wrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    height: 3.5em;
+                    width: 3.5em;
+                    border: none;
+                    background: none;
+
+                    span {
+                        height: .3em;
+                        background: $color3;
+                        border-radius: .3em;
+                        position: relative;
+                    }
+
+                    span:nth-child(1) {
+                        width: 100%;
+                        margin-top: auto;
+                        transform: translateY(.9em) rotate(135deg);
+                    }
+
+                    span:nth-child(2) {
+                        width: 50%;
+                        margin: .6em auto;
+                        transform: scaleX(0);
+                    }
+
+                    span:nth-child(3) {
+                        width: 100%;
+                        margin-bottom: auto;
+                        transform: translateY(-.9em) rotate(45deg);
+                    }
                 }
 
-                span:nth-child(1) {
-                    width: 100%;
-                    margin-top: auto;
-                    transform: translateY(.9em) rotate(135deg);
-                }
-
-                span:nth-child(2) {
-                    width: 50%;
-                    margin: .6em auto;
-                    transform: scaleX(0);
-                }
-
-                span:nth-child(3) {
-                    width: 100%;
-                    margin-bottom: auto;
-                    transform: translateY(-.9em) rotate(45deg);
+                .search {
+                    color: $color3;
                 }
             }
 
             .content {
                 display: flex;
                 flex-flow: column wrap;
-                margin-top: 6em;
+                margin: 6em auto 0;
                 align-items: center;
 
                 & > a {
@@ -128,7 +139,7 @@
 
                         button, a {
                             display: flex;
-                            align-items: center;    
+                            align-items: center;
                             background: none;
                             border: none;
                             color: $color3;
