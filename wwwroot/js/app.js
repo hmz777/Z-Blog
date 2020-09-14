@@ -67,18 +67,19 @@ window.BlazorHelpers = {
         document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     },
 
-    ObserveElement: function (root, rootMargin, threshold, target, methodIdentifier) {
+    ObserveElement: function (blazorComponentInstance ,root, rootMargin, threshold, target, methodIdentifier) {
 
         try {
             if (observer == null || ObserverOptions == null || ObserverCallback == null) {
+
                 var ObserverOptions = {
                     root: document.querySelector(root),
                     rootMargin: rootMargin,
                     threshold: threshold
                 }
 
-                var ObserverCallback = function (observerArgs) {
-                    DotNet.invokeMethodAsync('HMZSoftwareBlazorWebAssembly', methodIdentifier, observerArgs);
+                var ObserverCallback = function (entries, observer) {
+                    blazorComponentInstance.invokeMethodAsync(methodIdentifier, { isIntersecting: entries[0].isIntersecting, elementId: entries[0].target.id });
                 };
 
                 var observer = new IntersectionObserver(ObserverCallback, ObserverOptions);

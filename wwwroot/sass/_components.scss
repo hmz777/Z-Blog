@@ -482,7 +482,7 @@ form {
         align-items: center;
         z-index: 4;
 
-        @include breakpoint(max-width 620px) {
+        @include breakpoint(max-width 850px) {
             display: none;
         }
 

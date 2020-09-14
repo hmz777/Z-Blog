@@ -12,18 +12,38 @@ namespace HMZSoftwareBlazorWebAssembly.Shared
 {
     public partial class ProjectCards : ComponentBase
     {
-        [Inject] HttpClient HttpClient { get; set; }
+        [Inject] private HttpClient HttpClient { get; set; }
+        [Inject] private IJSRuntime JSRuntime { get; set; }
 
         private List<GitRepo> GitHubProjects { get; set; } = new List<GitRepo>();
 
         private bool DataLoaded { get; set; } = false;
 
-        protected override async Task OnInitializedAsync()
+        protected async override Task OnAfterRenderAsync(bool firstRender)
         {
-            //#if DEBUG
-            //            await Task.Delay(10000);
-            //#endif
+            if (firstRender)
+            {
+                if (!await JSRuntime.InvokeAsync<bool>("BlazorHelpers.ObserveElement", DotNetObjectReference.Create(this), null, "0px", 0.5, "#Work", "OnScrollIndex"))
+                {
+                    throw new Exception("Failed to invoke the Intersection Observer for the ProjectCards component.");
+                };
+            }
+        }
 
+        [JSInvokable]
+        public async Task OnScrollIndex(IntersectionObserverEventArgs intersectionObserverEventArgs)
+        {
+            //IO callback invoked.
+            if (intersectionObserverEventArgs.isIntersecting && !DataLoaded)
+            {
+                //IO is intersecting...
+                await FetchGitData();
+                StateHasChanged();
+            }
+        }
+
+        private async Task FetchGitData()
+        {
             HttpClient.BaseAddress = new Uri("https://api.github.com");
 
             HttpRequestMessage GitData = new HttpRequestMessage(HttpMethod.Get, "/users/hmz777/repos");

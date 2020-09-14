@@ -5,14 +5,27 @@ using System.Threading.Tasks;
 
 namespace HMZSoftwareBlazorWebAssembly.Models
 {
-    public class IntersectionObserverEventArgs : EventArgs
+    public class IntersectionObserverEventArgs
     {
-        public string boundingClientRect { get; set; }
-        public string intersectionRatio { get; set; }
-        public string intersectionRect { get; set; }
-        public string isIntersecting { get; set; }
-        public string rootBounds { get; set; }
-        public string target { get; set; }
-        public string time { get; set; }
+        public bool isIntersecting { get; set; }
+        public string elementId { get; set; }
+    }
+
+    public class Target
+    {
+        public string id { get; set; }
+        public string nodeName { get; set; }
+    }
+
+    public class DOMRect
+    {
+        public double top { get; set; }
+        public double bottom { get; set; }
+        public double left { get; set; }
+        public double right { get; set; }
+        public double width { get; set; }
+        public double height { get; set; }
+        public double x { get; set; }
+        public double y { get; set; }
     }
 }

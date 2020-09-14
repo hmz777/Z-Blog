@@ -92,7 +92,7 @@
 <div id="Work" class="wide-wrapper wide-wrapper--column">
     <h2 class="display display-4 flex-row align-items-center title-line pr-1">MY WORK</h2>
     <div class="grid">
-        @*<ProjectCards></ProjectCards>*@
+        <ProjectCards></ProjectCards>
     </div>
 </div>
 
@@ -112,27 +112,3 @@
         <ContactForm></ContactForm>
     </div>
 </div>
-
-
-@code {
-
-    [Inject] private IJSRuntime JSRuntime { get; set; }
-
-    protected async override Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            if (!await JSRuntime.InvokeAsync<bool>("BlazorHelpers.ObserveElement", "body", "0px", 0.5, "#Work", "OnScrollIndex"))
-            {
-                throw new Exception("Failed to invoke the Intersection Observer.");
-            };
-        }
-    }
-
-    [JSInvokable]
-    public static void OnScrollIndex(IntersectionObserverEventArgs intersectionObserverEventArgs)
-    {
-        Console.WriteLine($"Index reporting the scroll for element {intersectionObserverEventArgs.target}");
-    }
-
-} 
