@@ -1,26 +1,30 @@
-﻿<div class="nav">
-    <NavLink href="" Match="NavLinkMatch.All"><span class="logo">HMZ</span></NavLink>
-    <ul>
-        @if (IsHome)
-        {
-            <li><button type="button" onclick="document.getElementById('Tech').scrollIntoView({behavior:'smooth'})">TECH & SKILLS</button></li>
-            <li><button type="button" onclick="document.getElementById('Work').scrollIntoView({behavior:'smooth'})">WORK</button></li>
-            <li><button type="button" onclick="document.getElementById('About').scrollIntoView({behavior:'smooth'})">ABOUT</button></li>
-            <li><button type="button" onclick="document.getElementById('Contact').scrollIntoView({behavior:'smooth'})">CONTACT</button></li>
-        }
-        <li><NavLink href="Blog" ActiveClass="active" Match="NavLinkMatch.All">BLOG</NavLink></li>
-        <li><NavLink href="Site" ActiveClass="active" Match="NavLinkMatch.All">SITE</NavLink></li>
-        <li><NavLink href="Search" ActiveClass="active" Match="NavLinkMatch.All"><i class="las la-search la-2x"></i><div class="arrow_box">Search</div></NavLink></li>
-    </ul>
-    <button type="button" class="nav-toggler" @onclick="ShowSideNav">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-</div>
-<div class="side-nav">
-    <SideNav @ref="SideNav" IsHome="@IsHome"></SideNav>
-</div>
+﻿@using Models
+
+<header class="Navigation">
+    <div class="nav">
+        <NavLink href="" Match="NavLinkMatch.All"><span class="logo">HMZ</span></NavLink>
+        <ul>
+            @if (IsHome)
+            {
+                <li><button type="button" onclick="document.getElementById('Tech').scrollIntoView({behavior:'smooth'})">TECH & SKILLS</button></li>
+                <li><button type="button" onclick="document.getElementById('Work').scrollIntoView({behavior:'smooth'})">WORK</button></li>
+                <li><button type="button" onclick="document.getElementById('About').scrollIntoView({behavior:'smooth'})">ABOUT</button></li>
+                <li><button type="button" onclick="document.getElementById('Contact').scrollIntoView({behavior:'smooth'})">CONTACT</button></li>
+            }
+            <li><NavLink href="Blog" ActiveClass="active" Match="NavLinkMatch.All">BLOG</NavLink></li>
+            <li><NavLink href="Site" ActiveClass="active" Match="NavLinkMatch.All">SITE</NavLink></li>
+            <li><NavLink href="Search" ActiveClass="active" Match="NavLinkMatch.All"><i class="las la-search la-2x"></i><div class="arrow_box">Search</div></NavLink></li>
+        </ul>
+        <button type="button" class="nav-toggler" @onclick="ShowSideNav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="side-nav">
+        <SideNav @ref="SideNav" IsHome="@IsHome"></SideNav>
+    </div>
+</header>
 
 @code {
 

@@ -1,113 +1,138 @@
 ﻿@page "/"
+@using Models
 
-    <div class="wide-wrapper wide-wrapper--row">
-        <h1 class="display display-3">
-            Hamzi Alsheikh
-            <br />
-            Software Developer /
-            <br />
-            Mechatronics Engineer
-        </h1>
-    </div>
+<div class="wide-wrapper wide-wrapper--row">
+    <h1 class="display display-3">
+        Hamzi Alsheikh
+        <br />
+        Software Developer /
+        <br />
+        Mechatronics Engineer
+    </h1>
+</div>
 
-    <div class="wide-wrapper wide-wrapper--row">
-        <button id="MoreArrow" class="m-auto" onclick="document.getElementById('Tech').scrollIntoView({behavior:'smooth'})"><i class="las la-chevron-circle-down la-4x"></i></button>
-    </div>
+<div class="wide-wrapper wide-wrapper--row">
+    <button id="MoreArrow" class="m-auto" onclick="document.getElementById('Tech').scrollIntoView({behavior:'smooth'})"><i class="las la-chevron-circle-down la-4x"></i></button>
+</div>
 
-    <div class="wide-wrapper" id="Tech">
-        <h2 class="display display-4 flex-row align-items-center title-line pr-1">TECH & SKILLS</h2>
-        <div class="content-block flex-column">
-            <ul class="tech-tabs">
-                <li>
-                    <button class="active" type="button" data-tab="lang">LANGUAGES AND SCRIPTING</button>
-                </li>
-                <li>
-                    <button type="button" data-tab="markup">MARKUP</button>
-                </li>
-                <li>
-                    <button type="button" data-tab="frame">FRAMEWORKS</button>
-                </li>
-                <li>
-                    <button type="button" data-tab="tools">TOOLS</button>
-                </li>
-                <li>
-                    <button type="button" data-tab="db">DATABASE SYSTEMS</button>
-                </li>
-                <li>
-                    <button type="button" data-tab="lib">LIBRARIES</button>
-                </li>
-                <li>
-                    <button type="button" data-tab="other">OTHER</button>
-                </li>
+<div class="wide-wrapper" id="Tech">
+    <h2 class="display display-4 flex-row align-items-center title-line pr-1">TECH & SKILLS</h2>
+    <div class="content-block flex-column">
+        <ul class="tech-tabs">
+            <li>
+                <button class="active" type="button" data-tab="lang">LANGUAGES AND SCRIPTING</button>
+            </li>
+            <li>
+                <button type="button" data-tab="markup">MARKUP</button>
+            </li>
+            <li>
+                <button type="button" data-tab="frame">FRAMEWORKS</button>
+            </li>
+            <li>
+                <button type="button" data-tab="tools">TOOLS</button>
+            </li>
+            <li>
+                <button type="button" data-tab="db">DATABASE SYSTEMS</button>
+            </li>
+            <li>
+                <button type="button" data-tab="lib">LIBRARIES</button>
+            </li>
+            <li>
+                <button type="button" data-tab="other">OTHER</button>
+            </li>
+        </ul>
+        <div class="tech-content">
+            <ul class="active" data-tabtarget="lang">
+                <li>C#</li>
+                <li>Javascript</li>
+                <li>Powershell</li>
+                <li>MATLAB</li>
             </ul>
-            <div class="tech-content">
-                <ul class="active" data-tabtarget="lang">
-                    <li>C#</li>
-                    <li>Javascript</li>
-                    <li>Powershell</li>
-                    <li>MATLAB</li>
-                </ul>
-                <ul data-tabtarget="markup">
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                </ul>
-                <ul data-tabtarget="frame">
-                    <li>.NET Framework</li>
-                    <li>.NET Core</li>
-                    <li>ASP.Net Core</li>
-                    <li>Blazor WebAssembly</li>
-                    <li>Entity Framework Core</li>
-                    <li>React</li>
-                    <li>WPF</li>
-                    <li>WCF</li>
-                    <li>Windows Forms</li>
-                </ul>
-                <ul data-tabtarget="tools">
-                    <li>Visual Studio</li>
-                    <li>Visual Studio Code</li>
-                    <li>MATLAB</li>
-                    <li>Postman</li>
-                    <li>Git</li>
-                    <li>JetBrains DotPeek</li>
-                    <li>JetBrains DotTrace</li>
-                </ul>
-                <ul data-tabtarget="db">
-                    <li>SQL Server</li>
-                    <li>PostgreSQL</li>
-                </ul>
-                <ul data-tabtarget="lib">
-                    <li>jQuery</li>
-                    <li>Bootstrap</li>
-                    <li>SignalR</li>
-                </ul>
-                <ul data-tabtarget="other">
-                    <li>English (Professional Working Proficiency)</li>
-                    <li>Arabic (Native Language)</li>
-                </ul>
-            </div>
+            <ul data-tabtarget="markup">
+                <li>HTML5</li>
+                <li>CSS3</li>
+            </ul>
+            <ul data-tabtarget="frame">
+                <li>.NET Framework</li>
+                <li>.NET Core</li>
+                <li>ASP.Net Core</li>
+                <li>Blazor WebAssembly</li>
+                <li>Entity Framework Core</li>
+                <li>React</li>
+                <li>WPF</li>
+                <li>WCF</li>
+                <li>Windows Forms</li>
+            </ul>
+            <ul data-tabtarget="tools">
+                <li>Visual Studio</li>
+                <li>Visual Studio Code</li>
+                <li>MATLAB</li>
+                <li>Postman</li>
+                <li>Git</li>
+                <li>JetBrains DotPeek</li>
+                <li>JetBrains DotTrace</li>
+            </ul>
+            <ul data-tabtarget="db">
+                <li>SQL Server</li>
+                <li>PostgreSQL</li>
+            </ul>
+            <ul data-tabtarget="lib">
+                <li>jQuery</li>
+                <li>Bootstrap</li>
+                <li>SignalR</li>
+            </ul>
+            <ul data-tabtarget="other">
+                <li>English (Professional Working Proficiency)</li>
+                <li>Arabic (Native Language)</li>
+            </ul>
         </div>
     </div>
+</div>
 
-    <div id="Work" class="wide-wrapper wide-wrapper--column">
-        <h2 class="display display-4 flex-row align-items-center title-line pr-1">MY WORK</h2>
-        <div class="grid">
-            @*<ProjectCards></ProjectCards>*@
-        </div>
+<div id="Work" class="wide-wrapper wide-wrapper--column">
+    <h2 class="display display-4 flex-row align-items-center title-line pr-1">MY WORK</h2>
+    <div class="grid">
+        @*<ProjectCards></ProjectCards>*@
     </div>
+</div>
 
-    <div id="About" class="wide-wrapper wide-wrapper--column">
-        <h2 class="display display-4 flex-row align-items-center title-line pr-1">ABOUT ME</h2>
-        <div class="flex-row">
-            <blockquote>
-                Mechatronics Engineer studying in Tishreen University Syria, I have been working in web development for three years using the Microsoft stack, i have a fluent English in addition to Arabic which is my native language, I am goal oriented, always learning new technologies and looking for my next project.
-                I believe that any kind of work i do or project i take is a representation of who i am so i always give 100% of my efforts into my work. I consider myself as a Back-End developer but i love the Front-End work.
-            </blockquote>
-        </div>
+<div id="About" class="wide-wrapper wide-wrapper--column">
+    <h2 class="display display-4 flex-row align-items-center title-line pr-1">ABOUT ME</h2>
+    <div class="flex-row">
+        <blockquote>
+            Mechatronics Engineer studying in Tishreen University Syria, I have been working in web development for three years using the Microsoft stack, i have a fluent English in addition to Arabic which is my native language, I am goal oriented, always learning new technologies and looking for my next project.
+            I believe that any kind of work i do or project i take is a representation of who i am so i always give 100% of my efforts into my work. I consider myself as a Back-End developer but i love the Front-End work.
+        </blockquote>
     </div>
+</div>
 
-    <div id="Contact" class="wide-wrapper wide-wrapper--column">
-        <h2 class="display display-4 flex-row align-items-center title-line pr-1">CONTACT</h2>
-        <div class="flex-column">
-            <ContactForm></ContactForm>
-        </div>
+<div id="Contact" class="wide-wrapper wide-wrapper--column">
+    <h2 class="display display-4 flex-row align-items-center title-line pr-1">CONTACT</h2>
+    <div class="flex-column">
+        <ContactForm></ContactForm>
     </div>
+</div>
+
+
+@code {
+
+    [Inject] private IJSRuntime JSRuntime { get; set; }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (!await JSRuntime.InvokeAsync<bool>("BlazorHelpers.ObserveElement", "body", "0px", 0.5, "#Work", "OnScrollIndex"))
+            {
+                throw new Exception("Failed to invoke the Intersection Observer.");
+            };
+        }
+    }
+
+    [JSInvokable]
+    public static void OnScrollIndex(IntersectionObserverEventArgs intersectionObserverEventArgs)
+    {
+        Console.WriteLine($"Index reporting the scroll for element {intersectionObserverEventArgs.target}");
+    }
+
+} 

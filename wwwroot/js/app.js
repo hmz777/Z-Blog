@@ -52,6 +52,47 @@
             $(".input-wrapper").removeClass("input-wrapper--active");
             e.stopPropagation()
         }
-
     });
 });
+
+//#region Blazor Helpers
+
+window.BlazorHelpers = {
+
+    ScrollTo: function (x, y) {
+        window.scroll(x, y);
+    },
+
+    ScrollElementIntoView: function (id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    },
+
+    ObserveElement: function (root, rootMargin, threshold, target, methodIdentifier) {
+
+        try {
+            if (observer == null || ObserverOptions == null || ObserverCallback == null) {
+                var ObserverOptions = {
+                    root: document.querySelector(root),
+                    rootMargin: rootMargin,
+                    threshold: threshold
+                }
+
+                var ObserverCallback = function (observerArgs) {
+                    DotNet.invokeMethodAsync('HMZSoftwareBlazorWebAssembly', methodIdentifier, observerArgs);
+                };
+
+                var observer = new IntersectionObserver(ObserverCallback, ObserverOptions);
+            }
+
+            observer.observe(document.querySelector(target));
+
+            return true;
+
+        } catch (e) {
+            console.log(e);
+            return false;
+        }
+    }
+}
+
+//#endregion
