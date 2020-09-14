@@ -426,17 +426,6 @@ form {
     }
 }
 
-#go-up {
-    position: fixed;
-    right: 1em;
-    bottom: 1em;
-    background: $color1;
-    border: 2px $color2 solid;
-    color: $color3;
-    padding: 1em;
-    z-index: 3;
-}
-
 .status-message {
     display: none;
     justify-content: space-between;
@@ -478,5 +467,62 @@ form {
         border: none;
         color: $color3;
         margin-left: .3em;
+    }
+}
+
+.side-controls {
+
+    #social-line {
+        position: fixed;
+        top: 0;
+        right: 2.5em;
+        width: .4em;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        z-index: 4;
+
+        @include breakpoint(max-width 620px) {
+            display: none;
+        }
+
+        a {
+            color: $color1;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                .arrow_box {
+                    display: inline-block;
+                }
+            }
+        }
+
+        i {
+            font-size: 1.9em;
+            margin: .2em 0;
+        }
+
+        &:before {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8em;
+            background: $color1;
+            content: "";
+        }
+    }
+
+    #go-up {
+        position: fixed;
+        right: 1em;
+        bottom: 1em;
+        background: $color1;
+        border: 2px $color2 solid;
+        color: $color3;
+        padding: 1em;
+        z-index: 3;
     }
 }

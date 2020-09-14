@@ -60,9 +60,7 @@ body {
 main {
     display: flex;
     flex-flow: column wrap;
-    position: relative;
     animation: fadeIn .5s ease-in-out forwards;
-    z-index: 1;
 }
 
 /**

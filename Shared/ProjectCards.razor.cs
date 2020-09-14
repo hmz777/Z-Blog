@@ -18,8 +18,6 @@ namespace HMZSoftwareBlazorWebAssembly.Shared
 
         private bool DataLoaded { get; set; } = false;
 
-        [Inject] IJSRuntime JS { get; set; }
-
         protected override async Task OnInitializedAsync()
         {
             //#if DEBUG
@@ -74,32 +72,6 @@ namespace HMZSoftwareBlazorWebAssembly.Shared
             var json = await topics.Content.ReadAsStringAsync();
 
             return JsonSerializer.Deserialize<JsonElement>(json).GetProperty("names").EnumerateArray().Select(item => item.ToString()).ToArray();
-        }
-
-        [JSInvokable]
-        public void OnScroll(ScrollEventArgs args)
-        {
-            // TODO: Render the project cards when the user scrolled to the component.         
-
-            // Scroll logic...
-
-            StateHasChanged();
-        }
-
-        public class ScrollEventArgs
-        {
-            public DOMRect ContainerRect { get; set; }
-            public DOMRect ContentRect { get; set; }
-        }
-
-        public class DOMRect
-        {
-            public double Top { get; set; }
-            public double Bottom { get; set; }
-            public double Left { get; set; }
-            public double Right { get; set; }
-            public double Width { get; set; }
-            public double Height { get; set; }
         }
     }
 }
