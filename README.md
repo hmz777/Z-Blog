@@ -7,4 +7,4 @@ The code in this repository is not meant to be a theme template nor cloned or de
 With that being said, i will not provide any kind of documentation or guidance for this project.
 
 # The idea
-As part of my process to learn Blazor Web Assembly, i will be creating a static blog that mimics how [Jekyll](https://github.com/jekyll/jekyll) works (or at least tries to).
+As part of my process to learn Blazor Web Assembly, i will be creating a static blog that mimics how [Jekyll](https://github.com/jekyll/jekyll) works, (or at least tries to).
