@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace HMZSoftwareBlazorWebAssembly.Models
 {
-    public class PostModel
+    public class BlogPostDocument
     {
-
+        public string Markdown { get; set; }
+        public string Yaml { get; set; }
     }
 }

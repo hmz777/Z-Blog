@@ -11,7 +11,7 @@
         <p class="description">
             @ShortDescription
         </p>
-        <a href="@PostUrl">READ MORE</a>
+        <a href="@Url">READ MORE</a>
     </div>
 </div>
 
@@ -26,7 +26,7 @@
     public string ShortDescription { get; set; }
     [Parameter]
     public string ImageUrl { get; set; }
-
-    private string PostUrl { get; set; } = "https://www.google.com";
+    [Parameter]
+    public string Url { get; set; }
 
 }

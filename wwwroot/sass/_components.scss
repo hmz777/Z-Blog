@@ -436,9 +436,9 @@ form {
     background: $color1;
     border: 2px $color2 solid;
     position: fixed;
-    top: 3em;
+    top: 8em;
     left: 0;
-    z-index: 3;
+    z-index: 4;
     transition: transform .5s cubic-bezier(.25,.8,.25,1);
     max-width: 40em;
 
