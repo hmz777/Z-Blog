@@ -1,29 +1,31 @@
 ﻿@page "/Post/{PostName}"
+@using Models
 
 <div class="post-container">
     <div class="post-banner">
-        <img src="@ImageUrl" alt="@Title" />
+        <img src="@BlogPostDocument.Yaml.ImageUrl" alt="@BlogPostDocument.Yaml.Title" />
         <div class="post-info">
             <div class="info">
-                <span class="category">@Category</span>
-                <span class="date">@Date.ToString("dd MMMM, yyyy")</span>
+                <span class="category">@BlogPostDocument.Yaml.Category</span>
+                <span class="date">@BlogPostDocument.Yaml.Date.ToString("dd MMMM, yyyy")</span>
             </div>
             <div class="title">
-                @Title
+                @BlogPostDocument.Yaml.Title
             </div>
         </div>
     </div>
     <div class="post-body">
+
     </div>
     <div class="post-footer">
         <div class="tags">
             <i class="las la-tags"></i><strong>TAGS:</strong>
-            @foreach (var tag in Tags)
+            @foreach (var tag in BlogPostDocument.Yaml.Tags)
             {
                 <NavLink href="@($"Tags/{tag}")">@tag</NavLink>
             }
         </div>
-        <span class="date"><i class="las la-calendar"></i><strong>UPDATED:</strong> @DateUpdated.ToString("dd MMMM, yyyy")</span>
+        <span class="date"><i class="las la-calendar"></i><strong>UPDATED:</strong> @BlogPostDocument.Yaml.DateUpdated.ToString("dd MMMM, yyyy")</span>
         <div class="post-social">
             <strong>SHARE ON:</strong>
             <div>
@@ -38,14 +40,7 @@
 
 @code {
 
-    [Parameter]
-    public string PostName { get; set; }
-    private string Title { get; set; }
-    private string ImageUrl { get; set; }
-    private string Category { get; set; }
-    private DateTime Date { get; set; }
-    private DateTime DateUpdated { get; set; }
-    private string[] Tags { get; set; }
+    public BlogPostDocument BlogPostDocument { get; set; }
 
     protected override void OnInitialized()
     {

@@ -279,10 +279,10 @@ FakesAssemblies/
 node_modules/
 
 #Client side libraries
-wwwroot/lib/*/
+**/wwwroot/lib/*/
 
 #Compiled CSS
-wwwroot/css/*
+**/wwwroot/css/*.css
 
 # Visual Studio 6 build log
 *.plg

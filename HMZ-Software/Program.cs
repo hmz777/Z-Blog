@@ -1,5 +1,4 @@
 using HMZSoftwareBlazorWebAssembly.Services;
-using Markdig;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -16,13 +15,6 @@ namespace HMZSoftwareBlazorWebAssembly
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            builder.Services.AddSingleton<IMarkupCompilerService>(sp => new MarkupCompiler() { MarkdownPipeline = new MarkdownPipelineBuilder()
-                .UseAdvancedExtensions()
-                .UseYamlFrontMatter()
-                .UseEmojiAndSmiley()
-                .UseSmartyPants()
-                .Build() 
-            });
             builder.Services.AddSingleton<IBlogPostProcessorService>(sp => new BlogPostProcessor());
 
             await builder.Build().RunAsync();
