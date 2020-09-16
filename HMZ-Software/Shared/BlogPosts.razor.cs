@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using HMZSoftwareBlazorWebAssembly.Models;
+﻿using HMZSoftwareBlazorWebAssembly.Models;
 using HMZSoftwareBlazorWebAssembly.Services;
+using Microsoft.AspNetCore.Components;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace HMZSoftwareBlazorWebAssembly.Shared
 {
@@ -13,11 +11,11 @@ namespace HMZSoftwareBlazorWebAssembly.Shared
         [Inject] private IBlogPostProcessorService BlogPostProcessorService { get; set; }
 
         private bool IsDataLoading { get; set; } = true;
-        private IEnumerable<BlogPostDocument> Posts { get; set; }
+        private IEnumerable<YamlMetadata> PostsMetadata { get; set; }
 
         protected async override Task OnInitializedAsync()
         {
-            Posts = await BlogPostProcessorService.ProcessPostsAsync();
+            PostsMetadata = await BlogPostProcessorService.ProcessPostsMetadataAsync();
         }
     }
 }

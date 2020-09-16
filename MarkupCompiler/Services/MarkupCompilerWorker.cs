@@ -58,21 +58,16 @@ namespace MarkupCompiler.Services
 
                     string yaml = markdown.Substring(yamlBlock.Span.Start, yamlBlock.Span.Length);
 
+                    YamlMetadata yamlMetadata = YamlTools.DeserializeYaml(yaml);
+
                     htmlRenderer.Render(Document);
                     stringWriter.Flush();
 
-                    Docs.Add(new BlogPostDocument { Yaml = yaml, Markdown = stringWriter.ToString(), FileName = Path.Substring(Path.LastIndexOf('\\')).Remove(Path.LastIndexOf('.')) });
+                    Docs.Add(new BlogPostDocument { Yaml = yamlMetadata, Markdown = stringWriter.ToString(), FileName = Path.Substring(Path.LastIndexOf('\\')).Remove(Path.LastIndexOf('.')) });
                 }
             }
 
             return Docs;
-        }
-
-        public YamlMetadata ParseYaml(string yaml)
-        {
-            var yamlDeserializer = YamlDeserializerFactory.GetOrCreate();
-
-            return yamlDeserializer.Deserialize<YamlMetadata>(yaml);
         }
     }
 }

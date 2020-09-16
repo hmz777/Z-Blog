@@ -21,10 +21,13 @@
   <ItemGroup>
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
+    <None Include="wwwroot\Blog\Posts\A-Test-Post.md" />
+    <None Include="wwwroot\Blog\Posts\EmptyFile" />
+    <None Include="wwwroot\Blog\Site\EmptyFile" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Blog\Site\" />
+    <Folder Include="wwwroot\Blog\Metadata\" />
   </ItemGroup>
 
 </Project>

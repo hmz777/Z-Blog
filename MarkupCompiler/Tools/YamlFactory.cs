@@ -6,11 +6,12 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace MarkupCompiler.Tools
 {
-    public class YamlDeserializerFactory
+    public class YamlFactory
     {
         private static IDeserializer Deserializer { get; set; }
+        private static ISerializer Serializer { get; set; }
 
-        public static IDeserializer GetOrCreate()
+        public static IDeserializer DeserializerGetOrCreate()
         {
             if (Deserializer != null)
                 return Deserializer;
@@ -20,6 +21,16 @@ namespace MarkupCompiler.Tools
                 .Build();
 
             return Deserializer;
+        }
+
+        public static ISerializer SerializerGetOrCreate()
+        {
+            if (Serializer != null)
+                return Serializer;
+
+            Serializer = new SerializerBuilder().Build();
+
+            return Serializer;
         }
     }
 }

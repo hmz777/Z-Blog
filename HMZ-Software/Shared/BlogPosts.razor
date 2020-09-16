@@ -5,18 +5,18 @@
 
     @if (IsDataLoading)
     {
-        <i class="las la-circle-notch la-3x m-auto"></i>
+        <i class="las la-circle-notch la-4x m-auto"></i>
     }
     else
     {
-        foreach (var Post in Posts)
+        foreach (var Post in PostsMetadata)
         {
-            <BlogPost Category="@Post.Yaml.Category"
-                      Date="@Post.Yaml.Date.ToString("dd MMMM, yyyy")"
-                      Title="@Post.Yaml.Title"
-                      Description="@Post.Yaml.Description"
-                      ImageUrl="@Post.Yaml.ImageUrl"
-                      Url="@Post.Yaml.Url">
+            <BlogPost Category="@Post.Category"
+                      Date="@Post.Date.ToString("dd MMMM, yyyy")"
+                      Title="@Post.Title"
+                      Description="@Post.Description"
+                      ImageUrl="@Post.ImageUrl"
+                      Url="@Post.Url">
             </BlogPost>
         }
     }

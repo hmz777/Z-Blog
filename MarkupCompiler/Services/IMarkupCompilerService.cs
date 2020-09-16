@@ -9,6 +9,5 @@ namespace MarkupCompiler.Services
     public interface IMarkupCompilerService
     {
         IEnumerable<BlogPostDocument> CompileMarkdown(string Root);
-        YamlMetadata ParseYaml(string Root);
     }
 }

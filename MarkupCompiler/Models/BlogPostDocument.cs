@@ -9,7 +9,7 @@ namespace MarkupCompiler.Models
     {
         public string FileName { get; set; }
         public string Markdown { get; set; }
-        public string Yaml { get; set; }
+        public YamlMetadata Yaml { get; set; }
     }
 
     public class YamlMetadata

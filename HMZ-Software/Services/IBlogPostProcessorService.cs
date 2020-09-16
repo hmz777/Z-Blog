@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HMZSoftwareBlazorWebAssembly.Services;
+using static HMZSoftwareBlazorWebAssembly.Models.BlogPostDocument;
 
 namespace HMZSoftwareBlazorWebAssembly.Services
 {
@@ -11,5 +12,7 @@ namespace HMZSoftwareBlazorWebAssembly.Services
     {
         Task<IEnumerable<BlogPostDocument>> ProcessPostsAsync();
         Task<BlogPostDocument> ProcessPostAsync(string Name);
+        Task<IEnumerable<YamlMetadata>> ProcessPostsMetadataAsync();
+        Task<YamlMetadata> ProcessPostMetadataAsync(string Name);
     }
 }
