@@ -3,6 +3,7 @@ using Markdig.Extensions.Yaml;
 using Markdig.Renderers;
 using Markdig.Syntax;
 using MarkupCompiler.Models;
+using MarkupCompiler.Tools;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,11 +23,13 @@ namespace MarkupCompiler.Services
 
         public IEnumerable<BlogPostDocument> CompileMarkdown(string Root)
         {
+            var PostDirectory = Path.Combine(Root, "Posts");
+
             //Grab Markdown files
-            var Paths = Directory.GetFiles(Root, "*.md");
+            var Paths = Directory.GetFiles(PostDirectory, "*.md");
             if (Paths.Length == 0)
             {
-                File.AppendAllText("Compiler.log", $"No posts found in {Root}!{Environment.NewLine}");
+                File.AppendAllText("Compiler.log", $"No posts found in {PostDirectory}!{Environment.NewLine}");
 
                 return default;
             }
@@ -55,12 +58,10 @@ namespace MarkupCompiler.Services
 
                     string yaml = markdown.Substring(yamlBlock.Span.Start, yamlBlock.Span.Length);
 
-                    var YamlData = ParseYaml(yaml);
-
                     htmlRenderer.Render(Document);
                     stringWriter.Flush();
 
-                    Docs.Add(new BlogPostDocument { Yaml = YamlData, Markdown = stringWriter.ToString() });
+                    Docs.Add(new BlogPostDocument { Yaml = yaml, Markdown = stringWriter.ToString(), FileName = Path.Substring(Path.LastIndexOf('\\')).Remove(Path.LastIndexOf('.')) });
                 }
             }
 
@@ -69,7 +70,9 @@ namespace MarkupCompiler.Services
 
         public YamlMetadata ParseYaml(string yaml)
         {
-            throw new NotImplementedException();
+            var yamlDeserializer = YamlDeserializerFactory.GetOrCreate();
+
+            return yamlDeserializer.Deserialize<YamlMetadata>(yaml);
         }
     }
 }

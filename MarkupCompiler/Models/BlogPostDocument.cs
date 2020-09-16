@@ -7,8 +7,9 @@ namespace MarkupCompiler.Models
 {
     public class BlogPostDocument
     {
+        public string FileName { get; set; }
         public string Markdown { get; set; }
-        public YamlMetadata Yaml { get; set; }
+        public string Yaml { get; set; }
     }
 
     public class YamlMetadata
