@@ -1,4 +1,5 @@
 ﻿using Markdig;
+using MarkupCompiler.Models;
 using MarkupCompiler.Services;
 using MarkupCompiler.Tools;
 using System;
@@ -11,8 +12,10 @@ namespace MarkupCompiler
     {
         static void Main(string[] args)
         {
-            //The blog root is expected to be the first argument
-            string Root = args[0];
+            string Root = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\", @"HMZ-Software\wwwroot\Blog"));
+
+            Console.WriteLine("Cleaning up...");
+            FileOps.CleanSite(Root);
 
             Console.WriteLine("Building the Markdig pipeline and compiling posts if they exist...");
             var PostDocuments = MarkupCompilerFactory.GetOrCreate().CompileMarkdown(Root);

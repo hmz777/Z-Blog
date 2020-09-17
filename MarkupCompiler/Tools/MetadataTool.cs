@@ -13,7 +13,7 @@ namespace MarkupCompiler.Tools
     {
         public static void ConstructMetadata(IEnumerable<YamlMetadata> blogPostMetadata)
         {
-            string FilePath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\HMZ-Software\wwwroot\Blog\Metadata\Metadata.json"));
+            string FilePath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\", @"HMZ-Software\wwwroot\Blog\Metadata\Metadata.json"));
 
             var JsonMetadata = JsonSerializer.Serialize(blogPostMetadata);
 

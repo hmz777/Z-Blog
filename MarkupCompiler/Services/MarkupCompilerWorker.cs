@@ -29,9 +29,9 @@ namespace MarkupCompiler.Services
             var Paths = Directory.GetFiles(PostDirectory, "*.md");
             if (Paths.Length == 0)
             {
-                File.AppendAllText("Compiler.log", $"No posts found in {PostDirectory}!{Environment.NewLine}");
+                Console.WriteLine("Compiler.log", $"No posts found in {PostDirectory}!");
 
-                return default;
+                Environment.Exit(0);
             }
 
             List<BlogPostDocument> Docs = new List<BlogPostDocument>();
@@ -52,8 +52,7 @@ namespace MarkupCompiler.Services
 
                     if (yamlBlock == null)
                     {
-                        File.AppendAllText("Compiler.log", $"File with path {Path} has no Yaml metadata!{Environment.NewLine}");
-                        continue;
+                        throw new Exception($"File with path {Path} has no Yaml metadata!");
                     }
 
                     string yaml = markdown.Substring(yamlBlock.Span.Start, yamlBlock.Span.Length);
@@ -63,7 +62,10 @@ namespace MarkupCompiler.Services
                     htmlRenderer.Render(Document);
                     stringWriter.Flush();
 
-                    Docs.Add(new BlogPostDocument { Yaml = yamlMetadata, Markdown = stringWriter.ToString(), FileName = Path.Substring(Path.LastIndexOf('\\')).Remove(Path.LastIndexOf('.')) });
+                    string FileName = Path.Substring(Path.LastIndexOf('\\') + 1);
+                    FileName = FileName.Remove(FileName.LastIndexOf('.'));
+
+                    Docs.Add(new BlogPostDocument { Yaml = yamlMetadata, Markdown = stringWriter.ToString(), FileName = FileName });
                 }
             }
 

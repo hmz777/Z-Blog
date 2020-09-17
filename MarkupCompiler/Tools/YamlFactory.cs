@@ -17,7 +17,7 @@ namespace MarkupCompiler.Tools
                 return Deserializer;
 
             Deserializer = new DeserializerBuilder()
-                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .WithNamingConvention(PascalCaseNamingConvention.Instance)
                 .Build();
 
             return Deserializer;
