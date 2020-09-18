@@ -53,7 +53,10 @@
             e.stopPropagation()
         }
     });
+
 });
+
+var observer, ObserverOptions, ObserverCallback;
 
 //#region Blazor Helpers
 
@@ -67,22 +70,22 @@ window.BlazorHelpers = {
         document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     },
 
-    ObserveElement: function (blazorComponentInstance ,root, rootMargin, threshold, target, methodIdentifier) {
+    ObserveElement: function (blazorComponentInstance, root, rootMargin, threshold, target, methodIdentifier) {
 
         try {
             if (observer == null || ObserverOptions == null || ObserverCallback == null) {
 
-                var ObserverOptions = {
+                ObserverOptions = {
                     root: document.querySelector(root),
                     rootMargin: rootMargin,
                     threshold: threshold
                 }
 
-                var ObserverCallback = function (entries, observer) {
+                ObserverCallback = function (entries, observer) {
                     blazorComponentInstance.invokeMethodAsync(methodIdentifier, { isIntersecting: entries[0].isIntersecting, elementId: entries[0].target.id });
                 };
 
-                var observer = new IntersectionObserver(ObserverCallback, ObserverOptions);
+                observer = new IntersectionObserver(ObserverCallback, ObserverOptions);
             }
 
             observer.observe(document.querySelector(target));
@@ -93,8 +96,13 @@ window.BlazorHelpers = {
             console.log(e);
             return false;
         }
-    }
+    },
 
+    ScrollHandler: function (blazorComponentInstance) {
+        window.onscroll = function () {
+            blazorComponentInstance.invokeMethodAsync("OnScrollHandlerNav", window.pageYOffset);
+        }
+    }
 
 }
 
