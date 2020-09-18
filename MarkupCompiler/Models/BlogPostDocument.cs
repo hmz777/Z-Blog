@@ -7,7 +7,6 @@ namespace MarkupCompiler.Models
 {
     public class BlogPostDocument
     {
-        public string FileName { get; set; }
         public string Markdown { get; set; }
         public YamlMetadata Yaml { get; set; }
     }
@@ -22,5 +21,6 @@ namespace MarkupCompiler.Models
         public DateTime Date { get; set; }
         public DateTime DateUpdated { get; set; }
         public string[] Tags { get; set; }
+        public string FileName { get; set; }
     }
 }

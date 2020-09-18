@@ -5,7 +5,11 @@
 
     @if (IsDataLoading)
     {
-        <i class="las la-circle-notch la-4x m-auto"></i>
+        <i class="las la-circle-notch la-spin la-4x m-auto"></i>
+    }
+    else if (DataIsEmpty)
+    {
+        <p class="m-auto">No posts found :(</p>
     }
     else
     {
@@ -16,7 +20,7 @@
                       Title="@Post.Title"
                       Description="@Post.Description"
                       ImageUrl="@Post.ImageUrl"
-                      Url="@Post.Url">
+                      Url="@Post.FileName">
             </BlogPost>
         }
     }

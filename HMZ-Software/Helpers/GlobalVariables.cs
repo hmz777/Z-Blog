@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HMZSoftwareBlazorWebAssembly.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,6 +9,6 @@ namespace HMZSoftwareBlazorWebAssembly.Helpers
 {
     public class GlobalVariables
     {
-        public static string RootPath => Directory.GetDirectoryRoot(Directory.GetCurrentDirectory());
+        public static List<YamlMetadata> YamlMetadata { get; set; }
     }
 }

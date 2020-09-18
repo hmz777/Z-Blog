@@ -4,7 +4,7 @@ Category: DotNET
 Date: 2020-9-15 15:30:15
 DateUpdated: 2020-9-15 15:30:15
 Description: Some description about the post listed on this site for testing purposes only. Please ignore.
-Url: https://www.google.com
+Url: A-Test-Post
 ImageUrl: https://via.placeholder.com/600
 Tags:
   - DotNet

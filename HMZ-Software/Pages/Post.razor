@@ -1,50 +1,73 @@
-﻿@page "/Post/{PostName}"
+﻿@page "/Blog/Post/{PostName}"
 @using Models
+@using Services
 
 <div class="post-container">
-    <div class="post-banner">
-        <img src="@BlogPostDocument.Yaml.ImageUrl" alt="@BlogPostDocument.Yaml.Title" />
-        <div class="post-info">
-            <div class="info">
-                <span class="category">@BlogPostDocument.Yaml.Category</span>
-                <span class="date">@BlogPostDocument.Yaml.Date.ToString("dd MMMM, yyyy")</span>
-            </div>
-            <div class="title">
-                @BlogPostDocument.Yaml.Title
+    @if (IsDataLoading)
+    {
+        <i class="las la-circle-notch la-spin la-4x m-auto"></i>
+    }
+    else if (IsDataEmpty)
+    {
+        <p class="m-auto">No posts found :(</p>
+    }
+    else
+    {
+        <div class="post-banner">
+            <img src="@BlogPostDocument.Yaml.ImageUrl" alt="@BlogPostDocument.Yaml.Title" />
+            <div class="post-info">
+                <div class="info">
+                    <span class="category">@BlogPostDocument.Yaml.Category</span>
+                    <span class="date">@BlogPostDocument.Yaml.Date.ToString("dd MMMM, yyyy")</span>
+                </div>
+                <div class="title">
+                    @BlogPostDocument.Yaml.Title
+                </div>
             </div>
         </div>
-    </div>
-    <div class="post-body">
+        <div class="post-body">
+            @((MarkupString)BlogPostDocument.Html)
+        </div>
+        <div class="post-footer">
+            <div class="tags">
+                <i class="las la-tags"></i><strong>TAGS:</strong>
+                @foreach (var tag in BlogPostDocument.Yaml.Tags)
+                {
+                    <NavLink href="@($"Tags/{tag}")">@tag</NavLink>
+                }
+            </div>
+            <span class="date"><i class="las la-calendar"></i><strong>UPDATED:</strong> @BlogPostDocument.Yaml.DateUpdated.ToString("dd MMMM, yyyy")</span>
+            <div class="post-social">
+                <strong>SHARE ON:</strong>
+                <div>
+                    <a class="btn btn-facebook" href="#"><i class="lab la-facebook"></i> <span>Facebook</span></a>
+                    <a class="btn btn-twitter" href="#"><i class="lab la la-twitter"></i> <span>Twitter</span></a>
+                    <a class="btn btn-linkedin" href="#"><i class="lab la-linkedin"></i> <span>LinkedIn</span></a>
+                    <a class="btn btn-instagram" href="#"><i class="lab la-instagram"></i> <span>Instagram</span></a>
+                </div>
+            </div>
+        </div>
 
-    </div>
-    <div class="post-footer">
-        <div class="tags">
-            <i class="las la-tags"></i><strong>TAGS:</strong>
-            @foreach (var tag in BlogPostDocument.Yaml.Tags)
-            {
-                <NavLink href="@($"Tags/{tag}")">@tag</NavLink>
-            }
-        </div>
-        <span class="date"><i class="las la-calendar"></i><strong>UPDATED:</strong> @BlogPostDocument.Yaml.DateUpdated.ToString("dd MMMM, yyyy")</span>
-        <div class="post-social">
-            <strong>SHARE ON:</strong>
-            <div>
-                <a class="btn btn-facebook" href="#"><i class="lab la-facebook"></i> <span>Facebook</span></a>
-                <a class="btn btn-twitter" href="#"><i class="lab la la-twitter"></i> <span>Twitter</span></a>
-                <a class="btn btn-linkedin" href="#"><i class="lab la-linkedin"></i> <span>LinkedIn</span></a>
-                <a class="btn btn-instagram" href="#"><i class="lab la-instagram"></i> <span>Instagram</span></a>
-            </div>
-        </div>
-    </div>
+    }
 </div>
 
 @code {
 
-    public BlogPostDocument BlogPostDocument { get; set; }
+    [Parameter]
+    public string PostName { get; set; }
+    [Inject] private IBlogPostProcessorService BlogPostProcessorService { get; set; }
+    private BlogPostDocument BlogPostDocument { get; set; }
+    private bool IsDataLoading { get; set; } = true;
+    private bool IsDataEmpty { get; set; } = true;
 
-    protected override void OnInitialized()
+    protected async override Task OnInitializedAsync()
     {
-        //Fetch post file metadata
+        BlogPostDocument = await BlogPostProcessorService.ProcessPostAsync(PostName);
+
+        if (!string.IsNullOrWhiteSpace(BlogPostDocument.Html) && BlogPostDocument.Yaml != null)
+            IsDataEmpty = false;
+
+        IsDataLoading = false;
     }
 
 }

@@ -3,6 +3,7 @@
     flex-flow: row wrap;
     width: 100%;
     justify-content: space-between;
+    padding: 2em 0;
 
     .blog-post {
         position: relative;
@@ -137,6 +138,7 @@
     display: flex;
     flex-flow: column wrap;
     width: 100%;
+    padding-bottom: 2em;
 
     .post-banner {
         width: 100%;

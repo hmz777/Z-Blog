@@ -10,9 +10,8 @@ namespace HMZSoftwareBlazorWebAssembly.Services
 {
     public interface IBlogPostProcessorService
     {
-        Task<IEnumerable<BlogPostDocument>> ProcessPostsAsync();
         Task<BlogPostDocument> ProcessPostAsync(string Name);
-        Task<IEnumerable<YamlMetadata>> ProcessPostsMetadataAsync();
         Task<YamlMetadata> ProcessPostMetadataAsync(string Name);
+        Task<IEnumerable<YamlMetadata>> ProcessPostsMetadataAsync();
     }
 }

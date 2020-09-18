@@ -29,7 +29,7 @@ namespace MarkupCompiler.Services
             var Paths = Directory.GetFiles(PostDirectory, "*.md");
             if (Paths.Length == 0)
             {
-                Console.WriteLine("Compiler.log", $"No posts found in {PostDirectory}!");
+                Console.WriteLine($"No posts found in {PostDirectory}!");
 
                 Environment.Exit(0);
             }
@@ -65,7 +65,9 @@ namespace MarkupCompiler.Services
                     string FileName = Path.Substring(Path.LastIndexOf('\\') + 1);
                     FileName = FileName.Remove(FileName.LastIndexOf('.'));
 
-                    Docs.Add(new BlogPostDocument { Yaml = yamlMetadata, Markdown = stringWriter.ToString(), FileName = FileName });
+                    yamlMetadata.FileName = FileName;
+
+                    Docs.Add(new BlogPostDocument { Yaml = yamlMetadata, Markdown = stringWriter.ToString() });
                 }
             }
 

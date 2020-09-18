@@ -30,4 +30,8 @@
     <Folder Include="wwwroot\Blog\Metadata\" />
   </ItemGroup>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="$(DevEnvDir) D:\Work\WebDevelopment\GitHub\Projects\HMZ-Software-Blazor-WebAssembly\MarkupCompiler\MarkupCompiler.csproj /Rebuild Release&#xD;&#xA;cd $(SolutionDir)..\MarkupCompiler\bin\Release\netcoreapp3.1\&#xD;&#xA;MarkupCompiler.exe" />
+  </Target>
+
 </Project>

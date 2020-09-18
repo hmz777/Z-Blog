@@ -1,41 +1,50 @@
-﻿using HMZSoftwareBlazorWebAssembly.Models;
+﻿using HMZSoftwareBlazorWebAssembly.Helpers;
+using HMZSoftwareBlazorWebAssembly.Models;
 using HMZSoftwareBlazorWebAssembly.Tools;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
+using System.Net.Http.Json;
 
 namespace HMZSoftwareBlazorWebAssembly.Services
 {
     public class BlogPostProcessor : IBlogPostProcessorService
     {
-        [Inject] private HttpClient HttpClient { get; set; }
+        public BlogPostProcessor(HttpClient httpClient)
+        {
+            HttpClient = httpClient;
+        }
+
+        public HttpClient HttpClient { get; }
 
         public async Task<BlogPostDocument> ProcessPostAsync(string Name)
         {
             return new BlogPostDocument()
             {
-                Html = await HttpClient.GetStringAsync($"Blog/{Name}.html"),
-                Yaml = YamlDeserializerFactory.GetOrCreate()
-                .Deserialize<YamlMetadata>(await HttpClient.GetStringAsync($"Blog/{Name}.yml"))
+                Html = await HttpClient.GetStringAsync($"/Blog/Site/{Name}.html"),
+                Yaml = YamlTools
+                .DeserializeYaml(await HttpClient.GetStringAsync($"Blog/Site/{Name}.yml"))
             };
         }
 
-        public Task<YamlMetadata> ProcessPostMetadataAsync(string Name)
+        public async Task<YamlMetadata> ProcessPostMetadataAsync(string Name)
         {
-            throw new NotImplementedException();
+            return YamlTools
+                .DeserializeYaml(await HttpClient.GetStringAsync($"/Blog/Site/{Name}.yml"));
         }
 
-        public Task<IEnumerable<BlogPostDocument>> ProcessPostsAsync()
+        public async Task<IEnumerable<YamlMetadata>> ProcessPostsMetadataAsync()
         {
-            throw new NotImplementedException();
-        }
+            //Cache the metadata json file
+            if (GlobalVariables.YamlMetadata == null)
+                GlobalVariables.YamlMetadata = await HttpClient
+                    .GetFromJsonAsync<List<YamlMetadata>>($"/Blog/Metadata/Metadata.json");
 
-        public Task<IEnumerable<YamlMetadata>> ProcessPostsMetadataAsync()
-        {
-            throw new NotImplementedException();
+            return GlobalVariables.YamlMetadata;
         }
     }
 }
