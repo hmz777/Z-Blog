@@ -1,9 +1,9 @@
 ﻿@using Models
 @using System.IO;
-@using Helpers 
+@using Helpers
 
 <header class="Navigation">
-    <div class="nav">
+    <nav class="nav">
         <NavLink href="" Match="NavLinkMatch.All"><span class="logo">HMZ</span></NavLink>
         <ul>
             @if (IsHome)
@@ -22,7 +22,7 @@
             <span></span>
             <span></span>
         </button>
-    </div>
+    </nav>
     <div class="side-nav">
         <SideNav @ref="SideNav" IsHome="@IsHome"></SideNav>
     </div>
@@ -30,7 +30,8 @@
 
 @code {
 
-    [Inject] public NavigationManager NavigationManager { get; set; }
+    [Inject] private NavigationManager NavigationManager { get; set; }
+    [Inject] private IJSRuntime JSRuntime { get; set; }
 
     private SideNav SideNav { get; set; }
     private bool IsHome { get; set; } = true;

@@ -64,7 +64,7 @@
     {
         BlogPostDocument = await BlogPostProcessorService.ProcessPostAsync(PostName);
 
-        if (!string.IsNullOrWhiteSpace(BlogPostDocument.Html) && BlogPostDocument.Yaml != null)
+        if (BlogPostDocument.Yaml != null)
             IsDataEmpty = false;
 
         IsDataLoading = false;

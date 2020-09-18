@@ -16,10 +16,10 @@ namespace MarkupCompiler.Tools
                 return MarkupCompilerWorker;
 
             var Pipeline = new MarkdownPipelineBuilder()
-                .UseAdvancedExtensions()
                 .UseYamlFrontMatter()
                 .UseEmojiAndSmiley()
                 .UseSmartyPants()
+                .UseAdvancedExtensions()
                 .Build();
 
             MarkupCompilerWorker = new MarkupCompilerWorker(Pipeline);
