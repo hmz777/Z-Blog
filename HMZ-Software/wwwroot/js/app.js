@@ -54,6 +54,14 @@
         }
     });
 
+    $(document).scroll(function () {
+        if ($(this).scrollTop() > 0) {
+            $(".Navigation").addClass("scrolled");
+        } else {
+            $(".Navigation").removeClass("scrolled");
+        }
+    });
+
 });
 
 var observer, ObserverOptions, ObserverCallback;
@@ -96,14 +104,7 @@ window.BlazorHelpers = {
             console.log(e);
             return false;
         }
-    },
-
-    ScrollHandler: function (blazorComponentInstance) {
-        window.onscroll = function () {
-            blazorComponentInstance.invokeMethodAsync("OnScrollHandlerNav", window.pageYOffset);
-        }
     }
-
 }
 
 //#endregion

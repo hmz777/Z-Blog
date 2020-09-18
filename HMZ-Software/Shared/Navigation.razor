@@ -44,29 +44,6 @@
         CheckIfHome();
     }
 
-    protected async override Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await JSRuntime.InvokeVoidAsync("BlazorHelpers.ScrollHandler", DotNetObjectReference.Create(this));
-        }
-    }
-
-    [JSInvokable]
-    public void OnScrollHandlerNav(int TopVal)
-    {
-        if (TopVal >= 500 && NavState != "scrolled")
-        {
-            NavState = "scrolled";
-            StateHasChanged();
-        }
-        else if (TopVal < 600 && !string.IsNullOrEmpty(NavState))
-        {
-            NavState = string.Empty;
-            StateHasChanged();
-        }
-    }
-
     private void OnLocationChanged(object sender, LocationChangedEventArgs args)
     {
         SideNav.ChangeState(CheckIfHome());

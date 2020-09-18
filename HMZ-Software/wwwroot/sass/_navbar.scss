@@ -3,17 +3,17 @@
     width: 100%;
     align-items: center;
     background: $color3;
-    transition: transform .5s cubic-bezier(0.83, 0, 0.17, 1);
+    transition: box-shadow .5s cubic-bezier(0.83, 0, 0.17, 1), border .5s cubic-bezier(0.83, 0, 0.17, 1);
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 3;
 
     &.scrolled {
-        position: fixed;
-        top: 0;
-        z-index: 3;
         border-bottom: .3em solid $color1;
         -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
         box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
-        animation: navFadeInDown .5s cubic-bezier(0.83, 0, 0.17, 1) forwards;
     }
 
     .nav {
