@@ -9,7 +9,7 @@
     }
     else if (IsDataEmpty)
     {
-        <p class="m-auto">No posts found :(</p>
+        <p class="m-auto">Post not found :(</p>
     }
     else
     {
@@ -17,10 +17,10 @@
             <img src="@BlogPostDocument.Yaml.ImageUrl" alt="@BlogPostDocument.Yaml.Title" />
             <div class="post-info">
                 <div class="info">
-                    <span class="category">@BlogPostDocument.Yaml.Category</span>
+                    <span class="category" title="@BlogPostDocument.Yaml.Category">@BlogPostDocument.Yaml.Category</span>
                     <span class="date">@BlogPostDocument.Yaml.Date.ToString("dd MMMM, yyyy")</span>
                 </div>
-                <div class="title">
+                <div class="title" title=" @BlogPostDocument.Yaml.Title">
                     @BlogPostDocument.Yaml.Title
                 </div>
             </div>

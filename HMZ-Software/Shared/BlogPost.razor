@@ -2,13 +2,13 @@
     <img src="@ImageUrl" alt="@Title" />
     <div class="content">
         <div class="info">
-            <span class="category">@Category</span>
+            <span class="category" title="@Category">@Category</span>
             <span class="date">@Date</span>
         </div>
-        <div class="title">
+        <div class="title" title=" @Title">
             @Title
         </div>
-        <p class="description">
+        <p class="description" title="@Description">
             @Description
         </p>
         <NavLink href="@{$"Blog/Post/{Url}"}" Match="NavLinkMatch.All">READ MORE</NavLink>

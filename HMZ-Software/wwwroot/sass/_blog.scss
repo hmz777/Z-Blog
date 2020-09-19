@@ -160,6 +160,7 @@
         .post-info {
             display: flex;
             flex-flow: column wrap;
+            align-items: stretch;
             padding: 2em;
             background: $color1;
             position: absolute;
@@ -179,12 +180,14 @@
                 font-size: .8em;
 
                 .category {
+                    @include Truncate(1);
                     padding: .2em 1.2em;
                     border: 2px solid $color2;
                     background: $color3;
                     color: $color1;
                     border-radius: 1em;
                     font-weight: bold;
+                    max-width: 50%;
                 }
 
                 .date {
@@ -220,6 +223,34 @@
         word-break: break-word;
         font-size: 1.3em;
         margin-bottom: 2em;
+
+        hr {
+            border: 0;
+            background-color: $color1;
+            height: .1em;
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                position: relative;
+
+                &:before {
+                    @extend .las;
+                    position: relative;
+                    content: la-content($la-chevron-right);
+                    color: $color1;
+                    margin-right: .3em;
+                }
+            }
+        }
+
+        a {
+            color: $color1;
+            font-weight: bold;
+            border-bottom: .2em solid $color1;
+        }
     }
 
     .post-footer {
