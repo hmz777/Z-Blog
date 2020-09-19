@@ -1,4 +1,4 @@
-# HMZ-Software Blazor WebAssembly
+# Z-Blog Blazor WebAssembly
 ![GitHub](https://img.shields.io/github/license/hmz777/HMZ-Software-Blazor-WebAssembly?color=black&style=flat-square)
 
 ### This is a (work in progress) rewrite of my personal website using Blazor WebAssembly.
