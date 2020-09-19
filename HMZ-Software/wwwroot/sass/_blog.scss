@@ -2,6 +2,7 @@
     display: flex;
     flex-flow: row wrap;
     width: 100%;
+    height: 100%;
     justify-content: space-between;
     padding: 2em 0;
 
@@ -140,7 +141,8 @@
     display: flex;
     flex-flow: column wrap;
     width: 100%;
-    padding-bottom: 2em;
+    flex-grow: 1;
+    padding: 2em 0;
 
     .post-banner {
         width: 100%;
@@ -229,6 +231,11 @@
             background-color: $color1;
             height: .1em;
         }
+
+        p {
+            margin: 0;
+        }
+
 
         ul {
             list-style: none;

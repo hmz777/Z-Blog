@@ -298,7 +298,7 @@ blockquote {
     font-size: 2em;
     display: flex;
     flex-flow: row wrap;
-    margin: 2em 1em .5em;
+    margin: 2em 1em;
 
     &:before {
         @extend .las;
@@ -314,7 +314,7 @@ blockquote {
         position: absolute;
         content: la-content($la-quote-right);
         right: 0;
-        bottom: -.5em;
+        bottom: -1em;
         font-size: 2em;
     }
 }

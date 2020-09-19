@@ -61,6 +61,7 @@ main {
     display: flex;
     flex-flow: column wrap;
     animation: fadeIn .5s ease-in-out forwards;
+    min-height: 25em;
 }
 
 /**
