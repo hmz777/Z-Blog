@@ -11,13 +11,11 @@ namespace MarkupCompiler.Tools
 {
     public class MetadataTool
     {
-        public static void ConstructMetadata(IEnumerable<YamlMetadata> blogPostMetadata)
+        public static void ConstructMetadata(string path, IEnumerable<YamlMetadata> blogPostMetadata)
         {
-            string FilePath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\", @"HMZ-Software\wwwroot\Blog\Metadata\Metadata.json"));
-
             var JsonMetadata = JsonSerializer.Serialize(blogPostMetadata);
 
-            File.WriteAllText(FilePath, JsonMetadata);
+            File.WriteAllText(Path.Combine(path,"Metadata","Metadata.json"), JsonMetadata);
         }
     }
 }

@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,9 +30,5 @@
   <ItemGroup>
     <Folder Include="wwwroot\Blog\Metadata\" />
   </ItemGroup>
-
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="cd &quot;$(SolutionDir)..\MarkupCompiler&quot;&#xD;&#xA;$(DevEnvDir) &quot;MarkupCompiler.csproj&quot; /Rebuild Release&#xD;&#xA;cd &quot;$(SolutionDir)..\MarkupCompiler\bin\Release\netcoreapp3.1\&quot;&#xD;&#xA;MarkupCompiler.exe" />
-  </Target>
 
 </Project>

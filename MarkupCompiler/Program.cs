@@ -5,6 +5,7 @@ using MarkupCompiler.Tools;
 using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace MarkupCompiler
 {
@@ -14,7 +15,7 @@ namespace MarkupCompiler
         {
             try
             {
-                string Root = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\", @"HMZ-Software\wwwroot\Blog"));
+                string Root = Path.GetFullPath(Path.Combine(Directory.GetParent(Assembly.GetExecutingAssembly().Location).FullName, @"..\..\..\..\", @"HMZ-Software\wwwroot\Blog"));
 
                 Console.WriteLine("Cleaning up...");
                 FileOps.CleanSite(Root);
@@ -42,11 +43,11 @@ namespace MarkupCompiler
                 }
 
                 Console.WriteLine("Constructing blog metadata...");
-                MetadataTool.ConstructMetadata(PostDocuments.Select(p => p.Yaml).ToList());
+                MetadataTool.ConstructMetadata(Root, PostDocuments.Select(p => p.Yaml).ToList());
             }
             catch (Exception ex)
             {
-                File.AppendAllText(Path.Combine(Directory.GetCurrentDirectory(), "ExecuteLog.log"), $"{Environment.NewLine}{ex.Message}");
+                File.AppendAllText(Path.Combine(Directory.GetParent(Assembly.GetExecutingAssembly().Location).FullName, "ExecuteLog.log"), $"{Environment.NewLine}{ex.Message}");
             }
         }
     }
