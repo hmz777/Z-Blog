@@ -221,6 +221,8 @@
     }
 
     .post-body {
+        display: flex;
+        flex-flow: column wrap;
         padding: 0 6em;
         word-break: break-word;
         font-size: 1.3em;
@@ -262,27 +264,24 @@
         }
 
         pre {
-            /*border: 2px solid $color2;
-            -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
-            -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
-            box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
-            font-size: .7em;
-            overflow: scroll;
-            padding: 1em;
-            width: auto;
+            overflow: auto;
+            word-break: normal;
             max-width: 100%;
-            white-space: pre;
-            word-wrap: break-word;
-            float: left;
-            clear: both;*/
+            border: 2px solid $color2;
+            -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+            padding: 1em;
 
             code {
-                white-space: pre;
-                overflow-x: auto;
-                display: inline-block;
-                min-width: 100%;
+                word-break: normal;
+                overflow: visible;
+                font-size: 80%;
+                padding: 0;
             }
         }
+
+
 
         img {
             max-width: 100%;
