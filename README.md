@@ -54,7 +54,7 @@ The files are deserialized to a [`BlogPostDocument`](https://github.com/hmz777/Z
 4. Construct the `Metadata.json` file that represents the posts' metadata.
 5. Any exceptions are logged to `ExecuteLog.log` in the assembly directory.
 
-# Libraries used:
+# Libraries used
 - [Markdig](https://github.com/lunet-io/markdig) for markdown compilation.
 - [YamlDotNet](https://github.com/aaubry/YamlDotNet) for yaml related operations.
 - [jQuery](https://github.com/jquery/jquery).
