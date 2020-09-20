@@ -40,12 +40,12 @@ The `Site` directory contains the compilation output of the `MarkdownCompiler` p
 The files are deserialized to a [`BlogPostDocument`](https://github.com/hmz777/Z-Blog-Blazor-Wasm/blob/master/HMZ-Software/Models/BlogPostDocument.cs) type which has a `Markdown`, `html` and `Yaml` properties.
 
 #### Components
-The `BlogPost` component renders the blog post cards in the `Blog` page.
-The `ProjectCards` component renders my GitHub repositories as cards using the GitHub API and it calls the `Intersection Observer` on initialization using the `IJSRuntime` in order to call the API once the component is in the viewport and it caches the received data in the static global variable `GlobalVariables.GitHubData`.
+- The `BlogPost` component renders the blog post cards in the `Blog` page.
+- The `ProjectCards` component renders my GitHub repositories as cards using the GitHub API and it calls the `Intersection Observer` on initialization using the `IJSRuntime` in order to call the API once the component is in the viewport and it caches the received data in the static global variable `GlobalVariables.GitHubData`.
 
 ## MarkdownCompiler
-The `MarkdownCompiler` is the project responsible for compiling the markdown files.
-The project is triggered to run on every build as a Visual Studio post build event.
+- The `MarkdownCompiler` is the project responsible for compiling the markdown files.
+- The project is triggered to run on every build as a Visual Studio post build event.
 
 ### What does it do?
 1. Performs clean up on the `Blog` directory (if it exists) to clear it from old posts and metadata files so it can start compiling the files again.
@@ -61,4 +61,9 @@ The project is triggered to run on every build as a Visual Studio post build eve
 - [PrismJs](https://github.com/PrismJS/prism) for syntax highlighting.
 - [Line Awesome](https://github.com/icons8/line-awesome) icon font.
 - [Brotli](https://github.com/google/brotli) for blazor file decompression.
+
 Aditionally the project uses SASS.
+
+# License
+Licensed under the GNU General Public License v3.0.
+
