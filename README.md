@@ -62,7 +62,7 @@ The files are deserialized to a [`BlogPostDocument`](https://github.com/hmz777/Z
 - [Line Awesome](https://github.com/icons8/line-awesome) icon font.
 - [Brotli](https://github.com/google/brotli) for blazor file decompression.
 
-Aditionally the project uses SASS.
+Additionally the project uses SASS.
 
 # License
 Licensed under the GNU General Public License v3.0.
