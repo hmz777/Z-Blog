@@ -22,7 +22,7 @@ The blog is located in `wwwroot` and structured like this:
     - Posts
     - Site
     
-The `Metadata` directory has a `Metadata.json` file that contains all the posts' metadata.
+The `Metadata` directory has a `Metadata.json` file that contains all the posts' metadata which is constructed by the `MarkdownCompiler` project.
 The purpose of the `Metadata.json` file is to bypass the limitation of enumerating over files in `wwwroot`, it contains all the user provided posts' metadata: `Title`, `Dates`, `Tags`, etc.
 
 The `Posts` directory contains the markdown files that'll be compiled to `.html` and `.yml` on build via the `MarkdownCompiler` project.
