@@ -13,6 +13,8 @@ The solution consists of two projects:
 
 ## HMZ-Software
 The main blazor wasm app, it contains all the logic and components to form the website.
+
+### Blog
 The blog is located in `wwwroot` and structured like this:
 
 - Blog
@@ -27,6 +29,20 @@ The `Posts` directory contains the markdown files that'll be compiled to `.html`
 
 The `Site` directory contains the compilation output of the `MarkdownCompiler` project `.html` and `.yml` files for every post.
 
+### Logic and Services
+- The `IBlogPostProcessorService` handles processing of html, yaml and json files.
+- The `ProcessPostAsync` and `ProcessPostMetadataAsync` processes posts and metadata files respectively.
+- The `ProcessPostsMetadataAsync` fetches the `Metadata.json` file and caches it in a global static variable named `GlobalVariables.YamlMetadata`.
+
+#### Pages
+- The `Blog` page has the `BlogPosts` components which renders all the posts by injecting the `IBlogPostProcessorService` service and fetching the `Metadata.json` file by calling `ProcessPostsMetadataAsync`.
+- The `Post` page renders a specific post by injecting `IBlogPostProcessorService` service and fetching the post related files by calling `ProcessPostAsync`.
+The files are deserialized to a [`BlogPostDocument`](https://github.com/hmz777/Z-Blog-Blazor-Wasm/blob/master/HMZ-Software/Models/BlogPostDocument.cs) type which has a `Markdown`, `html` and `Yaml` properties.
+
+#### Components
+The `BlogPost` component renders the blog post cards in the `Blog` page.
+The `ProjectCards` component renders my GitHub repositories as cards using the GitHub API and it calls the `Intesection Observer` using the `IJSRuntime` in order to call the api once the component is in the viewport.
+
 ## MarkdownCompiler
 The `MarkdownCompiler` is the project responsible for compiling the markdown files.
 The project is triggered to run on every build as a Visual Studio post build event.
@@ -38,6 +54,11 @@ The project is triggered to run on every build as a Visual Studio post build eve
 4. Construct the `Metadata.json` file the represents the posts' metadata.
 5. Any exceptions are logged to `ExecuteLog.log` in the assembly directory.
 
-Libraries used:
-- jQuery
-- PrismJs for syntax highlighting
+# Libraries used:
+- [Markdig](https://github.com/lunet-io/markdig) for markdown compilation.
+- [YamlDotNet](https://github.com/aaubry/YamlDotNet) for yaml related operations.
+- [jQuery](https://github.com/jquery/jquery).
+- [PrismJs](https://github.com/PrismJS/prism) for syntax highlighting.
+- [Line Awesome](https://github.com/icons8/line-awesome) icon font.
+- [Brotli](https://github.com/google/brotli) for blazor file decompression.
+Aditionally the project uses SASS.
