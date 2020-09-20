@@ -104,6 +104,10 @@ window.BlazorHelpers = {
             console.log(e);
             return false;
         }
+    },
+
+    InvokeHighlighter: function () {
+        Prism.highlightAllUnder(document.querySelector(".post-body"));
     }
 }
 

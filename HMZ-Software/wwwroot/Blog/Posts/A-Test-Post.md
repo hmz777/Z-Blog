@@ -124,12 +124,17 @@ Sample text here...
 
 Syntax highlighting
 
-``` js
-var foo = function (bar) {
-  return bar++;
-};
-
-console.log(foo(5));
+```csharp
+protected async override Task OnAfterRenderAsync(bool firstRender)
+{
+    if (firstRender)
+    {
+        if (!await JSRuntime.InvokeAsync<bool>("BlazorHelpers.ObserveElement", DotNetObjectReference.Create(this), null, "0px", 0.5, "#Work", "OnScrollIndex"))
+        {
+            throw new Exception("Failed to invoke the Intersection Observer for the ProjectCards component.");
+        };
+    }
+}
 ```
 
 ## Tables

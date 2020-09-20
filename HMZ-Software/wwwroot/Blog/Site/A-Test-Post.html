@@ -85,11 +85,16 @@ line 3 of code
 <pre><code>Sample text here...
 </code></pre>
 <p>Syntax highlighting</p>
-<pre><code class="language-js">var foo = function (bar) {
-  return bar++;
-};
-
-console.log(foo(5));
+<pre><code class="language-csharp">protected async override Task OnAfterRenderAsync(bool firstRender)
+{
+    if (firstRender)
+    {
+        if (!await JSRuntime.InvokeAsync&lt;bool&gt;(&quot;BlazorHelpers.ObserveElement&quot;, DotNetObjectReference.Create(this), null, &quot;0px&quot;, 0.5, &quot;#Work&quot;, &quot;OnScrollIndex&quot;))
+        {
+            throw new Exception(&quot;Failed to invoke the Intersection Observer for the ProjectCards component.&quot;);
+        };
+    }
+}
 </code></pre>
 <h2 id="tables">Tables</h2>
 <table>
