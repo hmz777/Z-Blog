@@ -51,7 +51,7 @@ The files are deserialized to a [`BlogPostDocument`](https://github.com/hmz777/Z
 1. Performs clean up on the `Blog` directory (if it exists) to clear it from old posts and metadata files so it can start compiling the files again.
 2. Create the blog structure in the main project if it's not created.
 3. Parse markdown files that also consists of yaml markup, separate them into compiled html and yml files and write them to the `Site` directory.
-4. Construct the `Metadata.json` file the represents the posts' metadata.
+4. Construct the `Metadata.json` file that represents the posts' metadata.
 5. Any exceptions are logged to `ExecuteLog.log` in the assembly directory.
 
 # Libraries used:
