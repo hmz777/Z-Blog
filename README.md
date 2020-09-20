@@ -41,7 +41,7 @@ The files are deserialized to a [`BlogPostDocument`](https://github.com/hmz777/Z
 
 #### Components
 The `BlogPost` component renders the blog post cards in the `Blog` page.
-The `ProjectCards` component renders my GitHub repositories as cards using the GitHub API and it calls the `Intesection Observer` using the `IJSRuntime` in order to call the api once the component is in the viewport.
+The `ProjectCards` component renders my GitHub repositories as cards using the GitHub API and it calls the `Intersection Observer` on initialization using the `IJSRuntime` in order to call the API once the component is in the viewport.
 
 ## MarkdownCompiler
 The `MarkdownCompiler` is the project responsible for compiling the markdown files.
