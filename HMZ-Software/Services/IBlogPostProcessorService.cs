@@ -12,6 +12,6 @@ namespace HMZSoftwareBlazorWebAssembly.Services
     {
         Task<BlogPostDocument> ProcessPostAsync(string Name);
         Task<YamlMetadata> ProcessPostMetadataAsync(string Name);
-        Task<IEnumerable<YamlMetadata>> ProcessPostsMetadataAsync();
+        Task<List<YamlMetadata>> ProcessPostsMetadataAsync();
     }
 }

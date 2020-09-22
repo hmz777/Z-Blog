@@ -1,7 +1,36 @@
 ﻿@page "/Search"
+@using Helpers
+@using Models
+@using Services
 
-<h3>Search. To be edited...</h3>
+<div class="wide-wrapper wide-wrapper--column">
+    <div class="search-input-wrapper">
+        <label class="display display-4 font-bold" for="Search">SEARCH FOR POSTS</label>
+        <input @onkeypress="OnKeyPress" @bind="SearchTerm" @bind:event="oninput" type="text" name="Search" placeholder="Search..." />
+        <span>@SearchTerm</span>
+    </div>
+    <div class="search-result-wrapper">
+        @foreach (var item in SearchResults)
+        {
+            <h6>@item.Title</h6>//To be edited...
+        }
+    </div>
+</div>
 
 @code {
 
+    [Inject] private IBlogPostProcessorService BlogPostProcessorService { get; set; }
+
+    public List<YamlMetadata> SearchResults { get; set; } = new List<YamlMetadata>();
+    private string SearchTerm { get; set; }
+
+    public async Task OnKeyPress(KeyboardEventArgs keyboardEventArgs)
+    {
+        SearchResults = (await BlogPostProcessorService
+            .ProcessPostsMetadataAsync())
+            .Where(y => y.Title.Contains(SearchTerm, StringComparison.InvariantCultureIgnoreCase))
+            .ToList();
+
+        StateHasChanged();
+    }
 }

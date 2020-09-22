@@ -532,3 +532,26 @@ a:not([data-social="true"]) {
     font-weight: bold;
     border-bottom: .2em solid $color1;
 }
+
+.search-input-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+    color: $color1;
+
+    label {
+        margin-bottom: .5em;
+    }
+
+    input {
+        padding: .5em;
+        border: none;
+        background: none;
+        font-size: 2em;
+        color: $color1;
+
+        &::placeholder {
+            color: $color1;
+        }
+    }
+}

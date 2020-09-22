@@ -37,7 +37,7 @@ namespace HMZSoftwareBlazorWebAssembly.Services
                 .DeserializeYaml(await HttpClient.GetStringAsync($"/Blog/Site/{Name}.yml"));
         }
 
-        public async Task<IEnumerable<YamlMetadata>> ProcessPostsMetadataAsync()
+        public async Task<List<YamlMetadata>> ProcessPostsMetadataAsync()
         {
             //Cache the metadata json file
             if (GlobalVariables.YamlMetadata == null)
