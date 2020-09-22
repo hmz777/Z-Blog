@@ -19,7 +19,7 @@ namespace HMZSoftwareBlazorWebAssembly.Services
             HttpClient = httpClient;
         }
 
-        public HttpClient HttpClient { get; }
+        private HttpClient HttpClient { get; }
 
         public async Task<BlogPostDocument> ProcessPostAsync(string Name)
         {

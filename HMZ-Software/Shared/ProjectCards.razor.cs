@@ -7,16 +7,16 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using HMZSoftwareBlazorWebAssembly.Helpers;
 
 namespace HMZSoftwareBlazorWebAssembly.Shared
 {
-    public partial class ProjectCards : ComponentBase
+    public partial class ProjectCards : ComponentBase, IDisposable
     {
         [Inject] private HttpClient HttpClient { get; set; }
         [Inject] private IJSRuntime JSRuntime { get; set; }
 
         private List<GitRepo> GitHubProjects { get; set; } = new List<GitRepo>();
-
         private bool DataLoaded { get; set; } = false;
 
         protected async override Task OnAfterRenderAsync(bool firstRender)
@@ -33,7 +33,6 @@ namespace HMZSoftwareBlazorWebAssembly.Shared
         [JSInvokable]
         public async Task OnScrollIndex(IntersectionObserverEventArgs intersectionObserverEventArgs)
         {
-            //IO callback invoked.
             if (intersectionObserverEventArgs.isIntersecting && !DataLoaded)
             {
                 //IO is intersecting...
@@ -44,35 +43,44 @@ namespace HMZSoftwareBlazorWebAssembly.Shared
 
         private async Task FetchGitData()
         {
-            HttpClient.BaseAddress = new Uri("https://api.github.com");
-
-            HttpRequestMessage GitData = new HttpRequestMessage(HttpMethod.Get, "/users/hmz777/repos");
-            GitData.Headers.Accept.Clear();
-            GitData.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
-
-            var data = await HttpClient.SendAsync(GitData, HttpCompletionOption.ResponseContentRead);
-
-            if (!data.IsSuccessStatusCode)
-                throw new Exception("GitHub data fetch failed!");
-
-            var json = await data.Content.ReadAsStringAsync();
-            var projects = JsonSerializer.Deserialize<JsonElement>(json);
-
-            foreach (var project in projects.EnumerateArray())
+            if (GlobalVariables.GitHubData == null)
             {
-                if (!project.GetProperty("fork").GetBoolean())
+                HttpRequestMessage GitData = new HttpRequestMessage(HttpMethod.Get, "https://api.github.com/users/hmz777/repos");
+                GitData.Headers.Accept.Clear();
+                GitData.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+
+                var data = await HttpClient.SendAsync(GitData, HttpCompletionOption.ResponseContentRead);
+
+                if (!data.IsSuccessStatusCode)
+                    throw new Exception("GitHub data fetch failed!");
+
+                var json = await data.Content.ReadAsStringAsync();
+                var projects = JsonSerializer.Deserialize<JsonElement>(json);
+
+                foreach (var project in projects.EnumerateArray())
                 {
-                    GitHubProjects.Add(new GitRepo()
+                    if (!project.GetProperty("fork").GetBoolean())
                     {
-                        Name = project.GetProperty("name").GetString(),
-                        Description = project.GetProperty("description").GetString(),
-                        Url = project.GetProperty("html_url").GetString(),
-                        Forks = project.GetProperty("forks_count").GetInt32(),
-                        Stars = project.GetProperty("stargazers_count").GetInt32(),
-                        Watchers = project.GetProperty("watchers_count").GetInt32(),
-                        Topics = await GetProjectTopics(project.GetProperty("name").GetString())
-                    });
+                        GitHubProjects.Add(new GitRepo()
+                        {
+                            Name = project.GetProperty("name").GetString(),
+                            Description = project.GetProperty("description").GetString(),
+                            Url = project.GetProperty("html_url").GetString(),
+                            Forks = project.GetProperty("forks_count").GetInt32(),
+                            Stars = project.GetProperty("stargazers_count").GetInt32(),
+                            Watchers = project.GetProperty("watchers_count").GetInt32(),
+                            Topics = await GetProjectTopics(project.GetProperty("name").GetString())
+                        });
+                    }
                 }
+
+                //Cache the response
+                GlobalVariables.GitHubData = GitHubProjects;
+            }
+            else
+            {
+                //Get from cache
+                GitHubProjects = GlobalVariables.GitHubData;
             }
 
             DataLoaded = true;
@@ -80,7 +88,7 @@ namespace HMZSoftwareBlazorWebAssembly.Shared
 
         private async Task<string[]> GetProjectTopics(string ProjectName)
         {
-            HttpRequestMessage TopicsData = new HttpRequestMessage(HttpMethod.Get, $"/repos/hmz777/{ProjectName}/topics");
+            HttpRequestMessage TopicsData = new HttpRequestMessage(HttpMethod.Get, $"https://api.github.com/repos/hmz777/{ProjectName}/topics");
             TopicsData.Headers.Accept.Clear();
             TopicsData.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/vnd.github.mercy-preview+json"));
 
@@ -92,6 +100,11 @@ namespace HMZSoftwareBlazorWebAssembly.Shared
             var json = await topics.Content.ReadAsStringAsync();
 
             return JsonSerializer.Deserialize<JsonElement>(json).GetProperty("names").EnumerateArray().Select(item => item.ToString()).ToArray();
+        }
+
+        public void Dispose()
+        {
+            JSRuntime.InvokeVoidAsync("BlazorHelpers.DisposeOfObservableElement", "#Work");
         }
     }
 }

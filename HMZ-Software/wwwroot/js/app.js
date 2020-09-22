@@ -106,6 +106,15 @@ window.BlazorHelpers = {
         }
     },
 
+    DisposeOfObservableElement: function (target) {
+        if (observer == null)
+            return;
+
+        observer.unobserve(document.querySelector(target));
+        observer.disconnect();
+        observer, ObserverOptions, ObserverCallback = null;
+    },
+
     InvokeHighlighter: function () {
         Prism.highlightAllUnder(document.querySelector(".post-body"));
     }

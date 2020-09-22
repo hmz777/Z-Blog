@@ -25,8 +25,9 @@ namespace MarkupCompiler
 
                 string MainSiteDataPath = Path.Combine(Root, "Site");
 
-                Console.WriteLine("Creating the \"Site\" directory if it's not already created...");
-                Directory.CreateDirectory(MainSiteDataPath);
+                Console.WriteLine("Creating the necessary directories if they're not already created...");
+                Directory.CreateDirectory(Path.Combine(MainSiteDataPath, "Metadata"));
+                Directory.CreateDirectory(Path.Combine(MainSiteDataPath, "Site"));
 
                 Console.WriteLine("Writing the compiled data to files in a form of .html and .yml...");
                 foreach (var Document in PostDocuments)
