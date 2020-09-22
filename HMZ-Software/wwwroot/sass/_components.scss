@@ -526,3 +526,9 @@ form {
         z-index: 3;
     }
 }
+
+a:not([data-social="true"]) {
+    color: $color1;
+    font-weight: bold;
+    border-bottom: .2em solid $color1;
+}

@@ -18,6 +18,7 @@ namespace HMZSoftwareBlazorWebAssembly.Shared
 
         private List<GitRepo> GitHubProjects { get; set; } = new List<GitRepo>();
         private bool DataLoaded { get; set; } = false;
+        private bool HasMoreData { get; set; } = false;
 
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
@@ -74,13 +75,20 @@ namespace HMZSoftwareBlazorWebAssembly.Shared
                     }
                 }
 
+                if (GitHubProjects.Count > 9)
+                    HasMoreData = true;
+
                 //Cache the response
                 GlobalVariables.GitHubData = GitHubProjects;
+                GitHubProjects = GitHubProjects.Take(9).OrderBy(o => o.Name).ToList();
             }
             else
             {
+                if (GlobalVariables.GitHubData.Count > 9)
+                    HasMoreData = true;
+
                 //Get from cache
-                GitHubProjects = GlobalVariables.GitHubData;
+                GitHubProjects = GlobalVariables.GitHubData.Take(9).OrderBy(o => o.Name).ToList(); ;
             }
 
             DataLoaded = true;

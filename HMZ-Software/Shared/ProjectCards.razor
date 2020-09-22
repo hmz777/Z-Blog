@@ -1,33 +1,43 @@
 ﻿@if (DataLoaded)
 {
-    <ProjectCard HasGitHub="false"
-                 ProjectUrl="https://www.souryAssly.com"
-                 ProjectName="Soury Assly"
-                 ProjectDescription="Soury Assly is an e-commerce website for Syrian handmade products, it allows artisans from all around Syria to show their work."
-                 LinkIcon="las la-external-link-alt"
-                 Stack="@(new string[] { "C#", "ASP.NET Core" ,"EF Core","SQL Server","jQuery" })">
-
-    </ProjectCard>
-
-
-    @foreach (var item in GitHubProjects)
-    {
-        <ProjectCard HasGitHub="true"
-                     ProjectUrl="@item.Url"
-                     ProjectName="@item.Name"
-                     ProjectDescription="@item.Description"
-                     Forks="@item.Forks"
-                     Watchers="@item.Watchers"
-                     Stars="@item.Stars"
-                     LinkIcon="lab la-github"
-                     Stack="@item.Topics">
+    <div class="grid">
+        <ProjectCard HasGitHub="false"
+                     ProjectUrl="https://www.souryAssly.com"
+                     ProjectName="Soury Assly"
+                     ProjectDescription="Soury Assly is an e-commerce website for Syrian handmade products, it allows artisans from all around Syria to show their work."
+                     LinkIcon="las la-external-link-alt"
+                     Stack="@(new string[] { "C#", "ASP.NET Core" ,"EF Core","SQL Server","jQuery" })">
 
         </ProjectCard>
+
+        @foreach (var item in GitHubProjects)
+        {
+            <ProjectCard HasGitHub="true"
+                         ProjectUrl="@item.Url"
+                         ProjectName="@item.Name"
+                         ProjectDescription="@item.Description"
+                         Forks="@item.Forks"
+                         Watchers="@item.Watchers"
+                         Stars="@item.Stars"
+                         LinkIcon="lab la-github"
+                         Stack="@item.Topics">
+
+            </ProjectCard>
+        }
+    </div>
+
+    if (HasMoreData)
+    {
+        <div class="flex-row mt-3 px-2">
+            <NavLink class="font-bold ml-auto" href="Projects" Match="NavLinkMatch.All">SEE MORE</NavLink>
+        </div>
     }
 }
 else
 {
-    <div class="flex-row align-self-center">
+    <div class="flex-row m-auto">
         <i class="las la-circle-notch la-spin la-4x"></i>
     </div>
 }
+
+
