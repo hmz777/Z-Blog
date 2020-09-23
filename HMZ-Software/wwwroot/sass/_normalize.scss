@@ -7,9 +7,6 @@
 header {
     display: flex;
     flex-flow: column wrap;
-    /*@include breakpoint (min-width 801px) {
-        background-image: url(/media/MainBackground.svg);
-    }*/
     background-position: top right;
     background-size: contain;
     background-repeat: no-repeat;

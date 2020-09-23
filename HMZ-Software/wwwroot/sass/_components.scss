@@ -13,6 +13,14 @@
     }
 }
 
+/*.main-back {
+    @include breakpoint (min-width 801px) {
+        background-image: url(/media/MainBackground.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}*/
+
 .wide-wrapper {
     display: flex;
     width: 100%;
@@ -527,10 +535,12 @@ form {
     }
 }
 
-a:not([data-social="true"]) {
-    color: $color1;
-    font-weight: bold;
-    border-bottom: .2em solid $color1;
+main {
+    a:not([data-exclude="true"]) {
+        color: $color1;
+        font-weight: bold;
+        border-bottom: .2em solid $color1;
+    }
 }
 
 .search-input-wrapper {
