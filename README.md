@@ -70,8 +70,8 @@ Additionally the project uses SASS.
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |![Home](https://i.imgur.com/ve8LUTM.png) Home Page | ![Project Grid](https://i.imgur.com/I6hVZgW.png) Project Grid | ![Contact Form](https://i.imgur.com/olopEYf.png) Contact Form |
 | ![Contact Form Mobile View](https://i.imgur.com/YCvey5T.png) Contact Form Mobile View | ![Blog Post Grid](https://i.imgur.com/hhEqrdI.png) Blog Post Grid | ![Blog Post](https://i.imgur.com/tmx1Nhy.png) Blog Post |
-| ![Blog Post Body](https://i.imgur.com/GgkHAZN.png) Blog Post Body (Markdown) | ![Blog Post Footer](https://i.imgur.com/sHozOKD.png) Blog Post Footer | ![Search](https://i.imgur.com/R8jwkl5.png) Search |
+| ![Blog Post Body](https://i.imgur.com/GgkHAZN.png) Blog Post Body (Markdown) | ![Syntax Highlighting](https://i.imgur.com/pjRKVNi.png) Syntax Highlighting | ![Blog Post Footer](https://i.imgur.com/sHozOKD.png) Blog Post Footer |
+| ![Search](https://i.imgur.com/R8jwkl5.png) Search |
 
 # License
 Licensed under the GNU General Public License v3.0.
-
