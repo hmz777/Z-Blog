@@ -565,3 +565,36 @@ main {
         }
     }
 }
+
+.search-result-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+
+    .search-result {
+        padding: 1em;
+        margin: .5em 0;
+        border: none;
+        text-decoration: none;
+        border: 1px solid $color1;
+        transition: background .3s cubic-bezier(.25,.8,.25,1), color .3s cubic-bezier(.25,.8,.25,1);
+        animation: fadeIn .3s cubic-bezier(.25,.8,.25,1) forwards;
+
+        .title {
+        }
+
+        .description {
+            font-weight: normal;
+            margin: .3em 0 0;
+        }
+
+
+        &:hover {
+            background: $color1;
+            color: $color3;
+
+            .title {
+                border-bottom: 2px solid $color3;
+            }
+        }
+    }
+}

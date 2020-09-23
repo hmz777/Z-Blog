@@ -6,13 +6,23 @@
 <div class="wide-wrapper wide-wrapper--column">
     <div class="search-input-wrapper">
         <label class="display display-4 font-bold" for="Search">SEARCH FOR POSTS</label>
-        <input @onkeypress="OnKeyPress" @bind="SearchTerm" @bind:event="oninput" type="text" name="Search" placeholder="Search..." />
-        <span>@SearchTerm</span>
+        <input @onkeyup="KeyHandler" @bind="SearchTerm" @bind:event="oninput" type="text" name="Search" placeholder="Search..." />
+        @if (HasResult)
+        {
+            <span>@SearchResults.Count Result(s) found</span>
+        }
     </div>
     <div class="search-result-wrapper">
         @foreach (var item in SearchResults)
         {
-            <h6>@item.Title</h6>//To be edited...
+            <NavLink href="@{$"Blog/Post/{item.Url}"}" class="search-result">
+                <span class="title">
+                    @item.Title
+                </span>
+                <p class="description">
+                    @item.Description
+                </p>
+            </NavLink>
         }
     </div>
 </div>
@@ -23,13 +33,19 @@
 
     public List<YamlMetadata> SearchResults { get; set; } = new List<YamlMetadata>();
     private string SearchTerm { get; set; }
+    private bool HasResult { get; set; } = false;
 
-    public async Task OnKeyPress(KeyboardEventArgs keyboardEventArgs)
+    public async Task KeyHandler(KeyboardEventArgs keyboardEventArgs)
     {
-        SearchResults = (await BlogPostProcessorService
+        if (string.IsNullOrWhiteSpace(SearchTerm))
+            SearchResults.Clear();
+        else
+            SearchResults = (await BlogPostProcessorService
             .ProcessPostsMetadataAsync())
             .Where(y => y.Title.Contains(SearchTerm, StringComparison.InvariantCultureIgnoreCase))
             .ToList();
+
+        HasResult = true;
 
         StateHasChanged();
     }
