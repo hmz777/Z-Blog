@@ -240,7 +240,6 @@
             margin: 0;
         }
 
-
         ul {
             list-style: none;
 
@@ -268,10 +267,8 @@
             word-break: normal;
             max-width: 100%;
             border: 2px solid $color2;
-            -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
-            -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
-            box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
             padding: 1em;
+            border-radius: .2em;
 
             code {
                 word-break: normal;
@@ -281,11 +278,86 @@
             }
         }
 
+        table {
+            border-collapse: collapse;
+            margin: 1em 0;
+            border-radius: .2em;
+            -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
 
+            thead {
+                background: $color1;
+                color: $color3;
+                text-align: left;
+            }
+
+            th, td {
+                padding: 1em;
+            }
+
+            tr {
+                border-top: 2px solid $color1;
+            }
+
+            tbody {
+                tr:nth-child(2n) {
+                    background: rgba($color2,.4);
+                }
+            }
+        }
 
         img {
             max-width: 100%;
-            height: auto;
+            margin: 1em 0;
+            -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+            transition: box-shadow .3s cubic-bezier(.25,.8,.25,1);
+
+            &:hover {
+                -webkit-box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.75);
+                box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.75);
+            }
+
+            &.img-sm {
+                max-height: 15em;
+            }
+
+            &.img-md {
+                max-height: 20em;
+            }
+
+            &.img-lg {
+                max-height: 25em;
+            }
+
+            &.img-wide {
+                width: 100%;
+                height: auto
+            }
+        }
+
+        mark {
+            background: $color1;
+            color: $color3;
+        }
+
+        dl {
+            dt {
+                display: inline-block;
+                border-bottom: 2px solid $color1;
+            }
+
+            dd {
+                margin-top: .4em;
+                margin-bottom: .4em;
+            }
+        }
+
+        .footnotes {
+            margin-top: 2em;
         }
     }
 

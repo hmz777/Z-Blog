@@ -165,17 +165,16 @@ Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
 
 ## Images
 
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+![Minion](https://images.unsplash.com/photo-1488102259819-c73529577863?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80){ .img-sm }
+![Stormtroopocat](https://images.unsplash.com/photo-1483662506105-be14481ce7e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80 "The Stormtroopocat"){ .img.md }
 
 Like links, Images also have a footnote style syntax
 
-![Alt text][id]
 
 With a reference later in the document defining the URL location:
 
-[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
-
+![Dojs](https://images.unsplash.com/photo-1465833981072-cc099edacfc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80  "The Dojocat"){ .img-lg }
+![Dojs](https://images.unsplash.com/photo-1465833981072-cc099edacfc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80  "The Dojocat"){ .img-wide }
 
 ## Plugins
 
