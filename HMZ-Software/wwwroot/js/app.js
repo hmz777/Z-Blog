@@ -41,19 +41,6 @@
         $(`ul[data-tabtarget=${id}]`).eq(0).addClass("active");
     });
 
-    $(document).on("click", function (e) {
-
-        if ($(e.target).parent().hasClass("input-wrapper")) {
-            $(".input-wrapper").removeClass("input-wrapper--active");
-            $(e.target).parent().addClass("input-wrapper--active");
-            e.stopPropagation();
-        }
-        else {
-            $(".input-wrapper").removeClass("input-wrapper--active");
-            e.stopPropagation()
-        }
-    });
-
     $(document).scroll(function () {
         if ($(this).scrollTop() > 0) {
             $(".Navigation").addClass("scrolled");
@@ -64,7 +51,7 @@
 
 });
 
-var observer, ObserverOptions, ObserverCallback;
+var observer, ObserverOptions, ObserverCallback, viewerJs;
 
 //#region Blazor Helpers
 
@@ -115,9 +102,43 @@ window.BlazorHelpers = {
         observer, ObserverOptions, ObserverCallback = null;
     },
 
-    InvokeHighlighter: function () {
+    FocusElement: function (target) {
+        document.querySelector(target).focus();
+    },
+
+    EmptyClicksHandler: function (SideNavReference) {
+
+        $(document).on("click", function (e) {
+
+            if ($(e.target).parent().hasClass("input-wrapper")) {
+                $(".input-wrapper").removeClass("input-wrapper--active");
+                $(e.target).parent().addClass("input-wrapper--active");
+            }
+            else {
+                $(".input-wrapper").removeClass("input-wrapper--active");
+            }
+
+            if ($(e.target).parents(".side-nav").length == 0) {
+                SideNavReference.invokeMethodAsync("Hide");
+            }
+
+            e.stopPropagation();
+        });
+    },
+
+    InitializeJsLibs: function (viewerTarget) {
         Prism.highlightAllUnder(document.querySelector(".post-body"));
+
+        viewerJs = new Viewer(document.querySelector(".post-body"), {
+            navbar: true,
+            toolbar: false,
+            movable: false
+        });
+    },
+
+    DestroyJsLibs: function () {
+        if (viewerJs != null)
+            viewerJs.destroy();
     }
 }
-
 //#endregion

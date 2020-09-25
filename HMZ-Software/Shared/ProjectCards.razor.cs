@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using HMZSoftwareBlazorWebAssembly.Helpers;
+using Microsoft.AspNetCore.Components.WebAssembly.Http;
 
 namespace HMZSoftwareBlazorWebAssembly.Shared
 {
@@ -18,6 +19,7 @@ namespace HMZSoftwareBlazorWebAssembly.Shared
 
         private List<GitRepo> GitHubProjects { get; set; } = new List<GitRepo>();
         private bool DataLoaded { get; set; } = false;
+        private bool DataLoading { get; set; } = false;
         private bool HasMoreData { get; set; } = false;
 
         protected async override Task OnAfterRenderAsync(bool firstRender)
@@ -36,6 +38,10 @@ namespace HMZSoftwareBlazorWebAssembly.Shared
         {
             if (intersectionObserverEventArgs.isIntersecting && !DataLoaded)
             {
+                if (DataLoading)
+                    return;
+
+                DataLoading = true;
                 //IO is intersecting...
                 await FetchGitData();
                 StateHasChanged();

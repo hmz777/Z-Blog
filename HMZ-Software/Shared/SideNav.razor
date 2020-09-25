@@ -36,10 +36,20 @@
 
 @code {
 
-    private string State { get; set; } = "slideToRight";
+    [Inject] private IJSRuntime JSRuntime { get; set; }
 
     [Parameter]
     public bool IsHome { get; set; }
+
+    private string State { get; set; } = "slideToRight";
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("BlazorHelpers.EmptyClicksHandler", DotNetObjectReference.Create(this));
+        }
+    }
 
     public void Show()
     {
@@ -47,6 +57,7 @@
         StateHasChanged();
     }
 
+    [JSInvokable]
     public void Hide()
     {
         State = "slideToRight";

@@ -1586,6 +1586,10 @@
         "dist/line-awesome/fonts/la-solid-900.woff",
         "dist/line-awesome/fonts/la-solid-900.woff2"
       ]
+    },
+    {
+      "library": "viewerjs@latest",
+      "destination": "wwwroot/lib/viewerjs/"
     }
   ]
 }
