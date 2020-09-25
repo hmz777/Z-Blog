@@ -165,8 +165,12 @@ Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
 
 ## Images
 
-![Minion](https://images.unsplash.com/photo-1488102259819-c73529577863?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80){ .img .img-sm }
-![Stormtroopocat](https://images.unsplash.com/photo-1483662506105-be14481ce7e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80 "The Stormtroopocat"){ .img .img-md }
+::: group-img
+![Minion](https://images.unsplash.com/photo-1488102259819-c73529577863?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80){ .img .img-sm .group-img }
+![Stormtroopocat](https://images.unsplash.com/photo-1483662506105-be14481ce7e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80 "The Stormtroopocat"){ .img .img-sm .group-img }
+![Minion](https://images.unsplash.com/photo-1488102259819-c73529577863?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80){ .img .img-sm .group-img }
+![Stormtroopocat](https://images.unsplash.com/photo-1483662506105-be14481ce7e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80 "The Stormtroopocat"){ .img .img-sm .group-img }
+:::
 
 Like links, Images also have a footnote style syntax
 

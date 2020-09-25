@@ -126,13 +126,13 @@ window.BlazorHelpers = {
         });
     },
 
-    InitializeJsLibs: function (viewerTarget) {
+    InitializeJsLibs: function () {
         Prism.highlightAllUnder(document.querySelector(".post-body"));
 
         viewerJs = new Viewer(document.querySelector(".post-body"), {
             navbar: true,
             toolbar: false,
-            movable: false
+            movable: true
         });
     },
 
