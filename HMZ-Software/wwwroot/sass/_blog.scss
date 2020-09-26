@@ -145,6 +145,7 @@
     padding: 0 0 2em;
 
     .post-banner {
+        display: flex;
         width: 100%;
         height: 38em;
         position: relative;
@@ -215,7 +216,15 @@
                 word-break: break-word;
                 margin: 1em 0;
                 max-width: 100%;
-                @include Truncate(3);
+                /* @include Truncate(3);*/
+            }
+        }
+
+        @include breakpoint(max-width 500px) {
+            justify-content: center;
+
+            .post-info {
+                left: auto;
             }
         }
     }
@@ -225,7 +234,7 @@
         flex-flow: column wrap;
         padding: 0 6em;
         word-break: break-word;
-        font-size: 1.3em;
+        font-size: 1.2em;
         margin-bottom: 2em;
         box-sizing: border-box;
         max-width: 100%;
@@ -307,9 +316,17 @@
             }
         }
 
+        p {
+            display: flex;
+            flex-flow: row wrap;
+            width: 100%;
+
+            img {
+                margin: 1em auto;
+            }
+        }
+
         img {
-            max-width: 100%;
-            margin: 1em auto;
             -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
             -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
             box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
@@ -322,22 +339,38 @@
             }
 
             &.img-sm {
-                display: inline-block;
-                max-height: 15em;
+                width: 32%;
+                height: auto
             }
 
             &.img-md {
-                display: inline-block;
-                max-height: 20em;
+                width: 48%;
+                height: auto
             }
 
             &.img-lg {
-                max-height: 23em;
+                width: 80%;
+                height: auto
             }
 
             &.img-wide {
                 width: 100%;
                 height: auto
+            }
+
+            &.group-img {
+                margin: .4em auto .4em 0;
+            }
+
+            @include breakpoint(max-width 1024px) {
+                &.img-md, &.img-sm {
+                    width: 48%;
+                }
+            }
+
+            @include breakpoint(max-width 600px) {
+                width: 100% !important;
+                margin: 1em auto !important;
             }
         }
 

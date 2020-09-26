@@ -7,4 +7,8 @@
     @include breakpoint(max-width 800px) {
         font-size: .8em;
     }
+
+    @include breakpoint(max-width 500px) {
+        font-size: .7em;
+    }
 }
