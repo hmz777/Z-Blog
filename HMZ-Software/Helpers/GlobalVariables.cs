@@ -7,5 +7,6 @@ namespace HMZSoftwareBlazorWebAssembly.Helpers
     {
         public static List<YamlMetadata> YamlMetadata { get; set; }
         public static List<GitRepo> GitHubData { get; set; }
+        public static List<string> Tags { get; set; }
     }
 }

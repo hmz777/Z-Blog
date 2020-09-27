@@ -34,7 +34,7 @@
                 <i class="las la-tags"></i><strong>TAGS:</strong>
                 @foreach (var tag in BlogPostDocument.Yaml.Tags)
                 {
-                    <NavLink href="@($"Tags/{tag}")">@tag</NavLink>
+                    <NavLink href="@($"Blog/Tags/{tag}")">@tag</NavLink>
                 }
             </div>
             <span class="date"><i class="las la-calendar"></i><strong>UPDATED:</strong> @BlogPostDocument.Yaml.DateUpdated.ToString("dd MMMM, yyyy")</span>

@@ -46,5 +46,13 @@ namespace HMZSoftwareBlazorWebAssembly.Services
 
             return GlobalVariables.YamlMetadata;
         }
+
+        public async Task<List<string>> ProcessTagsAsync()
+        {
+            if (GlobalVariables.Tags == null)
+                GlobalVariables.Tags = (await ProcessPostsMetadataAsync()).ConstructTags();
+
+            return GlobalVariables.Tags;
+        }
     }
 }

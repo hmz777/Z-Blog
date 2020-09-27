@@ -1,6 +1,6 @@
 ﻿---
 Title: A Test Post A Test Post A Test Post A Test Post A Test Post A Test Post A Test Post A Test Post A Test Post A Test Post A Test Post
-Category: DotNET Framework DotNET Framework
+Category: DotNET Framework
 Date: 2020-9-15 15:30:15
 DateUpdated: 2020-9-15 15:30:15
 Description: Some description about the post listed.
@@ -176,8 +176,8 @@ Like links, Images also have a footnote style syntax
 
 With a reference later in the document defining the URL location:
 
-![Dojs](https://images.unsplash.com/photo-1465833981072-cc099edacfc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80  "The Dojocat"){ .img .img-lg }
-![Dojs](https://images.unsplash.com/photo-1465833981072-cc099edacfc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80  "The Dojocat"){ .img .img-wide }
+![Dojs](https://images.unsplash.com/photo-1465833981072-cc099edacfc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80  "The Dojocat"){ .img .img-md .group-img }
+![Dojs](https://images.unsplash.com/photo-1465833981072-cc099edacfc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80  "The Dojocat"){ .img .img-md .group-img }
 
 ## Plugins
 

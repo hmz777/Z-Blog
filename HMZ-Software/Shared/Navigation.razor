@@ -10,6 +10,10 @@
                 <li><button type="button" onclick="document.getElementById('Contact').scrollIntoView({behavior:'smooth'})">CONTACT</button></li>
             }
             <li><NavLink href="Blog" ActiveClass="active" Match="NavLinkMatch.All">BLOG</NavLink></li>
+            @if (IsBlog)
+            {
+                <li><NavLink href="Blog/Tags" ActiveClass="active" Match="NavLinkMatch.All">TAGS</NavLink></li>
+            }
             <li><NavLink href="Site" ActiveClass="active" Match="NavLinkMatch.All">SITE</NavLink></li>
             <li><NavLink href="Search" ActiveClass="active" Match="NavLinkMatch.All"><i class="las la-search la-2x"></i><div class="arrow_box">Search</div></NavLink></li>
         </ul>
@@ -20,7 +24,7 @@
         </button>
     </nav>
     <div class="side-nav">
-        <SideNav @ref="SideNav" IsHome="@IsHome"></SideNav>
+        <SideNav @ref="SideNav" IsHome="@IsHome" IsBlog="@IsBlog"></SideNav>
     </div>
 </header>
 
@@ -31,6 +35,7 @@
 
     private SideNav SideNav { get; set; }
     private bool IsHome { get; set; } = true;
+    private bool IsBlog { get; set; } = false;
     private string NavState { get; set; }
 
     protected override void OnInitialized()
@@ -58,6 +63,11 @@
         if (!string.IsNullOrWhiteSpace(segment))
         {
             IsHome = false;
+
+            if (segment.Equals("blog", StringComparison.InvariantCultureIgnoreCase))
+                IsBlog = true;
+            else
+                IsBlog = false;
         }
         else
         {

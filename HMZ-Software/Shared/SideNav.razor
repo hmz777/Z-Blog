@@ -19,6 +19,10 @@
                     <li><button type="button" onclick="document.getElementById('Contact').scrollIntoView({behavior:'smooth'})">CONTACT</button></li>
                 }
                 <li><NavLink href="Blog" ActiveClass="active" Match="NavLinkMatch.All">BLOG</NavLink></li>
+                @if (IsBlog)
+                {
+                    <li><NavLink href="Blog/Tags" ActiveClass="active" Match="NavLinkMatch.All">TAGS</NavLink></li>
+                }
                 <li><NavLink href="Site" ActiveClass="active" Match="NavLinkMatch.All">SITE</NavLink></li>
             </ul>
             <div class="social">
@@ -40,6 +44,8 @@
 
     [Parameter]
     public bool IsHome { get; set; }
+    [Parameter]
+    public bool IsBlog { get; set; }
 
     private string State { get; set; } = "slideToRight";
 
