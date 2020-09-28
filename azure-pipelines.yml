@@ -21,8 +21,8 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'run'
-    projects: 'MarkupCompiler/*.csproj'
-    arguments: '$(TargetDir)MarkupCompiler.exe'
+# - task: DotNetCoreCLI@2
+#   inputs:
+#     command: 'run'
+#     projects: 'MarkupCompiler/*.csproj'
+#     arguments: '$(TargetDir)MarkupCompiler.exe'
