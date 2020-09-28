@@ -22,8 +22,8 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
   workingDirectory: HMZ-Software
 
-# - task: DotNetCoreCLI@2
-#   inputs:
-#     command: 'run'
-#     projects: 'MarkupCompiler/*.csproj'
-#     arguments: '$(TargetDir)MarkupCompiler.exe'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'run'
+    projects: '*.csproj'
+    workingDirectory: 'MarkupCompiler'
