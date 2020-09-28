@@ -16,8 +16,4 @@
     <PackageReference Include="YamlDotNet" Version="8.1.2" />
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="&quot;$(TargetDir)MarkupCompiler.exe&quot;" />
-  </Target>
-
 </Project>
