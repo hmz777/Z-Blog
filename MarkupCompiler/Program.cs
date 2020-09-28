@@ -15,7 +15,8 @@ namespace MarkupCompiler
         {
             try
             {
-                string Root = Path.GetFullPath(Path.Combine(Directory.GetParent(Assembly.GetExecutingAssembly().Location).FullName, @"..\..\..\..\", @"HMZ-Software\wwwroot\Blog"));
+                //string Root = Path.GetFullPath(Path.Combine(Directory.GetParent(Assembly.GetExecutingAssembly().Location).FullName, @"..\..\..\..\", @"HMZ-Software\wwwroot\Blog"));
+                string Root = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"HMZ-Software\wwwroot\Blog"));
 
                 Console.WriteLine("Cleaning up...");
                 FileOps.CleanSite(Root);
