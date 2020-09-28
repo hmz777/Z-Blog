@@ -49,7 +49,7 @@ namespace MarkupCompiler
             }
             catch (Exception ex)
             {
-                File.AppendAllText(Path.Combine(Directory.GetParent(Assembly.GetExecutingAssembly().Location).FullName, "ExecuteLog.log"), $"{Environment.NewLine}{ex.Message}");
+                Console.WriteLine(ex.Message);
             }
         }
     }
