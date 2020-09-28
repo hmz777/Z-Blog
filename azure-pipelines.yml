@@ -3,13 +3,13 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-# trigger:
-#   branches:
-#     include:
-#     - master
-#   paths:
-#     exclude:
-#     - azure-pipelines.yml
+trigger:
+  branches:
+    exclude:
+    - master
+  paths:
+    exclude:
+    - azure-pipelines.yml
 
 pool:
   vmImage: 'windows-latest'
