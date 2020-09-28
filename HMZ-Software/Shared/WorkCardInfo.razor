@@ -53,7 +53,7 @@
 
     private bool DataReceived { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         if (!Uri.TryCreate(ProjectLink, UriKind.Absolute, out Uri result) && !(result.Scheme == Uri.UriSchemeHttps || result.Scheme == Uri.UriSchemeHttp))
             throw new Exception("Invalid project url!");
