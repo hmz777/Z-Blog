@@ -45,6 +45,7 @@ steps:
 - script: |
     git config --global user.name "$(github_name)"
     git config --global user.email "$(github_email)"
+    git config core.autocrlf false
     cd $(Build.ArtifactStagingDirectory)/wwwroot
     git init
     git checkout -b gh-pages
