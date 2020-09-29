@@ -284,7 +284,7 @@ node_modules/
 !**/wwwroot/lib/prismJs
 
 #Compiled CSS
-**/wwwroot/css/*.css
+#**/wwwroot/css/*.css
 
 # Visual Studio 6 build log
 *.plg
