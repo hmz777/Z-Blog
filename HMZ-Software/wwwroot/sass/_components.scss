@@ -13,13 +13,13 @@
     }
 }
 
-/*.main-back {
-    @include breakpoint (min-width 801px) {
+.main-back {
+    @include breakpoint(min-width 801px) {
         background-image: url(/media/MainBackground.svg);
         background-position: center;
         background-repeat: no-repeat;
     }
-}*/
+}
 
 .wide-wrapper {
     display: flex;
