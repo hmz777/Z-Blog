@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:49819/Z-Blog-Blazor-Wasm",
+      "applicationUrl": "http://localhost:49819",
       "sslPort": 44330
     }
   },
