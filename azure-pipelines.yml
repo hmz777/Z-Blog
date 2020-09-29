@@ -26,3 +26,10 @@ steps:
   inputs:
     command: 'run'
     projects: 'MarkupCompiler/*.csproj'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    zipAfterPublish: false
+    modifyOutputPath: false
