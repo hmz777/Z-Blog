@@ -34,7 +34,8 @@ steps:
     zipAfterPublish: false
     modifyOutputPath: false
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-
+    workingDirectory: HMZ-Software
+    
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/WasmClient'
