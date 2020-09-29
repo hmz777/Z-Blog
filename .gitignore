@@ -280,6 +280,8 @@ node_modules/
 
 #Client side libraries
 **/wwwroot/lib/*/
+!**/wwwroot/lib/brotli
+!**/wwwroot/lib/prismJs
 
 #Compiled CSS
 **/wwwroot/css/*.css
