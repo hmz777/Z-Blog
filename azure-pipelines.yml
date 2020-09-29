@@ -38,14 +38,14 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/Client'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/HMZ'
     ArtifactName: 'Dist'
     publishLocation: 'Container'
 
 - script: |
     git config --global user.name "$(github_name)"
     git config --global user.email "$(github_email)"
-    cd $(Build.ArtifactStagingDirectory)/Client/wwwroot
+    cd $(Build.ArtifactStagingDirectory)/HMZ/wwwroot
     git init
     git checkout -b gh-pages
     git add -A
