@@ -31,4 +31,8 @@
     <Folder Include="wwwroot\Blog\Metadata\" />
   </ItemGroup>
 
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <LibraryRestore>true</LibraryRestore>
+  </PropertyGroup>
+
 </Project>
