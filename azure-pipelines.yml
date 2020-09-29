@@ -35,3 +35,20 @@ steps:
     publishWebProjects: true
     zipAfterPublish: false
     modifyOutputPath: false
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/Client'
+    ArtifactName: 'dist'
+    publishLocation: 'Container'
+
+- script: |
+    git config --global user.name "$(github_name)"
+    git config --global user.email "$(github_email)"
+    cd $(Build.ArtifactStagingDirectory)/Client/wwwroot
+    git init
+    git checkout -b gh-pages
+    git add -A
+    git commit -m "Create build $(Build.BuildId)"
+    git push -f https://$(github_pat)@github.com/hmz777/Z-Blog-Blazor-Wasm.git gh-pages
+  displayName: 'Publish to GitHub Pages'
