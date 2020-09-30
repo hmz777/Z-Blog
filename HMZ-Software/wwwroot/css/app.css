@@ -6302,8 +6302,6 @@ main a:not([data-exclude="true"]) {
       border: 0;
       background-color: #05386B;
       height: .1em; }
-    .post-container .post-body p {
-      margin: 0; }
     .post-container .post-body ul {
       list-style: none; }
       .post-container .post-body ul li {
@@ -6349,7 +6347,10 @@ main a:not([data-exclude="true"]) {
     .post-container .post-body p {
       display: flex;
       flex-flow: row wrap;
-      width: 100%; }
+      width: 100%;
+      margin: 0; }
+      .post-container .post-body p a {
+        margin: 0 .3em; }
       .post-container .post-body p img {
         margin: 1em auto; }
     .post-container .post-body img {
