@@ -3,7 +3,7 @@
 [![Build Status](https://dev.azure.com/Hamzialsheikh/Hamzi_alsheikh/_apis/build/status/hmz777.Z-Blog-Blazor-Wasm?branchName=master)](https://dev.azure.com/Hamzialsheikh/Hamzi_alsheikh/_build/latest?definitionId=1&branchName=master)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/24e1eba5-8287-4b2c-a208-486d11e3f35a/deploy-status)](https://app.netlify.com/sites/hmz-software-blazor-wasm/deploys)
 
-## Hosted on Netlify, Deployed via Azure Pipelines on [hamzialsheikh.tk](https://www.hamzialsheikh.tk)
+## Hosted on Netlify, Deployed via Azure Pipelines to [hamzialsheikh.tk](https://www.hamzialsheikh.tk)
 
 ### This is a (work in progress) rewrite of my personal portfolio + blog using Blazor WebAssembly.
 
