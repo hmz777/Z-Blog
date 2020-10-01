@@ -12,7 +12,7 @@ else
     <div class="wide-wrapper wide-wrapper--column">
         @foreach (var item in TagsData)
         {
-            <div class="tag-sec" id="#@item">
+            <div class="tag-sec" id="@item">
                 <h2 class="title">
                     @item
                 </h2>
@@ -45,6 +45,7 @@ else
     public string Tag { get; set; }
 
     [Inject] private IBlogPostProcessorService BlogPostProcessorService { get; set; }
+    [Inject] private IJSRuntime JSRuntime { get; set; }
 
     private List<YamlMetadata> Metadata { get; set; }
     private List<string> TagsData { get; set; }
@@ -56,5 +57,13 @@ else
         TagsData = await BlogPostProcessorService.ProcessTagsAsync();
 
         IsDataLoading = false;
+    }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !string.IsNullOrWhiteSpace(Tag) && Tag.Contains("#"))
+        {
+            await JSRuntime.InvokeVoidAsync("BlazorHelpers.ScrollElementIntoView", Tag.Replace("#", ""));
+        }
     }
 }
