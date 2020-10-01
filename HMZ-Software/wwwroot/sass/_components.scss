@@ -569,6 +569,12 @@ main {
 .search-result-wrapper {
     display: flex;
     flex-flow: column wrap;
+    align-items: stretch;
+    width: 60%;
+
+    @include breakpoint(max-width 850px) {
+        width: 100%;
+    }
 
     .search-result {
         padding: 1em;
@@ -578,13 +584,16 @@ main {
         border: 1px solid $color1;
         transition: background .3s cubic-bezier(.25,.8,.25,1), color .3s cubic-bezier(.25,.8,.25,1);
         animation: fadeIn .3s cubic-bezier(.25,.8,.25,1) forwards;
+        width: 100%;
 
         .title {
+            word-break: break-word;
         }
 
         .description {
             font-weight: normal;
             margin: .3em 0 0;
+            word-break: break-word;
         }
 
 

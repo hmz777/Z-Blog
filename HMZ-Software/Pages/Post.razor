@@ -26,15 +26,15 @@
                 </div>
             </div>
         </div>
-        <div class="post-body">
+        <section class="post-body">
             @((MarkupString)BlogPostDocument.Html)
-        </div>
+        </section>
         <div class="post-footer">
             <div class="tags">
                 <i class="las la-tags"></i><strong>TAGS:</strong>
                 @foreach (var tag in BlogPostDocument.Yaml.Tags)
                 {
-                    <NavLink href="@($"Blog/Tags/{tag}")">@tag</NavLink>
+                    <a href="@($"Blog/Tags/#{tag}")">@tag</a>
                 }
             </div>
             <span class="date"><i class="las la-calendar"></i><strong>UPDATED:</strong> @BlogPostDocument.Yaml.DateUpdated.ToString("dd MMMM, yyyy")</span>

@@ -3,27 +3,41 @@
 @using HMZSoftwareBlazorWebAssembly.Models
 @using HMZSoftwareBlazorWebAssembly.Services
 
-<div class="wide-wrapper--row">
-    @foreach (var item in TagsData)
-    {
-        <div class="tag-sec">
-            <div class="title">
-                @item
-            </div>
-            <div class="flex-column">
-                @foreach (var post in Metadata)
-                {
-                    if (post.Tags.Contains(item))
+@if (IsDataLoading)
+{
+    <i class="las la-circle-notch la-3x m-auto"></i>
+}
+else
+{
+    <div class="wide-wrapper wide-wrapper--column">
+        @foreach (var item in TagsData)
+        {
+            <div class="tag-sec" id="#@item">
+                <h2 class="title">
+                    @item
+                </h2>
+                <div class="flex-column">
+                    @foreach (var post in Metadata)
                     {
-                        <div class="post">
-                            @post.Title
-                        </div>
+                        if (post.Tags.Contains(item))
+                        {
+                            <article class="post">
+                                <a data-exclude="true" href="/Blog/Post/@post.Url">
+                                    <div class="title">
+                                        @post.Title
+                                    </div>
+                                    <div class="description">
+                                        @post.Description
+                                    </div>
+                                </a>
+                            </article>
+                        }
                     }
-                }
+                </div>
             </div>
-        </div>
-    }
-</div>
+        }
+    </div>
+}
 
 @code {
 

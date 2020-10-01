@@ -11,7 +11,7 @@ namespace HMZSoftwareBlazorWebAssembly.Helpers
         public static List<string> ConstructTags(this List<YamlMetadata> yamlMetadata)
         {
             if (yamlMetadata.Count == 0)
-                return default;
+                throw new Exception("Metadata is empty!");
 
             List<string> Tags = new List<string>();
 

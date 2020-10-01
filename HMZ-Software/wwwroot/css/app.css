@@ -5675,7 +5675,12 @@ main a:not([data-exclude="true"]) {
 
 .search-result-wrapper {
   display: flex;
-  flex-flow: column wrap; }
+  flex-flow: column wrap;
+  align-items: stretch;
+  width: 60%; }
+  @media (max-width: 850px) {
+    .search-result-wrapper {
+      width: 100%; } }
   .search-result-wrapper .search-result {
     padding: 1em;
     margin: .5em 0;
@@ -5683,10 +5688,14 @@ main a:not([data-exclude="true"]) {
     text-decoration: none;
     border: 1px solid #05386B;
     transition: background 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    animation: fadeIn 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; }
+    animation: fadeIn 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    width: 100%; }
+    .search-result-wrapper .search-result .title {
+      word-break: break-word; }
     .search-result-wrapper .search-result .description {
       font-weight: normal;
-      margin: .3em 0 0; }
+      margin: .3em 0 0;
+      word-break: break-word; }
     .search-result-wrapper .search-result:hover {
       background: #05386B;
       color: #5CDB95; }
@@ -6467,6 +6476,28 @@ main a:not([data-exclude="true"]) {
   @media (max-width: 850px) {
     .post-container .post-body, .post-container .post-footer {
       padding: 0 2em; } }
+
+.tag-sec {
+  display: flex;
+  flex-flow: column wrap;
+  margin-bottom: 5em; }
+  .tag-sec .title {
+    font-weight: bold;
+    color: rgba(5, 56, 107, 0.75); }
+  .tag-sec .post {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start; }
+    .tag-sec .post:hover .title {
+      color: #05386B; }
+    .tag-sec .post a {
+      color: #05386B; }
+    .tag-sec .post .title {
+      display: inline-flex;
+      font-size: 1.9em;
+      text-decoration: underline;
+      transition: color .3s ease-in-out;
+      margin-bottom: .5em; }
 
 /* PrismJS 1.21.0
 https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+arduino+aspnet+autohotkey+bash+batch+c+csharp+cpp+docker+git+json+markdown+matlab+powershell+python+regex+scss+sql+typescript+yaml */

@@ -515,3 +515,38 @@
         }
     }
 }
+
+.tag-sec {
+    display: flex;
+    flex-flow: column wrap;
+    margin-bottom: 5em;
+
+    .title {
+        font-weight: bold;
+        color: rgba($color1,.75);
+    }
+
+    .post {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: flex-start;
+
+        &:hover {
+            .title {
+                color: $color1;
+            }
+        }
+
+        a {
+            color: $color1;
+        }
+
+        .title {
+            display: inline-flex;
+            font-size: 1.9em;
+            text-decoration: underline;
+            transition: color .3s ease-in-out;
+            margin-bottom: .5em;
+        }
+    }
+}

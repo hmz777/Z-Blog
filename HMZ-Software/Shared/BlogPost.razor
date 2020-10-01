@@ -1,4 +1,4 @@
-﻿<div class="blog-post">
+﻿<article class="blog-post">
     <img src="@ImageUrl" alt="@Title" />
     <div class="content">
         <div class="info">
@@ -11,9 +11,9 @@
         <p class="description" title="@Description">
             @Description
         </p>
-        <NavLink href="@{$"Blog/Post/{Url}"}" Match="NavLinkMatch.All">READ MORE</NavLink>
+        <a href="@($"Blog/Post/{Url}")">READ MORE</a>
     </div>
-</div>
+</article>
 
 @code {
     [Parameter]
