@@ -61,9 +61,12 @@ else
 
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
-        if (firstRender && !string.IsNullOrWhiteSpace(Tag) && Tag.Contains("#"))
+        if (!string.IsNullOrWhiteSpace(Tag))
         {
-            await JSRuntime.InvokeVoidAsync("BlazorHelpers.ScrollElementIntoView", Tag.Replace("#", ""));
+            if (!TagsData.Contains(Tag))
+                return;
+
+            await JSRuntime.InvokeVoidAsync("BlazorHelpers.ScrollElementIntoView", Tag);
         }
     }
 }

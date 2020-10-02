@@ -2,6 +2,7 @@
 @implements IDisposable
 @using Models
 @using Services
+@using System.Web 
 
 <div class="post-container">
     @if (IsDataLoading)
@@ -34,21 +35,19 @@
                 <i class="las la-tags"></i><strong>TAGS:</strong>
                 @foreach (var tag in BlogPostDocument.Yaml.Tags)
                 {
-                    <a href="@($"Blog/Tags/#{tag}")">@tag</a>
+                    <a href="@($"Blog/Tags/{tag}")">@tag</a>
                 }
             </div>
             <span class="date"><i class="las la-calendar"></i><strong>UPDATED:</strong> @BlogPostDocument.Yaml.DateUpdated.ToString("dd MMMM, yyyy")</span>
             <div class="post-social">
                 <strong>SHARE ON:</strong>
                 <div>
-                    <a data-exclude="true" class="btn btn-facebook" href="#"><i class="lab la-facebook"></i> <span>Facebook</span></a>
-                    <a data-exclude="true" class="btn btn-twitter" href="#"><i class="lab la la-twitter"></i> <span>Twitter</span></a>
-                    <a data-exclude="true" class="btn btn-linkedin" href="#"><i class="lab la-linkedin"></i> <span>LinkedIn</span></a>
-                    <a data-exclude="true" class="btn btn-instagram" href="#"><i class="lab la-instagram"></i> <span>Instagram</span></a>
+                    <a data-exclude="true" class="btn btn-facebook" href="https://www.facebook.com/sharer/sharer.php?u=@(HttpUtility.UrlEncode(NavigationManager.Uri))" target="_blank"><i class="lab la-facebook"></i> <span>Facebook</span></a>
+                    <a data-exclude="true" class="btn btn-twitter" href="https://twitter.com/intent/tweet?url=@(NavigationManager.Uri)" target="_blank"><i class="lab la la-twitter"></i> <span>Twitter</span></a>
+                    <a data-exclude="true" class="btn btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=@(NavigationManager.Uri)"><i class="lab la-linkedin"></i> <span>LinkedIn</span></a>
                 </div>
             </div>
         </div>
-
     }
 </div>
 
@@ -59,6 +58,7 @@
 
     [Inject] private IBlogPostProcessorService BlogPostProcessorService { get; set; }
     [Inject] private IJSRuntime JSRuntime { get; set; }
+    [Inject] private NavigationManager NavigationManager { get; set; }
 
     private BlogPostDocument BlogPostDocument { get; set; }
     private bool IsDataLoading { get; set; } = true;

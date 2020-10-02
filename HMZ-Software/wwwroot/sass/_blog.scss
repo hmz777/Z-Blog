@@ -520,6 +520,7 @@
     display: flex;
     flex-flow: column wrap;
     margin-bottom: 5em;
+    scroll-margin-top: 8em;
 
     .title {
         font-weight: bold;
@@ -530,6 +531,11 @@
         display: flex;
         flex-flow: column wrap;
         align-items: flex-start;
+        width: 60%;
+
+        @include breakpoint(max-width 850px) {
+            width: 100%;
+        }
 
         &:hover {
             .title {
