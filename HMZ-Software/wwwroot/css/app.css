@@ -6480,14 +6480,19 @@ main a:not([data-exclude="true"]) {
 .tag-sec {
   display: flex;
   flex-flow: column wrap;
-  margin-bottom: 5em; }
+  margin-bottom: 5em;
+  scroll-margin-top: 8em; }
   .tag-sec .title {
     font-weight: bold;
     color: rgba(5, 56, 107, 0.75); }
   .tag-sec .post {
     display: flex;
     flex-flow: column wrap;
-    align-items: flex-start; }
+    align-items: flex-start;
+    width: 60%; }
+    @media (max-width: 850px) {
+      .tag-sec .post {
+        width: 100%; } }
     .tag-sec .post:hover .title {
       color: #05386B; }
     .tag-sec .post a {
