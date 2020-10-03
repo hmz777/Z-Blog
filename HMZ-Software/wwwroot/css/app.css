@@ -5702,6 +5702,9 @@ main a:not([data-exclude="true"]) {
       .search-result-wrapper .search-result:hover .title {
         border-bottom: 2px solid #5CDB95; }
 
+.terms-content p {
+  font-size: 1.2em; }
+
 .Navigation {
   display: flex;
   width: 100%;
@@ -5986,6 +5989,9 @@ main a:not([data-exclude="true"]) {
       .footer > div > div span {
         margin: .3em 0 0;
         font-size: .9em; }
+      .footer > div > div a {
+        color: #5CDB95;
+        margin-top: .5em; }
     .footer > div .logo {
       margin-left: auto;
       font-weight: bolder;
