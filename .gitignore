@@ -282,6 +282,7 @@ node_modules/
 **/wwwroot/lib/*/
 !**/wwwroot/lib/brotli
 !**/wwwroot/lib/prismJs
+!**/wwwroot/lib/topbar
 
 #Compiled CSS
 #**/wwwroot/css/*.css
