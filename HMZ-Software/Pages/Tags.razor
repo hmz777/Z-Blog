@@ -48,7 +48,7 @@ else
     [Inject] private IJSRuntime JSRuntime { get; set; }
 
     private List<YamlMetadata> Metadata { get; set; }
-    private List<string> TagsData { get; set; }
+    private List<string> TagsData { get; set; } = new List<string>();
     private bool IsDataLoading { get; set; } = true;
 
     protected async override Task OnInitializedAsync()

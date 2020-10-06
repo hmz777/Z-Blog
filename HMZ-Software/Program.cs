@@ -1,4 +1,6 @@
+using HMZSoftwareBlazorWebAssembly.Helpers;
 using HMZSoftwareBlazorWebAssembly.Services;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -16,6 +18,7 @@ namespace HMZSoftwareBlazorWebAssembly
 
             builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddSingleton<IBlogPostProcessorService, BlogPostProcessor>();
+            builder.Services.AddTransient<ITopBarControllerService, TopBarController>();            
 
             await builder.Build().RunAsync();
         }

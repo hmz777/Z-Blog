@@ -5259,6 +5259,9 @@ h6 {
 .font-bold {
   font-weight: bold; }
 
+.text-center {
+  text-align: center; }
+
 .loading {
   display: flex;
   position: fixed;
@@ -5704,6 +5707,15 @@ main a:not([data-exclude="true"]) {
 
 .terms-content p {
   font-size: 1.2em; }
+
+#not-found img {
+  max-width: 100%;
+  max-height: 25em;
+  margin: auto; }
+
+#not-found span {
+  font-size: 1.5em;
+  margin: 1em auto auto; }
 
 .Navigation {
   display: flex;
