@@ -1,11 +1,11 @@
 [
   {
-    "outputFileName": "wwwroot/js/Production/app.min.js",
+    "outputFileName": "wwwroot/js/production/app.min.js",
     "inputFiles": [
       "wwwroot/lib/jquery/dist/jquery.min.js",
-      "wwwroot/lib/lib/viewerjs/dist/viewer.min.js",
-      "wwwroot/lib/lib/prismJs/prism.js",
-      "wwwroot/lib/js/app.js"
+      "wwwroot/lib/viewerjs/dist/viewer.min.js",
+      "wwwroot/lib/prismJs/prism.js",
+      "wwwroot/js/app.js"
     ],
     "minify": { "enabled": true },
     "sourceMap": false
@@ -19,7 +19,7 @@
     "sourceMap": false
   },
   {
-    "outputFileName": "wwwroot/css/Production/app.min.css",
+    "outputFileName": "wwwroot/css/production/app.min.css",
     "inputFiles": [
       "wwwroot/lib/viewerjs/dist/viewer.min.css",
       "wwwroot/css/app.css"
