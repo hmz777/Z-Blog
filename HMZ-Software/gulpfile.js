@@ -3,6 +3,7 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     cssmin = require('gulp-cssmin'),
+    cleancss = require('gulp-clean-css'),
     htmlmin = require('gulp-htmlmin'),
     terser = require('gulp-terser'),
     merge = require('merge-stream'),
@@ -28,7 +29,7 @@ gulp.task('min:css', async function () {
     merge(getBundles(regex.css).map(bundle => {
         return gulp.src(bundle.inputFiles, { base: '.' })
             .pipe(concat(bundle.outputFileName))
-            .pipe(cssmin())
+            .pipe(cleancss({compatibility: 'ie8'}))
             .pipe(gulp.dest('.'));
     }))
 });

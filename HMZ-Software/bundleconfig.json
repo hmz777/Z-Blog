@@ -3,7 +3,7 @@
     "outputFileName": "wwwroot/js/production/app.min.js",
     "inputFiles": [
       "wwwroot/lib/jquery/dist/jquery.min.js",
-      "wwwroot/lib/viewerjs/dist/viewer.min.js",
+      "wwwroot/lib/viewerjs/dist/viewer.js",
       "wwwroot/lib/prismJs/prism.js",
       "wwwroot/js/app.js"
     ],
@@ -21,8 +21,8 @@
   {
     "outputFileName": "wwwroot/css/production/app.min.css",
     "inputFiles": [
-      "wwwroot/lib/viewerjs/dist/viewer.css",
-      "wwwroot/css/app.css"
+      "wwwroot/css/app.css",
+      "wwwroot/lib/viewerjs/dist/viewer.css"
     ],
     "minify": { "enabled": true }
   }
