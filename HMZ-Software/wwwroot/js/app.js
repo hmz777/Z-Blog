@@ -49,18 +49,18 @@
         }
     });
 
-      topbar.config({
-        autoRun      : true, 
-        barThickness : 5,
-        barColors    : {
-          '0'        : 'rgba(5, 56, 107, .7)',
-          '.3'       : 'rgba(5, 56, 107, .7)',
-          '1.0'      : 'rgba(5, 56, 107, .7)'
-        },
-        shadowBlur   : 5,
-        shadowColor  : 'rgba(0, 0, 0, .5)',
-        className    : 'topbar',
-      });
+    // topbar.config({
+    //     autoRun: true,
+    //     barThickness: 5,
+    //     barColors: {
+    //         '0': 'rgba(5, 56, 107, .7)',
+    //         '.3': 'rgba(5, 56, 107, .7)',
+    //         '1.0': 'rgba(5, 56, 107, .7)'
+    //     },
+    //     shadowBlur: 5,
+    //     shadowColor: 'rgba(0, 0, 0, .5)',
+    //     className: 'topbar',
+    // });
 
 });
 
@@ -154,7 +154,7 @@ window.BlazorHelpers = {
             viewerJs.destroy();
     },
 
-    TopBarShow: function(){ topbar.show(); },
-    TopBarHide: function(){ topbar.hide(); }
+    TopBarShow: function () { topbar.show(); },
+    TopBarHide: function () { topbar.hide(); }
 }
 //#endregion

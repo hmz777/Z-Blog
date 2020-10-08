@@ -21,7 +21,7 @@
   {
     "outputFileName": "wwwroot/css/production/app.min.css",
     "inputFiles": [
-      "wwwroot/lib/viewerjs/dist/viewer.min.css",
+      "wwwroot/lib/viewerjs/dist/viewer.css",
       "wwwroot/css/app.css"
     ],
     "minify": { "enabled": true }
