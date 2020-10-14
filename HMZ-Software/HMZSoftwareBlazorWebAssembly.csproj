@@ -9,11 +9,6 @@
   <ItemGroup>
     <Content Remove="bundleconfig.json" />
     <Content Remove="compilerconfig.json" />
-    <Content Remove="wwwroot\lib\line-awesome\dist\line-awesome\scss\_variables.dev.scss" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="wwwroot\lib\line-awesome\dist\line-awesome\scss\_variables.dev.scss" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,7 +25,6 @@
     <None Include="compilerconfig.json" />
     <None Include="wwwroot\Blog\Posts\EmptyFile" />
     <None Include="wwwroot\Blog\Site\EmptyFile" />
-    <None Include="wwwroot\lib\line-awesome\dist\line-awesome\scss\_variables.dev.scss" />
   </ItemGroup>
 
   <ItemGroup>
