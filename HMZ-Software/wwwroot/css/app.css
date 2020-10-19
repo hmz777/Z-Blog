@@ -5263,6 +5263,9 @@ h6 {
 .text-center {
   text-align: center; }
 
+.d-none {
+  display: none; }
+
 .loading {
   display: flex;
   position: fixed;
@@ -5582,6 +5585,9 @@ form .form-button {
   form .form-button:hover {
     background: #05386B;
     color: #5CDB95; }
+  form .form-button i {
+    margin-right: .5em;
+    font-size: 1.5em; }
 
 .status-message {
   display: none;

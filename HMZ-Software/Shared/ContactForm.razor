@@ -1,4 +1,7 @@
 ﻿@using HMZSoftwareBlazorWebAssembly.Models
+@using System.Text.Json
+@using System.Text
+@using System.Net.Http.Headers
 
 <StatusMessage @ref="StatusMessage"></StatusMessage>
 
@@ -25,7 +28,7 @@
         <InputTextArea @bind-Value="ContactModel.Message" rows="5" placeholder="Enter your message"></InputTextArea>
         <ValidationMessage For="@(() => ContactModel.Message)" />
     </div>
-    <button class="form-button button-submit" type="submit">SUBMIT</button>
+    <button class="form-button button-submit" type="submit"><i class="las la-circle-notch la-spin @SubmitButtonState"></i> SUBMIT</button>
 </EditForm>
 
 @code {
@@ -33,19 +36,32 @@
     private ContactModel ContactModel { get; set; } = new ContactModel();
     private StatusMessage StatusMessage { get; set; }
     private EditContext EditContext { get; set; }
+    private string SubmitButtonState { get; set; } = "d-none";
+
+    [Inject] HttpClient HttpClient { get; set; }
 
     protected override void OnInitialized()
     {
         EditContext = new EditContext(ContactModel);
     }
 
-    private void HandleValidSubmit()
+    private async Task HandleValidSubmit()
     {
+        SubmitButtonState = "";
+
+        var message = new HttpRequestMessage(HttpMethod.Post, "https://formspree.io/f/mzbkrpry");
+        message.Headers.Clear();
+        message.SetBrowserRequestMode(BrowserRequestMode.Cors);
+        message.Content = new StringContent(JsonSerializer.Serialize(EditContext.Model), Encoding.UTF8, "application/json");
+        await HttpClient.SendAsync(message, HttpCompletionOption.ResponseContentRead);
+        SubmitButtonState = "d-none";
+
         ContactModel = new ContactModel();
         EditContext = new EditContext(ContactModel);
         StatusMessage.Message = "Message sent successfully!";
         StatusMessage.MessageStatus = MessageStatus.Success;
         StatusMessage.Show();
+
     }
 
     private void HandleInvalidSubmit()
