@@ -1,6 +1,6 @@
 ﻿.side-nav {
     .side-navigation {
-        display: none;
+        display: flex;
         position: fixed;
         top: 0;
         right: 0;
@@ -18,12 +18,12 @@
         box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
 
         &.slideToRight {
-            display: flex;
+            /*display: flex;*/
             transform: translateX(100%);
         }
 
         &.slideFromRight {
-            display: flex;
+            /*display: flex;*/
             transform: translateX(0);
         }
 
