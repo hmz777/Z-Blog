@@ -51,5 +51,5 @@ steps:
     git checkout -b gh-pages
     git add -A
     git commit -m "Create build $(Build.BuildId)"
-    git push -f https://$(github_pat)@github.com/hmz777/Z-Blog-Blazor-Wasm.git gh-pages
+    git push -f https://$(github_pat)@github.com/hmz777/Z-Blog.git gh-pages
   displayName: 'Publish to GitHub Pages'
