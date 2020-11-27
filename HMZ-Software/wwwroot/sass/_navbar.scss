@@ -145,6 +145,8 @@
         }
 
         @include breakpoint(max-width 850px) {
+            padding: 2em;
+
             ul {
                 display: none;
             }
