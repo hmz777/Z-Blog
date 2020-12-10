@@ -233,6 +233,7 @@
 .display {
     word-break: break-word;
     position: relative;
+    font-weight: bold;
 }
 
 .display-1 {
@@ -280,7 +281,8 @@
     border: 3px solid #379683;
     display: none;
     color: $color3;
-    padding: 1em;
+    padding: .7em;
+    border-radius: .5em;
     opacity: 0;
     animation: SlideInRight .5s cubic-bezier(0.83, 0, 0.17, 1) forwards;
 }
@@ -373,6 +375,7 @@ form {
             background: $color1;
             color: $color3;
             animation: fadeIn .5s ease-in-out forwards;
+            border-radius: .5em;
 
             &:after, &:before {
                 top: 100%;
