@@ -9,11 +9,11 @@
                 <li><button type="button" onclick="document.getElementById('About').scrollIntoView({behavior:'smooth'})">ABOUT</button></li>
                 <li><button type="button" onclick="document.getElementById('Contact').scrollIntoView({behavior:'smooth'})">CONTACT</button></li>
             }
-            <li><NavLink href="Blog" ActiveClass="active" Match="NavLinkMatch.All">BLOG</NavLink></li>
-            @if (IsBlog)
+            else if (IsBlog)
             {
                 <li><NavLink href="Blog/Tags" ActiveClass="active" Match="NavLinkMatch.All">TAGS</NavLink></li>
             }
+            <li><NavLink href="Blog" ActiveClass="active" Match="NavLinkMatch.All">BLOG</NavLink></li>
             <li><NavLink href="Site" ActiveClass="active" Match="NavLinkMatch.All">SITE</NavLink></li>
             <li><NavLink href="Search" ActiveClass="active" Match="NavLinkMatch.All"><i class="las la-search la-2x"></i><div class="arrow_box">Search</div></NavLink></li>
         </ul>
@@ -42,7 +42,7 @@
     {
         NavigationManager.LocationChanged += OnLocationChanged;
 
-        CheckIfHome();
+        _ = CheckIfHome();
     }
 
     private void OnLocationChanged(object sender, LocationChangedEventArgs args)
