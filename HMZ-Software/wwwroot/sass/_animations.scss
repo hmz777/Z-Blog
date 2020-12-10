@@ -168,3 +168,47 @@
         -webkit-transform: translateY(0);
     }
 }
+
+[data-aos="custom-ani-left"] {
+    opacity: 0;
+    transition-property: transform, opacity;
+    transform: translateX(.5em);
+
+    &.aos-animate {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+[data-aos="custom-ani-right"] {
+    opacity: 0;
+    transition-property: transform, opacity;
+    transform: translateX(-.5em);
+
+    &.aos-animate {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+[data-aos="custom-ani-down"] {
+    opacity: 0;
+    transition-property: transform, opacity;
+    transform: translateY(-.5em);
+
+    &.aos-animate {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+[data-aos="custom-ani-up"] {
+    opacity: 0;
+    transition-property: transform, opacity;
+    transform: translateY(.5em);
+
+    &.aos-animate {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

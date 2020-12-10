@@ -5,7 +5,7 @@
 
 <div class="wide-wrapper wide-wrapper--column">
     <div class="search-input-wrapper">
-        <label class="display display-4 font-bold" for="Search">SEARCH FOR POSTS</label>
+        <label data-aos="custom-ani-right" class="display display-4 font-bold" for="Search">SEARCH FOR POSTS</label>
         <input @onkeyup="KeyHandler" @bind="SearchTerm" @bind:event="oninput" type="text" name="Search" id="Search" placeholder="Search..." autofocus />
         @if (HasResult)
         {

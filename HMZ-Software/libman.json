@@ -1590,6 +1590,14 @@
     {
       "library": "viewerjs@latest",
       "destination": "wwwroot/lib/viewerjs/"
+    },
+    {
+      "library": "aos@2.3.4",
+      "destination": "wwwroot/lib/aos/",
+      "files": [
+        "dist/aos.css",
+        "dist/aos.js"
+      ]
     }
   ]
 }

@@ -66,6 +66,12 @@
 
 var observer, ObserverOptions, ObserverCallback, viewerJs;
 
+AOS.init({
+    startEvent: 'DOMContentLoaded',
+    once: true,
+    duration: 700
+});
+
 //#region Blazor Helpers
 
 window.BlazorHelpers = {
@@ -87,7 +93,7 @@ window.BlazorHelpers = {
                     root: document.querySelector(root),
                     rootMargin: rootMargin,
                     threshold: threshold
-                }
+                };
 
                 ObserverCallback = function (entries, observer) {
                     blazorComponentInstance.invokeMethodAsync(methodIdentifier, { isIntersecting: entries[0].isIntersecting, elementId: entries[0].target.id });
@@ -156,5 +162,5 @@ window.BlazorHelpers = {
 
     TopBarShow: function () { topbar.show(); },
     TopBarHide: function () { topbar.hide(); }
-}
+};
 //#endregion
