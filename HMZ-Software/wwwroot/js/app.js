@@ -62,15 +62,15 @@
     //     className: 'topbar',
     // });
 
+    AOS.init({
+        startEvent: 'DOMContentLoaded',
+        once: true,
+        duration: 700
+    });
+
 });
 
 var observer, ObserverOptions, ObserverCallback, viewerJs;
-
-AOS.init({
-    startEvent: 'DOMContentLoaded',
-    once: true,
-    duration: 700
-});
 
 //#region Blazor Helpers
 
@@ -129,16 +129,23 @@ window.BlazorHelpers = {
 
         $(document).on("click", function (e) {
 
-            if ($(e.target).parent().hasClass("input-wrapper")) {
+            let ele = $(e.target);
+
+            if (ele.parent().hasClass("input-wrapper")) {
                 $(".input-wrapper").removeClass("input-wrapper--active");
-                $(e.target).parent().addClass("input-wrapper--active");
+                ele.parent().addClass("input-wrapper--active");
             }
             else {
                 $(".input-wrapper").removeClass("input-wrapper--active");
             }
 
-            if ($(e.target).parents(".side-nav").length == 0) {
+            if (ele.parents(".side-nav,.nav-toggler").length == 0 && !ele.hasClass("nav-toggler")) {
                 SideNavReference.invokeMethodAsync("Hide");
+            }
+            else {
+                if (ele.hasClass("nav-link") || ele.parent().hasClass("nav-link")) {
+                    SideNavReference.invokeMethodAsync("Hide");
+                }
             }
 
             e.stopPropagation();
