@@ -1,30 +1,32 @@
 ﻿<div class="side-navigation @State">
     <div class="side-navigation-inner @State">
         <div class="top-buttons">
-            <NavLink class="search" href="Search" ActiveClass="active" Match="NavLinkMatch.All"><i class="las la-search la-3x"></i></NavLink>
-            <button type="button" class="nav-toggler" @onclick="Hide">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <NavLink class="search nav-link" href="Search" ActiveClass="active" Match="NavLinkMatch.All"><i class="las la-search la-3x"></i></NavLink>
         </div>
         <div class="content">
-            <NavLink href="" Match="NavLinkMatch.All"><span class="logo">HMZ</span></NavLink>
-            <ul>
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All"><span class="logo">HMZ</span></NavLink>
+            <div class="links">
                 @if (IsHome)
                 {
-                    <li><button type="button" onclick="document.getElementById('Tech').scrollIntoView({behavior:'smooth'})">TECH & SKILLS</button></li>
-                    <li><button type="button" onclick="document.getElementById('Work').scrollIntoView({behavior:'smooth'})">WORK</button></li>
-                    <li><button type="button" onclick="document.getElementById('About').scrollIntoView({behavior:'smooth'})">ABOUT</button></li>
-                    <li><button type="button" onclick="document.getElementById('Contact').scrollIntoView({behavior:'smooth'})">CONTACT</button></li>
+                    <div><button class="nav-link" type="button" onclick="document.getElementById('Tech').scrollIntoView({behavior:'smooth'})">TECH & SKILLS</button></div>
+                    <div><button class="nav-link" type="button" onclick="document.getElementById('Work').scrollIntoView({behavior:'smooth'})">WORK</button></div>
+                    <div><button class="nav-link" type="button" onclick="document.getElementById('About').scrollIntoView({behavior:'smooth'})">ABOUT</button></div>
+                    <div><button class="nav-link" type="button" onclick="document.getElementById('Contact').scrollIntoView({behavior:'smooth'})">CONTACT</button></div>
+                    <div><NavLink class="nav-link" href="Blog" ActiveClass="active" Match="NavLinkMatch.All">BLOG</NavLink></div>
+                    <div><NavLink class="nav-link" href="Site" ActiveClass="active" Match="NavLinkMatch.All">SITE</NavLink></div>
                 }
-                <li><NavLink href="Blog" ActiveClass="active" Match="NavLinkMatch.All">BLOG</NavLink></li>
-                @if (IsBlog)
+                else if (IsBlog)
                 {
-                    <li><NavLink href="Blog/Tags" ActiveClass="active" Match="NavLinkMatch.All">TAGS</NavLink></li>
+                    <div><NavLink class="nav-link" href="Blog" ActiveClass="active" Match="NavLinkMatch.All">BLOG</NavLink></div>
+                    <div><NavLink class="nav-link" href="Blog/Tags" ActiveClass="active" Match="NavLinkMatch.All">TAGS</NavLink></div>
+                    <div><NavLink class="nav-link" href="Site" ActiveClass="active" Match="NavLinkMatch.All">SITE</NavLink></div>
                 }
-                <li><NavLink href="Site" ActiveClass="active" Match="NavLinkMatch.All">SITE</NavLink></li>
-            </ul>
+                else
+                {
+                    <div><NavLink class="nav-link" href="Blog" ActiveClass="active" Match="NavLinkMatch.All">BLOG</NavLink></div>
+                    <div><NavLink class="nav-link" href="Site" ActiveClass="active" Match="NavLinkMatch.All">SITE</NavLink></div>
+                }
+            </div>
             <div class="social">
                 <a href="https://stackoverflow.com/users/6843077/hmz" target="_blank"><i class="lab la-stack-overflow"></i></a>
                 <a href="https://github.com/hmz777" target="_blank"><i class="lab la-github"></i></a>
@@ -33,7 +35,7 @@
                 <a href="https://www.instagram.com/hamzi_alsheikh/" target="_blank"><i class="lab la-instagram"></i></a>
                 <a href="mailto:hamzi_alsheikh@hotmail.com" target="_blank"><i class="las la-envelope"></i></a>
             </div>
-            <span>© HAMZI ALSHEIKH 2020.<br />ALL RIGHTS RESERVED.</span>
+            <span>© HAMZI ALSHEIKH @DateTime.Today.Year.<br />ALL RIGHTS RESERVED.</span>
         </div>
     </div>
 </div>
@@ -46,6 +48,8 @@
     public bool IsHome { get; set; }
     [Parameter]
     public bool IsBlog { get; set; }
+    [Parameter]
+    public EventCallback HideSideNavCallback { get; set; }
 
     private string State { get; set; } = "slideToRight";
 
@@ -64,9 +68,10 @@
     }
 
     [JSInvokable]
-    public void Hide()
+    public async Task Hide()
     {
         State = "slideToRight";
+        await HideSideNavCallback.InvokeAsync();
         StateHasChanged();
     }
 

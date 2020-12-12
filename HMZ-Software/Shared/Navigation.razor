@@ -1,32 +1,17 @@
-﻿<header class="Navigation @NavState">
+﻿<header class="Navigation">
     <nav class="nav">
         <NavLink href="" Match="NavLinkMatch.All"><span class="logo">HMZ</span></NavLink>
-        <ul>
-            @if (IsHome)
-            {
-                <li><button type="button" onclick="document.getElementById('Tech').scrollIntoView({behavior:'smooth'})">TECH & SKILLS</button></li>
-                <li><button type="button" onclick="document.getElementById('Work').scrollIntoView({behavior:'smooth'})">WORK</button></li>
-                <li><button type="button" onclick="document.getElementById('About').scrollIntoView({behavior:'smooth'})">ABOUT</button></li>
-                <li><button type="button" onclick="document.getElementById('Contact').scrollIntoView({behavior:'smooth'})">CONTACT</button></li>
-            }
-            else if (IsBlog)
-            {
-                <li><NavLink href="Blog/Tags" ActiveClass="active" Match="NavLinkMatch.All">TAGS</NavLink></li>
-            }
-            <li><NavLink href="Blog" ActiveClass="active" Match="NavLinkMatch.All">BLOG</NavLink></li>
-            <li><NavLink href="Site" ActiveClass="active" Match="NavLinkMatch.All">SITE</NavLink></li>
-            <li><NavLink href="Search" ActiveClass="active" Match="NavLinkMatch.All"><i class="las la-search la-2x"></i><div class="arrow_box">Search</div></NavLink></li>
-        </ul>
-        <button type="button" class="nav-toggler" @onclick="ShowSideNav">
+        <button type="button" class="nav-toggler @NavState" @onclick="ToggleSideNav">
             <span></span>
             <span></span>
             <span></span>
         </button>
     </nav>
     <div class="side-nav">
-        <SideNav @ref="SideNav" IsHome="@IsHome" IsBlog="@IsBlog"></SideNav>
+        <SideNav @ref="SideNav" IsHome="@IsHome" IsBlog="@IsBlog" HideSideNavCallback="ShowSideControls"></SideNav>
     </div>
 </header>
+<SideControls @ref="@SideControls" />
 
 @code {
 
@@ -34,9 +19,10 @@
     [Inject] private IJSRuntime JSRuntime { get; set; }
 
     private SideNav SideNav { get; set; }
+    private SideControls SideControls { get; set; }
     private bool IsHome { get; set; } = true;
     private bool IsBlog { get; set; } = false;
-    private string NavState { get; set; }
+    public string NavState { get; set; } = "";
 
     protected override void OnInitialized()
     {
@@ -51,9 +37,24 @@
         StateHasChanged();
     }
 
+    public async Task ToggleSideNav()
+    {
+        if (string.IsNullOrEmpty(NavState))
+        {
+            ShowSideNav();
+        }
+        else
+        {
+            await SideNav.Hide();
+        }
+    }
+
     private void ShowSideNav()
     {
         SideNav.Show();
+        HideSideControls();
+        NavState = "nav-toggler--active";
+        StateHasChanged();
     }
 
     private bool CheckIfHome()
@@ -75,5 +76,16 @@
         }
 
         return IsHome;
+    }
+
+    private void HideSideControls()
+    {
+        SideControls.Hide();
+    }
+
+    private void ShowSideControls()
+    {
+        NavState = "";
+        SideControls.Show();
     }
 }
