@@ -37,7 +37,6 @@
         flex-flow: row wrap;
         background: transparent;
         padding: 2em 3.5em;
-        align-items: stretch;
 
         & > a {
             display: flex;
@@ -111,49 +110,58 @@
                 }
             }
         }
+    }
+}
 
-        .nav-toggler {
-            display: none;
-            flex-flow: column wrap;
-            align-items: center;
-            margin-left: auto;
-            height: 3em;
-            width: 4em;
-            border: none;
-            background: none;
+.nav-toggler {
+    display: inline-flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    margin-left: auto;
+    height: 2.2em;
+    width: 4em;
+    border: none;
+    background: none;
+    transition: transform .5s ease-in-out, opacity .5s ease-in-out;
 
-            span {
-                height: .3em;
-                background: $color1;
-                border-radius: .3em;
-            }
+    span {
+        height: .3em;
+        background: $color1;
+        border-radius: .5em;
+        width: 100%;
+        transition: transform .5s ease-in-out, opacity .5s ease-in-out;
+        position: relative;
+    }
 
-            span:nth-child(1) {
-                width: 100%;
-                margin-top: auto;
-            }
+    span:first-child {
+        animation: NavTogglerAniUR .5s ease-in-out forwards;
+    }
 
-            span:nth-child(2) {
-                width: 50%;
-                margin: .6em auto;
-            }
+    span:last-child {
+        animation: NavTogglerAniDR .5s ease-in-out forwards;
+    }
 
-            span:nth-child(3) {
-                width: 100%;
-                margin-bottom: auto;
-            }
+    &--active {
+        transform: rotate(90deg);
+        position: fixed;
+        top: 1.4em;
+        right: .7em;
+        z-index: 3;
+
+        span {
+            background: $color3;
         }
 
-        @include breakpoint(max-width 850px) {
-            padding: 2em;
+        span:first-child {
+            animation: NavTogglerAniU .5s ease-in-out forwards;
+        }
 
-            ul {
-                display: none;
-            }
+        span:nth-child(2) {
+            opacity: 0;
+        }
 
-            .nav-toggler {
-                display: inline-flex;
-            }
+        span:last-child {
+            animation: NavTogglerAniD .5s ease-in-out forwards;
         }
     }
 }

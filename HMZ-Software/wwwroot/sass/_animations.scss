@@ -212,3 +212,59 @@
         transform: translateX(0);
     }
 }
+
+@keyframes NavTogglerAniU {
+    0% {
+        transform: translateY(0em) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(.9em) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(.9em) rotate(45deg);
+    }
+}
+
+@keyframes NavTogglerAniD {
+    0% {
+        transform: translateY(0em) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-.9em) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-.9em) rotate(135deg);
+    }
+}
+
+@keyframes NavTogglerAniUR {
+    0% {
+        transform: translateY(.9em) rotate(45deg);
+    }
+
+    50% {
+        transform: translateY(.9em) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(0em) rotate(0deg);
+    }
+}
+
+@keyframes NavTogglerAniDR {
+    0% {
+        transform: translateY(-.9em) rotate(135deg);
+    }
+
+    50% {
+        transform: translateY(-.9em) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(0em) rotate(0deg);
+    }
+}
