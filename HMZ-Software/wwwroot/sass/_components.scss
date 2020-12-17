@@ -649,3 +649,50 @@ main {
         margin: 1em auto auto;
     }
 }
+
+.privacy-dialog {
+    display: flex;
+    padding: 1em 3.5em;
+    align-items: center;
+    justify-content: space-between;
+    background: $color1;
+    color: white;
+    border-bottom: 3px solid $color2;
+
+    .text {
+        a {
+            color: $color3;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    }
+
+    button {
+        padding: .5em 1em;
+        border: none;
+        background: $color1;
+        border: 3px solid $color3;
+        border-radius: .2em;
+        transition: background .3s ease-in-out,border .3s ease-in-out;
+        color: white;
+
+        &:hover {
+            background: $color3;
+            border: 3px solid $color2;
+        }
+    }
+
+    @include breakpoint(max-width 850px) {
+        flex-flow: column wrap;
+        align-items: center;
+
+        .text {
+            text-align: center;
+        }
+
+        button {
+            margin-top: 1em;
+            width: 50%;
+        }
+    }
+}

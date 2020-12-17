@@ -1,0 +1,30 @@
+﻿@using Blazored.LocalStorage
+
+@if (!IsAccepted)
+{
+    <div class="privacy-dialog @PanelState">
+        <div class="text">
+            By using this site, you acknowledge that you have read and understand our <a href="/Terms">Privacy Policy & Terms of Service</a>.
+        </div>
+        <button type="button" @onclick="@Accept">Accept</button>
+    </div>
+}
+
+@code {
+
+    [Inject] ILocalStorageService LocalStorageService { get; set; }
+    private bool IsAccepted { get; set; }
+    private string PanelState { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        IsAccepted = await LocalStorageService.GetItemAsync<bool>("PrivacyPolicy");
+    }
+
+    public async Task Accept()
+    {
+        await LocalStorageService.SetItemAsync<bool>("PrivacyPolicy", true);
+        IsAccepted = true;
+        StateHasChanged();
+    }
+}
