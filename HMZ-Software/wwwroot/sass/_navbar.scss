@@ -35,8 +35,9 @@
         display: flex;
         width: 100%;
         flex-flow: row wrap;
+        align-items: center;
         background: transparent;
-        padding: 2em 3.5em;
+        padding: 1em 3.5em 1.6em;
 
         & > a {
             display: flex;
