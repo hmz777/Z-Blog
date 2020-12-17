@@ -79,3 +79,8 @@ Additionally the project uses SASS.
 
 # License
 Licensed under the GNU General Public License v3.0.
+
+# Author
+Hamzi Alsheikh
+
+Website: [https://www.hamzialsheikh.tk](https://www.hamzialsheikh.tk)
