@@ -168,6 +168,16 @@ window.BlazorHelpers = {
     },
 
     TopBarShow: function () { topbar.show(); },
-    TopBarHide: function () { topbar.hide(); }
+    TopBarHide: function () { topbar.hide(); },
+
+    SetTitle: function (title) {
+        if (title.length != 0) {
+            document.title = "Hamzi Alsheikh - Portfolio & Blog | " + title;
+        }
+        else {
+            document.title = "Hamzi Alsheikh - Portfolio & Blog";
+        }
+        
+    }
 };
 //#endregion

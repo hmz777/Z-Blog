@@ -36,6 +36,11 @@
     private string SearchTerm { get; set; }
     private bool HasResult { get; set; } = false;
 
+    protected async override Task OnInitializedAsync()
+    {
+        await JSRuntime.InvokeVoidAsync("BlazorHelpers.SetTitle", "Terms and Privacy Policy");
+    }
+
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)

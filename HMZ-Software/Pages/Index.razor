@@ -115,3 +115,12 @@
         <ContactForm></ContactForm>
     </div>
 </div>
+
+@code {
+    [Inject] public IJSRuntime JSRuntime { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await JSRuntime.InvokeVoidAsync("BlazorHelpers.SetTitle", "");
+    }
+}

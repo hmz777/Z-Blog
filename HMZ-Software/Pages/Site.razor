@@ -9,11 +9,20 @@
             <li data-aos="custom-ani-right" data-aos-delay="150">Tools and libraries include: <a href="https://github.com/jquery/jquery">jQuery</a> and <a href="https://sass-lang.com/">Sass</a>.</li>
             <li data-aos="custom-ani-right" data-aos-delay="200">Parsers include: <a href="https://github.com/lunet-io/markdig">Markdig</a> to process markdown files and <a href="https://github.com/aaubry/YamlDotNet">YamlDotNet</a> to parse blog posts' metadata.</li>
             <li data-aos="custom-ani-right" data-aos-delay="250">All the code for this site is open source and available on <a href="https://github.com/hmz777/Z-Blog">GitHub</a> under the GNU General Public License v3.</li>
-            <li data-aos="custom-ani-right" data-aos-delay="300">Hosted on <a href="https://www.netlify.com">Netlify</a>.</li>
-            <li data-aos="custom-ani-right" data-aos-delay="350">Deployed via <a href="https://azure.microsoft.com">Azure Pipelines</a>.</li>
+            <li data-aos="custom-ani-right" data-aos-delay="300" data-aos-offset="-50">Hosted on <a href="https://www.netlify.com">Netlify</a>.</li>
+            <li data-aos="custom-ani-right" data-aos-delay="350" data-aos-offset="-50">Deployed via <a href="https://azure.microsoft.com">Azure Pipelines</a>.</li>
         </ul>
     </div>
     <div class="flex-row justify-content-center">
         <img src="/media/blazor.png" alt="Blazor" />
     </div>
 </div>
+
+@code {
+    [Inject] public IJSRuntime JSRuntime { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await JSRuntime.InvokeVoidAsync("BlazorHelpers.SetTitle", "About This Site");
+    }
+}

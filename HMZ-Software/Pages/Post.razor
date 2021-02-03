@@ -67,6 +67,7 @@
     protected async override Task OnInitializedAsync()
     {
         BlogPostDocument = await BlogPostProcessorService.ProcessPostAsync(PostName);
+        await JSRuntime.InvokeVoidAsync("BlazorHelpers.SetTitle", BlogPostDocument.Yaml.Title);
 
         if (BlogPostDocument.Yaml != null)
             IsDataEmpty = false;

@@ -53,6 +53,7 @@ else
 
     protected async override Task OnInitializedAsync()
     {
+        await JSRuntime.InvokeVoidAsync("BlazorHelpers.SetTitle", "Tags");
         Metadata = await BlogPostProcessorService.ProcessPostsMetadataAsync();
         TagsData = await BlogPostProcessorService.ProcessTagsAsync();
 
