@@ -2,7 +2,7 @@
 @implements IDisposable
 @using Models
 @using Services
-@using System.Web 
+@using System.Web
 
 <div class="post-container">
     @if (IsDataLoading)
@@ -64,20 +64,29 @@
     private bool IsDataLoading { get; set; } = true;
     private bool IsDataEmpty { get; set; } = true;
 
-    protected async override Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        BlogPostDocument = await BlogPostProcessorService.ProcessPostAsync(PostName);
-        await JSRuntime.InvokeVoidAsync("BlazorHelpers.SetTitle", BlogPostDocument.Yaml.Title);
-
-        if (BlogPostDocument.Yaml != null)
-            IsDataEmpty = false;
-
-        IsDataLoading = false;
+        string PostTitle = NavigationManager
+            .ToBaseRelativePath(NavigationManager.Uri)
+            .Split('/', StringSplitOptions.RemoveEmptyEntries)[2]
+            .Replace("-", " ");
+        JSRuntime.InvokeVoidAsync("BlazorHelpers.SetTitle", PostTitle);
     }
 
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
-        if (!firstRender)
+        if (firstRender)
+        {
+            BlogPostDocument = await BlogPostProcessorService.ProcessPostAsync(PostName);
+
+            if (BlogPostDocument.Yaml != null)
+                IsDataEmpty = false;
+
+            IsDataLoading = false;
+
+            StateHasChanged();
+        }
+        else
         {
             await JSRuntime.InvokeVoidAsync("BlazorHelpers.InitializeJsLibs");
         }
