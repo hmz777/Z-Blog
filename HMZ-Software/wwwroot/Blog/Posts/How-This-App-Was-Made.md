@@ -13,6 +13,7 @@ Tags:
    - Azure-Pipelines
    - Standalone 
 FileName: how-this-app-was-made
+NoList: false
 ...
 
 This post has been left intentionally empty.
