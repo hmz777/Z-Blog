@@ -22,7 +22,9 @@ namespace MarkupCompiler
 #else
                 Root = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"HMZ-Software\wwwroot\Blog"));
 #endif
+                //Here we used the GetCurrentDirectory because the working directory is set via Azure Pipelines.
 
+                string Domain = "https://www.hamzialsheikh.tk";
 
                 Console.WriteLine("Cleaning up...");
                 FileOps.CleanSite(Root);
@@ -50,8 +52,17 @@ namespace MarkupCompiler
                     }
                 }
 
+                var YamlMetadata = PostDocuments.Select(p => p.Yaml).ToList();
+
                 Console.WriteLine("Constructing blog metadata...");
-                MetadataTool.ConstructMetadata(Root, PostDocuments.Select(p => p.Yaml).ToList());
+                MetadataTool.ConstructMetadata(Root, YamlMetadata);
+
+                Console.WriteLine("Building \"Robots.txt\"...");
+                Seo.ConstructRobots(Domain, YamlMetadata, Root.Substring(0, Root.LastIndexOf('\\') + 1));
+
+                Console.WriteLine("Building \"Sitemap.xml\"...");
+                Seo.ConstructSitemap(Domain, YamlMetadata, Root.Substring(0, Root.LastIndexOf('\\') + 1));
+
             }
             catch (Exception ex)
             {

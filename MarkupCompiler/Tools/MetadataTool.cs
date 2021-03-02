@@ -1,13 +1,7 @@
 ﻿using MarkupCompiler.Models;
-using SimpleMvcSitemap;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using System.Xml;
 
 namespace MarkupCompiler.Tools
 {
