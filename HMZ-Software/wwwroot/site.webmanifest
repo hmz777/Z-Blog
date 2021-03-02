@@ -1,0 +1,19 @@
+{
+    "name": "HMZ",
+    "short_name": "HMZ",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png?v=gAXpe5Ax3w",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-384x384.png?v=gAXpe5Ax3w",
+            "sizes": "384x384",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#5cdc96",
+    "background_color": "#5cdc96",
+    "display": "standalone"
+}
