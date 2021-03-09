@@ -51,6 +51,12 @@ The files are deserialized to a [`BlogPostDocument`](https://github.com/hmz777/Z
 - The `MarkdownCompiler` is the project responsible for compiling the markdown files.
 - The project is triggered to run on every build as a Visual Studio post build event.
 
+### Robots.txt and Sitemap.xml
+- Robots.txt and Sitemap.xml are generated automatically with the MarkdownCompiler via the `Seo` class.
+- The process checks for a `NoList` property on posts' metadata in order to decide if it should be added to Robots.txt or not.
+- Sitemap.xml is generated using the same json metadata via the `XmlDocument` class.
+- Static pages are hardcoded in both files.
+
 ### What does it do?
 1. Performs clean up on the `Blog` directory (if it exists) to clear it from old posts and metadata files so it can start compiling the files again.
 2. Create the blog structure in the main project if it's not created.
