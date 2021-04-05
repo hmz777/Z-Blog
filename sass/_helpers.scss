@@ -1,0 +1,206 @@
+﻿.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flex-column {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-stretch {
+    justify-content: stretch;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-end {
+    justify-content: end;
+}
+
+.pr-1 {
+    padding-right: 1em;
+}
+
+.pr-2 {
+    padding-right: 2em;
+}
+
+.pr-3 {
+    padding-right: 3em;
+}
+
+.pr-4 {
+    padding-right: 4em;
+}
+
+.pr-5 {
+    padding-right: 5em;
+}
+
+.px-2 {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.py-3 {
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+.py-2 {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.py-4 {
+    padding-top: 4em !important;
+    padding-bottom: 4em !important;
+}
+
+.py-2 {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.mr-1 {
+    margin-right: 1em;
+}
+
+.mr-2 {
+    margin-right: 2em;
+}
+
+.mr-3 {
+    margin-right: 3em;
+}
+
+.mr-4 {
+    margin-right: 4em;
+}
+
+.mr-5 {
+    margin-right: 5em;
+}
+
+.mt-1 {
+    margin-top: 1em;
+}
+
+.mt-2 {
+    margin-top: 2em;
+}
+
+.mt-3 {
+    margin-top: 3em;
+}
+
+.mt-4 {
+    margin-top: 4em;
+}
+
+.mt-5 {
+    margin-top: 5em;
+}
+
+.m-auto {
+    margin: auto;
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+.mb-auto {
+    margin-bottom: auto;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.mr-auto {
+    margin-right: auto;
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+}
+
+/*.img-sm {
+    max-width: 6em;
+    height: auto;
+}
+
+.img-md {
+    max-width: 12em;
+    height: auto;
+}*/
+
+/*.img-lg {
+    max-width: 18em;
+    height: auto;
+}*/
+
+.f-basis-100 {
+    flex-basis: 100%;
+}
+
+.f-basis-49 {
+    flex-basis: 49%;
+}
+
+.f-basis-32 {
+    flex-basis: 32%;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+h5 {
+    font-size: 1.4em;
+}
+
+h6 {
+    font-size: 1.3em;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.d-none {
+    display: none;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="336px" height="347px" viewBox="0 0 336 347" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <defs>
+    <path d="M0 0L230 0L230 230L0 230L0 0L0 0Z" id="path_1" />
+    <clipPath id="mask_1">
+      <use xlink:href="#path_1" />
+    </clipPath>
+  </defs>
+  <g id="Arrow" transform="matrix(7.54979E-08 1 -1 7.54979E-08 330.00003 5)">
+    <path d="M0 168C0 75.2162 72.7537 0 162.5 0C252.246 0 325 75.2162 325 168C325 260.784 252.246 336 162.5 336C72.7537 336 0 260.784 0 168L0 168Z" transform="matrix(7.54979E-08 -1 1 7.54979E-08 0 325)" id="Ellipse" fill="none" stroke="#05386B" stroke-width="10" />
+    <path d="M0 0L230 0L230 230L0 230L0 0L0 0Z" transform="translate(53.000168 47.999878)" id="Background" fill="none" stroke="none" />
+    <g id="Mask-group" transform="translate(53.000168 47.999878)">
+      <path d="M0 0L230 0L230 230L0 230L0 0L0 0Z" id="path_1" fill="none" stroke="none" />
+      <g clip-path="url(#mask_1)">
+        <g id="Group" transform="translate(-0.0002746582 38.3338)">
+          <path d="M0 153.333L57.6438 153.333L133.937 76.6666L57.6438 0L0 0L76.2929 76.6666L0 153.333ZM96.0632 3.05176e-05L153.707 3.05176e-05L230 76.6667L153.707 153.333L96.0632 153.333L172.356 76.6667L96.0632 3.05176e-05Z" transform="translate(1.5258789E-05 0)" id="Shape" fill="#05386B" fill-rule="evenodd" stroke="none" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

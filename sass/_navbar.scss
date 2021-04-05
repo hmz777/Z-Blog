@@ -1,0 +1,168 @@
+﻿.Navigation {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background: $color3;
+    transition: box-shadow .4s cubic-bezier(0.83, 0, 0.17, 1);
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 3;
+
+    &:after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: .3em;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        background: $color1;
+        transition: transform .4s cubic-bezier(0.83, 0, 0.17, 1) .4s;
+    }
+
+    &.scrolled {
+        -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
+
+        &:after {
+            transform: scaleX(1);
+        }
+    }
+
+    .nav {
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        align-items: center;
+        background: transparent;
+        padding: 1em 3.5em 1.6em;
+
+        & > a {
+            display: flex;
+            align-items: stretch;
+            background: $color1;
+            color: $color3;
+            padding: .5em 2em;
+            -webkit-box-shadow: 10px 10px 0px 0px rgba(55,150,131,1);
+            -moz-box-shadow: 10px 10px 0px 0px rgba(55,150,131,1);
+            box-shadow: 10px 10px 0px 0px rgba(55,150,131,1);
+
+            .logo {
+                display: flex;
+                align-items: center;
+                font-weight: bold;
+                font-size: 1.5em;
+            }
+        }
+
+        ul {
+            display: flex;
+            flex-flow: row wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-left: auto;
+
+            li {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 .6em;
+                font-weight: bold;
+
+                button, a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: $color1;
+                    background: none;
+                    border: none;
+                    font-weight: bold;
+                    position: relative;
+
+                    &.active {
+                        &:after {
+                            transform: scaleX(1);
+                        }
+                    }
+
+                    &:after {
+                        position: absolute;
+                        content: "";
+                        top: 100%;
+                        bottom: 0;
+                        width: 80%;
+                        height: .2em;
+                        background: $color1;
+                        margin: .7em auto 0;
+                        transition: transform 0.5s cubic-bezier(0.83, 0, 0.17, 1);
+                        transform: scaleX(0);
+                    }
+                }
+
+                &:hover {
+                    button, a {
+                        &:after {
+                            transform: scaleX(1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.nav-toggler {
+    display: inline-flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    margin-left: auto;
+    height: 2.2em;
+    width: 4em;
+    border: none;
+    background: none;
+    transition: transform .5s ease-in-out, opacity .5s ease-in-out;
+
+    span {
+        height: .3em;
+        background: $color1;
+        border-radius: .5em;
+        width: 100%;
+        transition: transform .5s ease-in-out, opacity .5s ease-in-out;
+        position: relative;
+    }
+
+    span:first-child {
+        animation: NavTogglerAniUR .5s ease-in-out forwards;
+    }
+
+    span:last-child {
+        animation: NavTogglerAniDR .5s ease-in-out forwards;
+    }
+
+    &--active {
+        transform: rotate(90deg);
+        position: fixed;
+        top: 1.4em;
+        right: .7em;
+        z-index: 3;
+
+        span {
+            background: $color3;
+        }
+
+        span:first-child {
+            animation: NavTogglerAniU .5s ease-in-out forwards;
+        }
+
+        span:nth-child(2) {
+            opacity: 0;
+        }
+
+        span:last-child {
+            animation: NavTogglerAniD .5s ease-in-out forwards;
+        }
+    }
+}
