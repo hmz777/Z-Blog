@@ -2,7 +2,6 @@ User-Agent: *
 Disallow : /?
 Disallow : /Blog?
 Disallow : /Blog/Post?
-Disallow : /Blog/Post
 Disallow : /Search?
 Disallow : /Site?
 Disallow : /Terms?
