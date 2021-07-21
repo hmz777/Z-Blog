@@ -1,9 +1,4 @@
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  
-[[redirects]]
   from = "/robots.txt"
   to = "/robots.txt"
   status = 200
@@ -11,4 +6,9 @@
 [[redirects]]
   from = "/sitemap.xml"
   to = "/sitemap.xml"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
   status = 200
