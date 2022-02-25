@@ -1,8 +1,6 @@
 # Z-Blog
 ![GitHub](https://img.shields.io/github/license/hmz777/HMZ-Software-Blazor-WebAssembly?color=black&style=flat-square)
 
-## Hosted on Netlify, Deployed via Azure Pipelines to [hamzialsheikh.tk](https://www.hamzialsheikh.tk)
-
 ### This is the second iteration of my personal portfolio + blog using Blazor WebAssembly.
 
 The code in this repository is not meant to be a theme template nor cloned or deployed, its for my own personal use, if it helps you, feel free to take whatever inspiration you want from it.
